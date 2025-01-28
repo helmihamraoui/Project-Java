@@ -32,6 +32,10 @@ public class DoctorService {
 		return doctorRepo.save(newDoc);
 	}
 	
+	public Doctor createDoctor(Doctor doc) {
+		return doctorRepo.save(doc);
+	}
+	
 	public void deleteDoctor(Long id) {
 		doctorRepo.deleteById(id);
 	}

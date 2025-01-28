@@ -3,13 +3,17 @@ package com.server.controllers;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;pping;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.server.dtos.DoctorDTO;
-import com.server.models.Doctor;
 import com.server.services.DoctorService;
+import com.server.utils.DTOConvertor;
 
 
 @RestController
@@ -24,18 +28,13 @@ public class DoctorController {
 		List<DoctorDTO> doctors=doctorService.getAllDoctors().stream()
 				.map(DTOConvertor::convertToDoctorDTO)
 				.collect(Collectors.toList());
-	
+		return new ResponseEntity<>(doctors,HttpStatus.OK);
 	}
 	
 	@GetMapping("/doctors/{id}")
-	public Doctor getDoctor(@PathVariable("id")Long id) {
-		
-		return doctorService.getOneDoctor(id);
+	public ResponseEntity<DoctorDTO> getDoctor(@PathVariable("id")Long id) {
+		DoctorDTO doctor=DTOConvertor.convertToDoctorDTO(doctorService.getOneDoctor(id));
+		return new ResponseEntity<>(doctor,HttpStatus.OK);
 	}
 	
-	@PutMapping("/api/doctors/{id}")
-	public Doctor UpdateDoctor (@PathVariable("id")Long id
-									) {
-		
-	}
 }
