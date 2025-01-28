@@ -1,6 +1,6 @@
 package com.server.models;
 
 public enum Role { 
-	USER,ADMIN 
+	ROLE_DOCTOR,ROLE_ADMIN ,ROLE_PATIENT
 
 }

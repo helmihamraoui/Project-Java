@@ -33,6 +33,9 @@ public class Doctor {
 	@Column(updatable=false)
 	private Date createdAt;
 	private Date updatedAt;
+	
+	public Doctor() {}
+	
 	public Long getId() {
 		return id;
 	}

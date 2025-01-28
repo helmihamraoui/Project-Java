@@ -33,7 +33,8 @@ public class ApplicationConfig {
 	    authProvider.setPasswordEncoder(passwordEncoder());
 	    return authProvider;
 	  }
-	private PasswordEncoder passwordEncoder() {
+	  @Bean
+	public PasswordEncoder passwordEncoder() {
 		// TODO Auto-generated method stub
 	    return new BCryptPasswordEncoder();
 	} 
