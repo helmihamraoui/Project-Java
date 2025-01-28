@@ -11,10 +11,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -33,7 +33,6 @@ import lombok.NoArgsConstructor;
 @Table(name="user")
 public class User implements UserDetails  { 
 	@Id 
-    @GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Long id;   
 	@NotNull(message="First name is required!!!:)")
 	@Size(min=3,max=30,message="first name must be max 30 characters") 
@@ -46,7 +45,7 @@ public class User implements UserDetails  {
 	@Size(min=3,message="password not valide") 
 	private String password;  
 	@Size(min=3,message="this confirm you password not valide") 
-	private String confirm; 
+	@Transient private String confirm; 
 	private String image; 
 	@NotEmpty
 	@Past(message="date most be in the past !!")
@@ -63,7 +62,8 @@ public class User implements UserDetails  {
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
 		return List.of(new SimpleGrantedAuthority(role.name()) );
-	}
+	} 
+	
 	@Override
 	public String getPassword() {
 		// TODO Auto-generated method stub
