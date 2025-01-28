@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './admin-dashbord.component.css'
 })
 export class AdminDashbordComponent {
-
+  // H1// hello 
 }
