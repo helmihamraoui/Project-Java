@@ -38,43 +38,5 @@ public class DTOConvertor {
 		return doc;
 		
 	}
-    // Convert Patient entity to PatientDTO
-    public static PatientDTO toDTO(Patient patient) {
-        if (patient == null) {
-            return null;
-        }
-        return new PatientDTO(
-            patient.getId(),
-            patient.getEmergContact(), // Fixed property naming convention
-            patient.getUser() != null ? patient.getUser().getId() : null
-        );
-    }
-
-    // Map a list of Patient entities to a list of PatientDTOs
-    public static List<PatientDTO> toDTOList(List<Patient> patients) {
-        return patients.stream()
-                       .map(DTOConvertor::toDTO) // Fixed to call the method within the same class
-                       .collect(Collectors.toList());
-    }
-
-    // Convert PatientDTO to Patient entity
-    public static Patient toEntity(PatientDTO patientDTO, UserRepository userRepository) {
-        if (patientDTO == null) {
-            return null;
-        }
-
-        Patient patient = new Patient();
-        patient.setId(patientDTO.getId());
-        patient.setEmergContact(patientDTO.getEmergContact()); // Fixed property naming convention
-
-        // Handle the mapping of User (if userId exists)
-        if (patientDTO.getUserId() != null) {
-            User user = userRepository.findById(patientDTO.getUserId())
-                                       .orElseThrow(() -> new RuntimeException("User not found with ID: " + patientDTO.getUserId()));
-            patient.setUser(user);
-        }
-
-        return patient;
-    }
-
+    
 }
