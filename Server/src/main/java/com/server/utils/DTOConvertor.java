@@ -12,6 +12,9 @@ public class DTOConvertor {
 		doctorDTO.setJobTitle(doc.getJobTitle());
 		doctorDTO.setLicenseNumb(doc.getLicenseNumb());
 		doctorDTO.setExperience(doc.getExperience());
+		if(ConverToUserDTO(doc.getUser())!=null) {
+			doctorDTO.setUser(ConverToUserDTO(doc.getUser()));
+		}
 		return doctorDTO;
 	}
 	

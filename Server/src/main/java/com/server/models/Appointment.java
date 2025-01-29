@@ -1,9 +1,7 @@
 package com.server.models;
 
 import java.util.Date;
-import java.util.List;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -11,11 +9,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,35 +20,28 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
+
 @Entity
-@Table(name="doctors")
-public class Doctor {
+@Table(name="appointments")
+public class Appointment {
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
 	@NotEmpty
-	private String specialties;
-	
-	@NotEmpty
-	private String jobTitle;
-	
-	@NotNull
-	private Integer licenseNumb;
-	
-	@NotNull
-	private Integer experience;
+	private Date date;
 	
 	@Column(updatable=false)
 	private Date createdAt;
 	private Date updatedAt;
 	
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="user_id",referencedColumnName="id")
-	private User user;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="doctor_id")
+	private Doctor doctor;
 	
-	@OneToMany(fetch=FetchType.LAZY,mappedBy="doctor")
-	private List<Appointment> apointments;
-	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="patient_id")
+	private Patient patient;
 	
 }

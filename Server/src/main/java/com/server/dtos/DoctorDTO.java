@@ -6,9 +6,22 @@ public class DoctorDTO {
 	private String jobTitle;
 	private Integer licenseNumb;
 	private Integer experience;
+	private UserDTO user;
+	private AppointmentDTO appointment;
 	
 	
-	
+	public UserDTO getUser() {
+		return user;
+	}
+	public void setUser(UserDTO user) {
+		this.user = user;
+	}
+	public AppointmentDTO getAppointment() {
+		return appointment;
+	}
+	public void setAppointment(AppointmentDTO appointment) {
+		this.appointment = appointment;
+	}
 	public Long getId() {
 		return id;
 	}
