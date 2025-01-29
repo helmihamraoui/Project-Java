@@ -8,13 +8,16 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
@@ -60,7 +63,12 @@ public class User implements UserDetails  {
 	@Size(min=3,max=200,message="Address must be at least  ") 
 	private String address; 
 	@Enumerated(EnumType.STRING)
-	 private Role role;
+	 private Role role; 
+	
+	
+	@OneToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL,mappedBy="user")
+	private Doctor doctor;
+	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
