@@ -2,25 +2,35 @@ package com.server.controllers;
 
 import com.server.dtos.PatientDTO;
 import com.server.services.PatientService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
+@RequiredArgsConstructor
 public class PatientController {
-    @Autowired
-    private PatientService patientService;
+
+    private final PatientService patientService;
+
     // GET endpoint to retrieve all patients
-    @GetMapping("/patient")
+    @GetMapping("/any/patient/all")
     public ResponseEntity<List<PatientDTO>> getAllPatients() {
         List<PatientDTO> patients = patientService.getAllPatients();
         return ResponseEntity.ok(patients);
     }
+
+    // GET endpoint to retrieve a single patient by ID
+    @GetMapping("/any/patient/{id}")
+    public ResponseEntity<PatientDTO> getPatientById(@PathVariable Long id) {
+        PatientDTO patient = patientService.getPatientById(id);
+        return ResponseEntity.ok(patient);
+    }
+
     // POST endpoint to add a new patient
-    @PostMapping("/patient/new")
+    @PostMapping("/any/patient/new")
     public ResponseEntity<PatientDTO> addPatient(@RequestBody PatientDTO patientDTO) {
         PatientDTO createdPatient = patientService.addPatient(patientDTO);
         return ResponseEntity.ok(createdPatient);

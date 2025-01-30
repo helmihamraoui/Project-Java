@@ -15,7 +15,6 @@ import lombok.RequiredArgsConstructor;
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
-@EnableMethodSecurity
 public class SecurityConfiguration { 
     private final JwtAuthenticationFilter jwtAuthFilter;
 
@@ -30,6 +29,7 @@ public class SecurityConfiguration {
 	        .authorizeHttpRequests()
 	        .requestMatchers("/api/v1/auth/**")
 	        .permitAll()
+	        .requestMatchers("/api/v1/any/**").hasAnyRole("PATIENT", "ADMIN", "DOCTOR")
 	        .anyRequest()
 	        .authenticated()
 	        .and()
