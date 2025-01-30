@@ -21,7 +21,7 @@ import com.server.utils.DTOConvertor;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1/any")
 public class DoctorController {
 
 	@Autowired
