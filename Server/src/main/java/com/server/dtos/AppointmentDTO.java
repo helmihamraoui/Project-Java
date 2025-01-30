@@ -1,9 +1,11 @@
 package com.server.dtos;
 
+import java.util.Date;
+
 public class AppointmentDTO {
 
 	private Long id;
-	private String date;
+	private Date date;
 	private DoctorDTO doctor;
 	private PatientDTO patient;
 	
@@ -14,10 +16,10 @@ public class AppointmentDTO {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 	public DoctorDTO getDoctor() {

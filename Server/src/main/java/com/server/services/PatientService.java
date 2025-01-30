@@ -41,12 +41,12 @@ public class PatientService {
     }
 
     // Convert Entity to DTO
-    private PatientDTO convertEntityToDto(Patient patient) {
+    public PatientDTO convertEntityToDto(Patient patient) {
         return modelMapper.map(patient, PatientDTO.class);
     }
 
     // Convert DTO to Entity
-    private Patient convertDtoToEntity(PatientDTO patientDTO) {
+    public Patient convertDtoToEntity(PatientDTO patientDTO) {
         return modelMapper.map(patientDTO, Patient.class);
     }
 }
