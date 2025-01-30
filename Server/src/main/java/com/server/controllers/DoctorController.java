@@ -29,16 +29,14 @@ public class DoctorController {
 	
 	@GetMapping("/doctors")
 	public ResponseEntity<List<DoctorDTO>> AllDoctors(){
-		List<DoctorDTO> doctors=doctorService.getAllDoctors().stream()
-				.map(DTOConvertor::convertToDoctorDTO)
-				.collect(Collectors.toList());
-		return new ResponseEntity<>(doctors,HttpStatus.OK);
+		List<DoctorDTO> doctors=doctorService.getAllDoctors();
+		return ResponseEntity.ok(doctors);
 	}
 	
 	@GetMapping("/doctors/{id}")
 	public ResponseEntity<DoctorDTO> getDoctor(@PathVariable("id")Long id) {
-		DoctorDTO doctor=DTOConvertor.convertToDoctorDTO(doctorService.getOneDoctor(id));
-		return new ResponseEntity<>(doctor,HttpStatus.OK);
+		DoctorDTO doctor=doctorService.getOneDoctor(id);
+		return ResponseEntity.ok(doctor);
 	}
 	
 	
