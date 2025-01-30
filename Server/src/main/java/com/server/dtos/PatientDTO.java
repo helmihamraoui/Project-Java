@@ -10,6 +10,5 @@ import lombok.NoArgsConstructor;
 public class PatientDTO {
     private Long id;
     private String emergContact;
-    //impport on use the userDto sof id
-    /*private UserDTOWithoutId user;*/
+    private UserDTO user;
 }

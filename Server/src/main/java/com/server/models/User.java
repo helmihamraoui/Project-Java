@@ -66,8 +66,7 @@ public class User implements UserDetails  {
 	 private Role role; 
 	
 	
-	@OneToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL,mappedBy="user")
-	private Doctor doctor;
+	
 	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
