@@ -13,9 +13,7 @@ public class DTOConvertor {
 	@Autowired
 	private static ModelMapper modelMapper;
 	
-	public static DoctorDTO convertToDoctorDTO(Doctor doc) {
-		return modelMapper.map(doc, DoctorDTO.class);
-	}
+	
 	
 	public static Doctor convertToDoctorEntity(DoctorDTO docDTO) {
 		return modelMapper.map(docDTO, Doctor.class);

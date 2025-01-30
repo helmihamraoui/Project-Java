@@ -55,4 +55,6 @@ public class Doctor {
 	private List<Appointment> apointments;
 	
 	
+	
+	
 }
