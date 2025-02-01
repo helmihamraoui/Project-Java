@@ -86,11 +86,10 @@ body {
     height: 70%;
     /* float: left; */
     /* margin-right: 30px; */
-    background-color: #f6f7fa;
+    background-color:white;
     display: flex; 
     justify-content: center;
     border-radius: 8px;
-    box-shadow: 0 3px 5px 0 rgba(240, 240, 240, 0.3);
     animation: _ngcontent-ng-c3544244016_transitionIn-Y-over 0.5s;
     gap: 20px;
 }

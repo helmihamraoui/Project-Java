@@ -1,4 +1,4 @@
-package com.server.demo;
+package com.server.config.demo;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
