@@ -1,0 +1,17 @@
+.sidebar {
+    min-height: 100vh;
+}
+.sidebar .nav-link {
+    color: #bdc3c7;
+    transition: all 0.3s;
+}
+.sidebar .nav-link:hover {
+    background: #34495e;
+    color: white;
+}
+.stat-card {
+    transition: transform 0.3s;
+}
+.stat-card:hover {
+    transform: translateY(-5px);
+}

@@ -1,0 +1,104 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-2 sidebar p-3">
+            <app-navbardocter></app-navbardocter>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-10 p-4 bg-light">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-outline-secondary d-md-none me-3" type="button">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <span class="navbar-brand mb-0 h1">Appointment Manager</span>
+                    </div>
+
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="#"><i class="far fa-bell"></i></a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="#"><i class="far fa-envelope"></i></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                <img src="../img/profile.png" class="nav-profile-img rounded-circle">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-envelope me-2"></i>Inbox</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item text-danger" href="#"><i
+                                            class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Content -->
+            <div class="container-fluid p-4">
+                <!-- Filter Section -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <form class="row g-3 align-items-center">
+                            <div class="col-md-3">
+                                <label class="form-label">Filter by Date:</label>
+                                <input type="date" class="form-control">
+                            </div>
+                            <div class="col-md-3">
+                                <button type="submit" class="btn btn-primary mt-3">Apply Filter</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Appointments Table -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Patient Name</th>
+                                        <th class="text-center">Appointment #</th>
+                                        <th>Session Title</th>
+                                        <th class="text-center">Session Date & Time</th>
+                                        <th class="text-center">Appointment Date</th>
+                                        <th class="text-center">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="font-weight: 500;">John Doe</td>
+                                        <td class="text-center fw-bold text-primary">A-12345</td>
+                                        <td>General Checkup</td>
+                                        <td class="text-center">2023-07-20 10:00 AM</td>
+                                        <td class="text-center">2023-07-18</td>
+                                        <td class="text-center">
+                                            <button class="btn btn-danger btn-sm">
+                                                <i class="fas fa-times me-1"></i>Cancel
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.querySelector('.navbar-toggler').addEventListener('click', function () {
+        document.querySelector('.sidebar').classList.toggle('active');
+    });
+</script>

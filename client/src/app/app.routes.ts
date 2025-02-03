@@ -3,13 +3,51 @@ import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomeComponent } from './home/home.component';
 import { UrgentComponent } from './urgent/urgent.component';
+import { AdminDashbordComponent } from './admin-dashbord/admin-dashbord.component';
+import { ScheduleComponent } from './schedule/schedule.component';
+import { AddDocterComponent } from './add-docter/add-docter.component';
+import { AppointmentsComponent } from './appointments/appointments.component';
+import { AllpatentsComponent } from './allpatents/allpatents.component';
+import { AllDocterComponent } from './all-docter/all-docter.component';
+import { DocterDashbordComponent } from './docter-dashbord/docter-dashbord.component';
+import { DocterComponent } from './docter/docter.component';
+import { AlldocterfordocterComponent } from './alldocterfordocter/alldocterfordocter.component';
+import { PatientfordoctorComponent } from './patientfordoctor/patientfordoctor.component';
+import { DoctorAppointmentComponent } from './doctor-appointment/doctor-appointment.component';
 
 export const routes: Routes = [     
      { path: '', component: HomeComponent },  
      { path: 'login', component: LoginComponent },  
      { path: 'signup', component: SignUpComponent },  
      { path: 'urgent', component: UrgentComponent
-     },  
+     },   
+     //for the admin
+     { path: 'admildashb', component:AdminDashbordComponent }, 
+     { path: 'schedule', component:ScheduleComponent } ,
+     { path: 'allpatents', component:AllpatentsComponent } ,
+     { path: 'appointments', component:AppointmentsComponent } , 
+     { path: 'alldocter', component:AllDocterComponent } ,   
+     //for the doctor
+     { path: 'docterdashborder', component:DocterDashbordComponent } ,   
+     { path: 'doctorschedule', component:DocterComponent } ,  
+     { path: 'allfordoctor', component:AlldocterfordocterComponent } ,    
+     { path: 'patietfordoctor', component:PatientfordoctorComponent } ,  
+     { path: 'doctorappointment', component:DoctorAppointmentComponent } ,    
+  
+
+
+
+
+
+
+
+
+     { path: 'addocter', component:AddDocterComponent } ,
+
+
+ 
+
+
 
 
 
