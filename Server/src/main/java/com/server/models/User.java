@@ -39,7 +39,7 @@ import lombok.NoArgsConstructor;
 @Table(name="user")
 public class User implements UserDetails  { 
 	@Id 
-	 @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;   
 	@NotEmpty(message="First name is required!!!:)")
 	@Size(min=3,max=30,message="first name must be max 30 characters") 

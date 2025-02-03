@@ -1,25 +1,19 @@
 package com.server.dtos;
 
-import java.util.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
-public class AppointmentDTO {
-
+public class AvailabilityDTO {
+	
 	private Long id;
-	private Date date;
-	private DoctorDTOApp doctor;
-	private PatientDTO patient;
-	
-	
-	
-	
-	
+	private String day;
+	private String startTime;
+	private String endTime;
+	private DoctorDTO doctor;
 }

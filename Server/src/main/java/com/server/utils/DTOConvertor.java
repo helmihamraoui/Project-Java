@@ -15,14 +15,9 @@ public class DTOConvertor {
 	
 	
 	
-	public static Doctor convertToDoctorEntity(DoctorDTO docDTO) {
-		return modelMapper.map(docDTO, Doctor.class);
-		
-	}
 	
-	public static AppointmentDTO convertToAppDTO(Appointment app) {
-		return modelMapper.map(app, AppointmentDTO.class);
-	}
+	
+	
     
 	public static Appointment convertTOAppointmentEntity(AppointmentDTO appDTO) {
 		return modelMapper.map(appDTO, Appointment.class);
