@@ -21,7 +21,7 @@ import com.server.utils.DTOConvertor;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1/any")
 public class DoctorController {
 
 	@Autowired
@@ -37,6 +37,12 @@ public class DoctorController {
 	public ResponseEntity<DoctorDTO> getDoctor(@PathVariable("id")Long id) {
 		DoctorDTO doctor=doctorService.getOneDoctor(id);
 		return ResponseEntity.ok(doctor);
+	}
+	
+	@PostMapping("/doctors/new")
+	public ResponseEntity<DoctorDTO> addDoctor(@RequestBody DoctorDTO doctorDTO){
+		DoctorDTO created=doctorService.addDoctor(doctorDTO);
+		return ResponseEntity.ok(created);
 	}
 	
 	

@@ -10,16 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
-public class AppointmentDTO {
-
+public class AppointmentDTOWithoutDoctor {
 	private Long id;
 	private Date date;
-	private DoctorDTOApp doctor;
 	private PatientDTO patient;
-	
-	
-	
-	
-	
+
 }

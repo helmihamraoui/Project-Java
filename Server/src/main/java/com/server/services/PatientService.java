@@ -5,6 +5,7 @@ import com.server.models.Patient;
 import com.server.repositories.PatientRepo;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -47,6 +48,7 @@ public class PatientService {
 
     // Convert DTO to Entity
     public Patient convertDtoToEntity(PatientDTO patientDTO) {
+    	modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
         return modelMapper.map(patientDTO, Patient.class);
     }
 }
