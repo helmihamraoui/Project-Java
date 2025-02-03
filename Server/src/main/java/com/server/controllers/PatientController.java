@@ -31,7 +31,7 @@ public class PatientController {
 
     // POST endpoint to add a new patient
     @PostMapping("/any/patient/new")
-    public ResponseEntity<PatientDTO> addPatient(@RequestBody PatientDTO patientDTO) {
+    public ResponseEntity<PatientDTO> addPatient(@RequestBody PatientDTO patientDTO){
         PatientDTO createdPatient = patientService.addPatient(patientDTO);
         return ResponseEntity.ok(createdPatient);
     }

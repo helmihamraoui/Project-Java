@@ -1,0 +1,110 @@
+<div>
+
+    <div class="login-box">
+        <div class=" text-center ">
+            <img src="img/backkk2.png" alt="Profile Image" class="img-fluid" style="max-width: 80%;">
+        </div>
+        <div class="">
+            <div class="signup" id=" ">
+                <div class=" text-center">
+                    <img src="logo/log (2).png" alt="Profile Image" class="img-fluid " style="max-width: 50%;">
+                    <p class="header-text">Let's Get Started</p>
+                    <p class="sub-text">Add Your Personal Details to Continue</p>
+                </div>
+                <br> <br>
+                <div class="steps-container">
+                    <!-- Personal Details Part 1 -->
+                    <div class="md-5">
+                        <div id="step1" class="form-step step-active">
+                            <div class="row mb-3">
+                                <div class="mb-3">
+                                    <input type="text" name="fname" class="input-text" placeholder="First Name">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" name="lname" class="input-text" placeholder="Last Name">
+                                </div>
+
+                                <div class="mb-3">
+                                    <input type="text" name="address" class="input-text" placeholder="Address">
+                                </div>
+                                <div class="text-center">
+                                    <button type="button" class="login-btn btn-primary btn"
+                                        onclick="showStep(2)">Next</button>
+                                </div>
+                            </div>
+
+                            <div class="text-center mt-3">
+                                <p class="sub-text">Already have an account? <a routerLink="/login" class="link">Login</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Personal Details Part 2 -->
+                        <div id="step2" class="form-step step-next">
+                            <div class="mb-3">
+
+                                <div class="input-group">
+                                    <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                  </div>                            </div>
+                            <div class="mb-3">
+                                <input type="date" name="dob" class="input-text" >
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <button type="button" class="login-btn btn-primary-soft btn"
+                                        onclick="showStep(1)">Back</button>
+                                </div>
+                                <div class="col-6">
+                                    <button type="button" class="login-btn btn-primary btn"
+                                        onclick="showStep(3)">Next</button>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <p class="sub-text">Already have an account? <a routerLink="/login" class="link">Login</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Account Details -->
+                        <div id="step3" class="form-step step-next">
+                            <div class="mb-3">
+                                <input type="email" name="newemail" class="input-text" placeholder="Email Address"
+                                    >
+                            </div>
+                            <div class="mb-3">
+                                <input type="tel" name="Number" class="input-text" placeholder="ex: 0712345678"
+                                    >
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" name="password" class="input-text" placeholder="New Password"
+                                    >
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" name="cpassword" class="input-text"
+                                    placeholder="Confirm Password" >
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <button type="button" class="login-btn btn-primary-soft btn"
+                                        onclick="showStep(2)">Back</button>
+                                </div>
+                                <div class="col-6">
+                                     <a   routerLink="/urgent"class="login-btn btn-primary btn">Next</a>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <p class="sub-text">Already have an account? <a routerLink="/login" class="link">Login</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Login Link -->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
