@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-admin-dashbord',
@@ -8,5 +9,5 @@ import { NavbarComponent } from '../navbar/navbar.component';
   styleUrl: './admin-dashbord.component.css'
 })
 export class AdminDashbordComponent {
-  // H1// hello 
+  
 }

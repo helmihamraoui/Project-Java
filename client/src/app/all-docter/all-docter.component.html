@@ -60,10 +60,10 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Dr. John Doe</td>
-                                            <td>johndoeexample.com</td>
-                                            <td>Cardiology</td>
+                                        <tr *ngFor="let doctor of doctors">
+                                            <td>{{doctor.user.name}}</td>
+                                            <td>{{doctor.user.email}}</td>
+                                            <td>{{doctor.specialties}}</td>
                                             <td>
                                                 <div class="d-flex gap-2">
                                                     <a href="#" class="btn btn-sm btn-outline-primary">
