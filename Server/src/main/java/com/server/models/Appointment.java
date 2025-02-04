@@ -29,7 +29,7 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
-	@NotEmpty
+	
 	private Date date;
 	
 	@Column(updatable=false)

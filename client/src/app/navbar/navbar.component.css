@@ -1,0 +1,36 @@
+
+.sidebar {
+    background: white;
+    transition: all 0.3s;
+}
+.sidebar-link {
+    color: #b3b3b3;
+    transition: all 0.3s;
+}
+.sidebar-link:hover {
+    color: white;
+    background: #34495e;
+}
+.stat-card {
+    transition: transform 0.3s;
+}
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+}
+.marquee-content {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+}
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }  
+}
+.nav-link:hover {
+    color: white;
+    background: #34495e;
+    border-radius: 50px;
+}

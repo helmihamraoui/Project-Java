@@ -1,1 +1,167 @@
-<p>admin-dashbord works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <nav class="col-md-2  min-vh-100 p-3">
+           <app-navbar></app-navbar>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="col-md-10 p-4 bg-light">
+            <!-- Header -->
+            <header class="d-flex justify-content-between align-items-center mb-4">
+                <div class="marquee-container w-75">
+                  
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" 
+                            type="button" 
+                            data-bs-toggle="dropdown">
+                        <span class="material-symbols-outlined me-2">account_circle</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#">
+                            <span class="material-symbols-outlined me-2">person</span>Profile</a></li>
+                        <li><a class="dropdown-item" href="#">
+                            <span class="material-symbols-outlined me-2">mail</span>Inbox</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger" href="../logout.php">
+                            <span class="material-symbols-outlined me-2">logout</span>Logout</a></li>
+                    </ul>
+                </div>
+            </header>
+
+            <!-- Dashboard Cards -->
+            <section class="row g-4 mb-4">
+                <div class="col-xxl-3 col-md-6">
+                    <div class="card stat-card border-0 shadow-sm bg-primary text-white">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 class="card-title">Doctors</h5>
+                                    <h2 class="mb-0">24</h2>
+                                </div>
+                                <span class="material-symbols-outlined display-4">medical_services</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-3 col-md-6">
+                    <div class="card stat-card border-0 shadow-sm bg-success text-white">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 class="card-title">Patients</h5>
+                                    <h2 class="mb-0">152</h2>
+                                </div>
+                                <span class="material-symbols-outlined display-4">group</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-3 col-md-6">
+                    <div class="card stat-card border-0 shadow-sm bg-info text-white">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 class="card-title">Appointments</h5>
+                                    <h2 class="mb-0">45</h2>
+                                </div>
+                                <span class="material-symbols-outlined display-4">event_available</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-3 col-md-6">
+                    <div class="card stat-card border-0 shadow-sm bg-warning text-dark">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 class="card-title">Today's Sessions</h5>
+                                    <h2 class="mb-0">8</h2>
+                                </div>
+                                <span class="material-symbols-outlined display-4">today</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tables Section -->
+            <section class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-header bg-white border-0">
+                            <h5 class="mb-0 d-flex align-items-center">
+                                <span class="material-symbols-outlined me-2">upcoming</span>
+                                Upcoming Appointments
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Patient</th>
+                                            <th>Doctor</th>
+                                            <th>Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>John Smith</td>
+                                            <td>Dr. Sarah Johnson</td>
+                                            <td>10:00 AM</td>
+                                        </tr>
+                                        <!-- Add more rows -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <a href="#" class="btn btn-link text-decoration-none float-end">
+                                View All Appointments
+                                <span class="material-symbols-outlined">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-header bg-white border-0">
+                            <h5 class="mb-0 d-flex align-items-center">
+                                <span class="material-symbols-outlined me-2">schedule</span>
+                                Upcoming Sessions
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle">
+                                    <thead>
+                                        <tr>
+                                            <th>Session</th>
+                                            <th>Doctor</th>
+                                            <th>Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>General Checkup</td>
+                                            <td>Dr. Michael Brown</td>
+                                            <td>2:00 PM</td>
+                                        </tr>
+                                        <!-- Add more rows -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <a href="#" class="btn btn-link text-decoration-none float-end">
+                                View All Sessions
+                                <span class="material-symbols-outlined">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>   

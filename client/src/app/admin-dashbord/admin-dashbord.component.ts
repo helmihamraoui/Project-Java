@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-admin-dashbord',
-  imports: [],
+  imports: [NavbarComponent,],
   templateUrl: './admin-dashbord.component.html',
   styleUrl: './admin-dashbord.component.css'
 })

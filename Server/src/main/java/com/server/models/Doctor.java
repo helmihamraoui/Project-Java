@@ -52,7 +52,7 @@ public class Doctor {
 	private User user;
 	
 	@OneToMany(fetch=FetchType.LAZY,mappedBy="doctor")
-	private List<Appointment> apointments;
+	private List<Appointment> appointments;
 	
 	
 	

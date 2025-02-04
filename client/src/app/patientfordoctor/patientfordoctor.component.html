@@ -1,0 +1,114 @@
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <nav class="col-md-2 sidebar p-3"> 
+            <app-navbardocter></app-navbardocter>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="col-md-10 p-4 bg-light">
+            <!-- Header -->
+            <header class="d-flex justify-content-between align-items-center mb-4">
+                <div class=" alert-warning w-75 m-0" role="alert">
+                </div>
+                
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" 
+                            type="button" 
+                            data-bs-toggle="dropdown">
+                        <i class="material-symbols-outlined me-2">account_circle</i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#">
+                            <i class="material-symbols-outlined me-2">person</i>Profile</a></li>
+                        <li><a class="dropdown-item" href="#">
+                            <i class="material-symbols-outlined me-2">mail</i>Inbox</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger" href="../logout.html">
+                            <i class="material-symbols-outlined me-2">logout</i>Logout</a></li>
+                    </ul>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <section>
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="mb-0">Patients Management</h2>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search Patient" aria-label="Search">
+                        <button class="btn btn-outline-primary" type="submit">Search</button>
+                    </form>
+                </div>
+
+                <!-- Patients Table -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Name</th>
+                                      
+                                        <th>Telephone</th>
+                                        <th>Email</th>
+                                        <th>Date of Birth</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>John Doe</td>
+                                        <td>0123456789</td>
+                                        <td>johndoeexample.com</td>
+                                        <td>1990-01-01</td>
+                                        <td>
+                                            <div class="d-flex gap-2">
+                                                <button  data-bs-toggle="modal"  class="btn btn-sm btn-outline-primary"  type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    <i class="material-symbols-outlined">edit_square</i>
+                                                </button>
+                                                <button   data-bs-toggle="modal" data-bs-target="#visibility"   data-bs-toggle="modal" class="btn btn-sm btn-outline-success">
+                                                    <i class="material-symbols-outlined">visibility</i>
+                                                
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Add more rows as needed -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+ 
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Docter</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body"> 
+            h11
+        </div>
+        
+      </div>
+    </div> 
+</div>
+<div class="modal fade" id="visibility" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body"> 
+            fvvvvvvv
+        </div>
+        
+      </div>
+    </div> 
+</div>

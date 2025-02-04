@@ -22,6 +22,5 @@ public class UserDTO {
 	  private String image; 
 	  private String number; 
 	  private String address; 
-	  private DoctorDTO doctor;
 	  
 }
