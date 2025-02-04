@@ -30,8 +30,43 @@ logout(): void {
     return new HttpHeaders({ 'Content-Type': 'application/json' });
   }
 
+  // Appointments routes
+
+  getAppointments():Observable<any>{
+    return this.http.get(this.baseUrl+"/v1/any/appointments").pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  getOneAppointment(id:number): Observable<any>{
+    return this.http.get(this.baseUrl+"/v1/any/appointments/"+id).pipe(catchError(this.handleError));
+  }
+
+  addAppointment(data:any):Observable<any>{
+    return this.http.post(this.baseUrl+"/v1/any/appointments/new",data).pipe(catchError(this.handleError))
+  }
+  // end Appointments
+
+  // availability routes
+
+  addAvailability(data:any ,id:number):Observable<any>{
+    return this.http.post(this.baseUrl+"/v1/any/availability/new/"+id,data).pipe(catchError(this.handleError))
+  }
+
+  getAvailability(id:number):Observable<any>{
+    return this.http.get(this.baseUrl+"/v1/any/availability/"+id).pipe(catchError(this.handleError))
+  }
+  // enď availability
+
+  // doctor routes
+
+  getAlldoctors():Observable<any>{
+    return this.http.get(this.baseUrl+"/v1/any/doctors").pipe(catchError(this.handleError))
+  }
+
   private handleError(error: any): Observable<never> {
     console.error('API Error:', error);
     return throwError(() => new Error(error.message || 'Server Error'));
   }
+
 }
