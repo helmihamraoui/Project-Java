@@ -20,7 +20,10 @@ export class AllDocterComponent {
   ngOnInit(){
     this.apiService.getAlldoctors().subscribe(data =>{
       this.doctors=data
+      console.log(this.doctors);
+      
     })
+    console.log(localStorage.getItem("userId"))
     
   }
 }

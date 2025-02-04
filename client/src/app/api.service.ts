@@ -29,9 +29,9 @@ AddPatient(data:any,id:number): Observable<any> {
     );
   }
   // Check if user is authenticated
-  isAuthenticated(): boolean {
-    return !!localStorage.getItem('token'); // Check if token exists
-  }
+  // isAuthenticated(): boolean {
+  //   return !!localStorage.getItem('token'); // Check if token exists
+  // }
 
   private getHeaders(): HttpHeaders {
     return new HttpHeaders({ 'Content-Type': 'application/json' });
@@ -68,7 +68,7 @@ AddPatient(data:any,id:number): Observable<any> {
   // doctor routes
 
   getAlldoctors():Observable<any>{
-    return this.http.get(this.baseUrl+"/v1/any/doctors").pipe(catchError(this.handleError))
+    return this.http.get(this.baseUrl+"/v1/any/doctors")
   }
 
   private handleError(error: any): Observable<never> {

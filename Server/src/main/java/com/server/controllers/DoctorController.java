@@ -18,7 +18,6 @@ import com.server.services.DoctorService;
 
 @RestController
 @RequestMapping("/api/v1/any")
-@CrossOrigin(origins = "http://localhost:4200")
 public class DoctorController {
 
 	@Autowired
