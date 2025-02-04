@@ -24,7 +24,7 @@ logout(): void {
     localStorage.removeItem('token'); // Remove token on logout
 }
 AddPatient(data:any,id:number): Observable<any> {
-    return this.http.post(`${this.baseUrl}/v1/auth/any/patient/new/${id}`, data).pipe(
+    return this.http.post(`${this.baseUrl}/v1/any/patient/new/${id}`, data).pipe(
       catchError(this.handleError)  // Handle errors gracefully
     );
   }
