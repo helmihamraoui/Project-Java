@@ -42,7 +42,12 @@ public class UserService {
 	        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
 	        return modelMapper.map(user, UserDTO.class);
 	    }
-	  
- 
-	 
+	public UserDTO getUserById(Long id) {
+		return userRepo.findById(id)
+				.map(this::convertEntityToDto)
+				.orElseThrow(() -> new RuntimeException("Patient not found"));
+	}
+
+
+
 }

@@ -29,7 +29,7 @@ public class SecurityConfiguration {
 	        .authorizeHttpRequests()
 	        .requestMatchers("/api/v1/auth/**")
 	        .permitAll()
-	        .requestMatchers("/api/v1/any/**").hasAnyRole("PATIENT", "ADMIN", "DOCTOR")
+	        .requestMatchers("/api/v1/any/**").hasAnyRole("PATIENT","ADMIN","DOCTOR")
 	        .anyRequest()
 	        .authenticated()
 	        .and()

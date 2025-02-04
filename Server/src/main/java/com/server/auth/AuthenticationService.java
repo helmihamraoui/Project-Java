@@ -36,12 +36,13 @@ public class AuthenticationService {
 
 
 
-
+System.out.println("*************************");
+System.out.println(request.getEmail());
             var user = User.builder()
-                    .firstName(request.getFirstname())
+                    .firstName(request.getFirstName())
                     .email(request.getEmail())
                     .password(passwordEncoder.encode(request.getPassword()))
-                    .lastName(request.getLastname())
+                    .lastName(request.getLastName())
                     .date(request.getDate())
                     .number(request.getNumber()) 
                     .address(request.getAddress())  

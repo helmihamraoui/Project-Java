@@ -15,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/v1/any")
 public class ChatController {
     private final MessageService messageService;
@@ -23,20 +24,15 @@ public class ChatController {
     @MessageMapping("/sendMessage")
     @SendTo("/topic/messages")
     public Message sendMessage(MessageDTO messageDTO) {
+
         return messageService.saveMessage(messageDTO);
     }
-    @GetMapping("/get/my/History/{receiverId}")
+    @GetMapping("/get/my/History/{receiverId}/{senderId}")
     public List<Message> getMyHistory(
             @PathVariable("receiverId") Long receiverId,
-            HttpServletRequest request) {
-        String authHeader = request.getHeader("Authorization");
-        String token = null;
-        if (authHeader != null && authHeader.startsWith("Bearer ")) {
-            token = authHeader.substring(7);
-            Long senderId = jwtService.extractUserId(token);
-            // Fetch chat history between the sender and receiver
-            return messageService.getChatHistory(senderId, receiverId);
-        }
-        throw new RuntimeException("Authorization header is missing or invalid");
+            @PathVariable("senderId") Long senderId) {
+
+
+        return messageService.getChatHistory(senderId, receiverId);
     }
 }

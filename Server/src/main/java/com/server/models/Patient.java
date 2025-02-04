@@ -31,4 +31,3 @@ public class Patient {
  @JoinColumn(name = "diagnose_id", referencedColumnName = "id")
  private Diagnoses diagnose;
 }
- 

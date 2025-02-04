@@ -10,16 +10,16 @@
 
                     <div class="col-md-6">
                         <div class="steps-container">
-                            <form id="step1" class="form-step step-active">
+                            <form #EmergForm="ngForm" (ngSubmit)="submit()" method="post"  id="step1" class="form-step step-active">
                                     <div class="mb-4"> 
-                                        <label for=""class="font-monospace fs-4">Put the number of someone you can contact in case of an emergency</label>
+                                        <label for="" class="font-monospace fs-4">Put the number of someone you can contact in case of an emergency</label>
                                         <br><br><br>
-                                        <input type="text" name="fname" class="input-text" placeholder="ex: 0712345678">
+                                        <input type="text" [(ngModel)]="data.emergContact" name="emergContact" class="input-text" placeholder="ex: 0712345678">
                                     </div>
                             
                                <br><br>
                                 <div class="text-center">
-                                    <button type="button" class="login-btn btn-danger btn" onclick="showStep(2)">Next</button>
+                                    <button type="submit" class="login-btn btn-danger btn">Next</button>
                                 </div>
                             </form>
 
