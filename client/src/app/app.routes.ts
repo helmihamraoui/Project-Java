@@ -14,6 +14,7 @@ import { DocterComponent } from './docter/docter.component';
 import { AlldocterfordocterComponent } from './alldocterfordocter/alldocterfordocter.component';
 import { PatientfordoctorComponent } from './patientfordoctor/patientfordoctor.component';
 import { DoctorAppointmentComponent } from './doctor-appointment/doctor-appointment.component';
+import { ChatComponent } from './chat/chat.component';
 
 export const routes: Routes = [     
      { path: '', component: HomeComponent },  
@@ -33,10 +34,10 @@ export const routes: Routes = [
      { path: 'allfordoctor', component:AlldocterfordocterComponent } ,    
      { path: 'patietfordoctor', component:PatientfordoctorComponent } ,  
      { path: 'doctorappointment', component:DoctorAppointmentComponent } ,    
-  
+     
 
 
-
+     { path: 'chat/:receiverId', component:ChatComponent } ,
 
 
 

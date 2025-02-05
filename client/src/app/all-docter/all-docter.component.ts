@@ -20,7 +20,7 @@ export class AllDocterComponent {
 
   constructor(private apiService:ApiService){}
   ngOnInit(){
-    this.apiService.getAlldoctors().subscribe(data =>{
+    this.apiService.getallPatient().subscribe(data =>{
       this.doctors=data
       console.log(this.doctors);
       this.filtredDocters=data

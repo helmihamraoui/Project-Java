@@ -33,7 +33,7 @@ public class DoctorController {
 		return ResponseEntity.ok(doctor);
 	}
 	
-	@PostMapping("/doctors/new")
+	@PostMapping("/doctors/new/{id}")
 	public ResponseEntity<DoctorDTO> addDoctor(@RequestBody DoctorDTO doctorDTO){
 		DoctorDTO created=doctorService.addDoctor(doctorDTO);
 		return ResponseEntity.ok(created);

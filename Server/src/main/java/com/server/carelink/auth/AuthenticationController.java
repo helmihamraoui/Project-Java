@@ -2,6 +2,8 @@ package com.server.carelink.auth;
 
 import com.server.carelink.dtos.PatientDTO;
 import com.server.carelink.dtos.UserDTO;
+import com.server.carelink.models.Message;
+import com.server.carelink.services.MessageService;
 import com.server.carelink.services.PatientService;
 import com.server.carelink.services.UserService;
 
@@ -12,15 +14,16 @@ import org.springframework.web.bind.annotation.*;
 
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/auth")
-@CrossOrigin(origins = "http://localhost:4200")
 @RequiredArgsConstructor
 public class AuthenticationController {
 	private final AuthenticationService service;
 	private final PatientService patientService;
 	private final UserService userService;
-
+	private final MessageService messageService;
 	@PostMapping("/register")
 	public ResponseEntity<AuthenticationResponse> register(
 			@RequestBody RegisterRequest request
