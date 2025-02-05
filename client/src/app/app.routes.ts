@@ -14,6 +14,10 @@ import { DocterComponent } from './docter/docter.component';
 import { AlldocterfordocterComponent } from './alldocterfordocter/alldocterfordocter.component';
 import { PatientfordoctorComponent } from './patientfordoctor/patientfordoctor.component';
 import { DoctorAppointmentComponent } from './doctor-appointment/doctor-appointment.component';
+import { AlldoctroforpatentsComponent } from './alldoctroforpatents/alldoctroforpatents.component';
+import { BookingComponent } from './booking/booking.component';
+import { PatentsComponent } from './patents/patents.component';
+import { AppointemntComponent } from './appointemnt/appointemnt.component';
 
 export const routes: Routes = [     
      { path: '', component: HomeComponent },  
@@ -35,14 +39,12 @@ export const routes: Routes = [
      { path: 'doctorappointment', component:DoctorAppointmentComponent } ,    
   
 
+     //for patents  
+     { path: 'dalldoctreforpa', component:AlldoctroforpatentsComponent } ,     
+     { path:'booking',component:BookingComponent},
+     { path:'pation',component:AppointemntComponent},
 
-
-
-
-
-
-
-     { path: 'addocter', component:AddDocterComponent } ,
+     { path: 'addocter', component:AddDocterComponent } 
 
 
  
