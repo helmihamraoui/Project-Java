@@ -1,73 +1,72 @@
 <div class="center">
-    <div class="container">
-        <div class="col-lg-6 col-md-5 d-flex back"></div>
-        <div class="col-lg-6 col-md-5 d-flex login-box box-skew1">
-        <table>
-            <tr class="log">
-            <td>
-                <a class="login-logo" href="">
-                <img src="logo/logo.png" alt="" width="20px">
-                </a>
-                <h3>Welcome to Carelink</h3>
-                <p>Sign in by entering information below</p>
-            </td>
-          </tr>
-          
-          <!-- Form starts here -->
-          <tr>
-            <td>
-              <form #loginForm="ngForm" (ngSubmit)="login()" >
-                <table>
-                  <tr>
-                    <td class="label">
-                      <label for="useremail" class="form-label">Email: </label>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="label">
-                      <input type="email" name="email" [(ngModel)]="loginData.email" #email="ngModel" class="form-control" placeholder="Email Address" style="width:400px">
-                    </td>
-                  </tr>
-  
-                  <tr>
-                    <td class="label">
-                      <label for="userpassword" class="form-label">Password: </label>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="label">
-                      <input type="password" name="password"  [(ngModel)]="loginData.password" class="form-control" placeholder="Password" style="width:400px">
-                      
-                    </td>
-                </tr>
-                
+  <div class="container">
+      <div class="col-lg-6 col-md-5 d-flex back"></div>
+      <div class="col-lg-6 col-md-5 d-flex login-box box-skew1">
+      <table>
+          <tr class="log">
+          <td>
+              <a class="login-logo" href="">
+              <img src="logo/logo.png" alt="" width="20px">
+              </a>
+              <h3>Welcome to Carelink</h3>
+              <p>Sign in by entering information below</p>
+          </td>
+        </tr>
+        
+        <!-- Form starts here -->
+        <tr>
+          <td>
+            <form #loginForm="ngForm" (ngSubmit)="login()" method="post" >
+              <table>
                 <tr>
-                    <td><br></td>
+                  <td class="label">
+                    <label for="useremail" class="form-label">Email: </label>
+                  </td>
                 </tr>
                 <tr>
-                    <!-- Error Message -->w
-                    <div *ngIf="errorMessage" class="error-message">
-                        {{ errorMessage }}
-                    </div>
-                    <td>
-                            <button type="submit"  class="login-btn btn-primary btn" style="width:350px; margin-left:20px">Login</button>
-                        </td>
-                    </tr>
-                </table>
-            </form>
-        </td>
-    </tr>
-          
-          <tr>
-            <td style="text-align: center;">
-              <br>
-              <label class="sub-text" style="font-weight: 280;">Don't have an account&#63;</label>
-              <a routerLink="/signup" class="link">Sign Up</a>
-              <br><br><br>
-            </td>
-          </tr>
-        </table>
-      </div>
+                  <td class="label">
+                    <input type="email" name="email" [(ngModel)]="loginData.email" #email="ngModel" class="form-control" placeholder="Email Address" style="width:400px">
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="label">
+                    <label for="userpassword" class="form-label">Password: </label>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="label">
+                    <input type="password" name="password"  [(ngModel)]="loginData.password" class="form-control" placeholder="Password" style="width:400px">
+                    
+                  </td>
+              </tr>
+              
+              <tr>
+                  <td><br></td>
+              </tr>
+              <tr>
+                  <!-- Error Message -->w
+                  <div *ngIf="errorMessage" class="error-message">
+                      {{ errorMessage }}
+                  </div>
+                  <td>
+                          <button type="submit"  class="login-btn btn-primary btn" style="width:350px; margin-left:20px">Login</button>
+                      </td>
+                  </tr>
+              </table>
+          </form>
+      </td>
+  </tr>
+        
+        <tr>
+          <td style="text-align: center;">
+            <br>
+            <label class="sub-text" style="font-weight: 280;">Don't have an account&#63;</label>
+            <a routerLink="/signup" class="link">Sign Up</a>
+            <br><br><br>
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
-  
+</div>

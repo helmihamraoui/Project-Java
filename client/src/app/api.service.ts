@@ -70,7 +70,9 @@ AddPatient(data:any,id:number): Observable<any> {
   getAlldoctors():Observable<any>{
     return this.http.get(this.baseUrl+"/v1/any/doctors").pipe(catchError(this.handleError))
   }
-
+  getallPatient():Observable<any>{
+    return this.http.get(this.baseUrl+"/v1/any/patient/all")
+  }
   private handleError(error: any): Observable<never> {
     console.error('API Error:', error);
     return throwError(() => new Error(error.message || 'Server Error'));

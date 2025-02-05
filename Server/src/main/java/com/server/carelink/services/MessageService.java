@@ -21,17 +21,17 @@ public class MessageService {
     private final UserRepository userRepository;
 
     public Message saveMessage(MessageDTO messageDTO) {
-        Optional<User> senderOpt = userRepository.findById(messageDTO.getSenderId());
-        Optional<User> receiverOpt = userRepository.findById(messageDTO.getReceiverId());
-
-        if (senderOpt.isEmpty() || receiverOpt.isEmpty()) {
-            throw new RuntimeException("Sender or receiver not found");
-        }
+        User sender = userRepository.findById(messageDTO.getSenderId())
+                .orElseThrow(() -> new RuntimeException("Sender not found"));
+        User receiver = userRepository.findById(messageDTO.getReceiverId())
+                .orElseThrow(() -> new RuntimeException("Receiver not found"));
 
         Message message = new Message();
-        message.setSender(senderOpt.get());
-        message.setReceiver(receiverOpt.get());
-        message.setMessage(messageDTO.getMessage());
+        message.setSender(sender);
+        message.setReceiver(receiver);
+        message.setMessage(messageDTO.getMessage());  // Ensure message content is set correctly
+        // Print debug information to verify content before saving
+        System.out.println("Saving message content: " + messageDTO.getMessage());
 
         return messageRepository.save(message);
     }
