@@ -24,14 +24,14 @@ logout(): void {
     localStorage.removeItem('token'); // Remove token on logout
 }
 AddPatient(data:any,id:number): Observable<any> {
-    return this.http.post(`${this.baseUrl}/v1/auth/any/patient/new/${id}`, data).pipe(
+    return this.http.post(`${this.baseUrl}/v1/any/patient/new/${id}`, data).pipe(
       catchError(this.handleError)  // Handle errors gracefully
     );
   }
   // Check if user is authenticated
-  // isAuthenticated(): boolean {
-  //   return !!localStorage.getItem('token'); // Check if token exists
-  // }
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem('token'); // Check if token exists
+  }
 
   private getHeaders(): HttpHeaders {
     return new HttpHeaders({ 'Content-Type': 'application/json' });
@@ -69,6 +69,10 @@ AddPatient(data:any,id:number): Observable<any> {
 
   getAlldoctors():Observable<any>{
     return this.http.get(this.baseUrl+"/v1/any/doctors")
+  }
+
+  getallPatient():Observable<any>{
+    return this.http.get(this.baseUrl+"/v1/any/patient/all")
   }
 
   private handleError(error: any): Observable<never> {

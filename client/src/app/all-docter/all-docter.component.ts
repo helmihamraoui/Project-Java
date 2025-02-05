@@ -15,15 +15,24 @@ import { RouterModule } from '@angular/router';
 export class AllDocterComponent {
 
   doctors:any[]=[];
+  filtredDocters:any[]=[]
+  search:String=""
 
   constructor(private apiService:ApiService){}
   ngOnInit(){
     this.apiService.getAlldoctors().subscribe(data =>{
       this.doctors=data
       console.log(this.doctors);
-      
+      this.filtredDocters=data
     })
-    console.log(localStorage.getItem("userId"))
     
+  }
+  filter(){
+      const query=this.search.toLowerCase().trim()
+      console.log(query)
+      this.filtredDocters=this.doctors.filter(doctor =>
+        doctor.user.firstname.toLowerCase().includes(query)||
+        doctor.user.lastname.toLowerCase().includes(query)
+      )
   }
 }

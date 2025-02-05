@@ -38,7 +38,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h5 class="card-title">Doctors</h5>
-                                    <h2 class="mb-0">24</h2>
+                                    <h2 class="mb-0">{{doctors.length}}</h2>
                                 </div>
                                 <span class="material-symbols-outlined display-4">medical_services</span>
                             </div>
@@ -51,7 +51,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h5 class="card-title">Patients</h5>
-                                    <h2 class="mb-0">152</h2>
+                                    <h2 class="mb-0">{{patients.length}}</h2>
                                 </div>
                                 <span class="material-symbols-outlined display-4">group</span>
                             </div>
@@ -64,7 +64,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h5 class="card-title">Appointments</h5>
-                                    <h2 class="mb-0">45</h2>
+                                    <h2 class="mb-0">{{appointments.length}}</h2>
                                 </div>
                                 <span class="material-symbols-outlined display-4">event_available</span>
                             </div>
@@ -101,18 +101,16 @@
                                 <table class="table table-hover align-middle">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
                                             <th>Patient</th>
                                             <th>Doctor</th>
                                             <th>Time</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>12</td>
-                                            <td>John Smith</td>
-                                            <td>Dr. Sarah Johnson</td>
-                                            <td>10:00 AM</td>
+                                        <tr *ngFor="let appointment of appointments">
+                                            <td>{{appointment.patient.user.firstname}} {{appointment.patient.user.lastname}}</td>
+                                            <td>{{appointment.doctor.user.firstname}} {{appointment.doctor.user.lastname}}</td>
+                                            <td>{{appointment.date.split(" ")[0]}}</td>
                                         </tr>
                                         <!-- Add more rows -->
                                     </tbody>
