@@ -31,7 +31,8 @@ export class AllDocterComponent {
       const query=this.search.toLowerCase().trim()
       console.log(query)
       this.filtredDocters=this.doctors.filter(doctor =>
-        doctor.user.firstName.toLowerCase().includes(query)||
+        doctor.user.firstName.toLowerCase().includes(query) ||
+         doctor.specialties.toLowerCase().includes(query) ||
         doctor.user.lastName.toLowerCase().includes(query)
       )
   }

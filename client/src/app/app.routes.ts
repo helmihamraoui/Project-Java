@@ -36,7 +36,13 @@ export const routes: Routes = [
      { path: 'doctorschedule', component:DocterComponent } ,  
      { path: 'allfordoctor', component:AlldocterfordocterComponent } ,    
      { path: 'patietfordoctor', component:PatientfordoctorComponent } ,  
-     { path: 'doctorappointment', component:DoctorAppointmentComponent } ,    
+     { path: 'doctorappointment', component:DoctorAppointmentComponent } ,  
+     //for patients 
+     { path: 'dalldoctreforpa', component:AlldoctroforpatentsComponent } ,     
+     { path:'booking/:id',component:BookingComponent},
+     { path:'pation',component:AppointemntComponent},
+
+     { path: 'addocter', component:AddDocterComponent } ,
      
 
 
