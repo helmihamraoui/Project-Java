@@ -18,13 +18,13 @@ public class AppointmentController {
 	@Autowired
 	AppointmentService appServ;
 	
-	
-	
 	@GetMapping("/appointments")
 	public ResponseEntity<List<AppointmentDTO>> allApp(){
 		List<AppointmentDTO> app=appServ.getAllApp();
 		return ResponseEntity.ok(app);
 	}
+	
+	
 	
 	@GetMapping("/appointments/{id}")
 	public ResponseEntity<AppointmentDTO> getApp(@PathVariable("id")Long id){

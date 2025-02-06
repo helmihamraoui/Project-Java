@@ -48,15 +48,10 @@
                 <!-- Filter Section -->
                 <div class="card mb-4">
                     <div class="card-body">
-                        <form class="row g-3 align-items-center">
                             <div class="col-md-3">
-                                <label class="form-label">Filter by Date:</label>
-                                <input type="date" class="form-control">
-                            </div>
-                            <div class="col-md-3">
-                                <button type="submit" class="btn btn-primary mt-3">Apply Filter</button>
-                            </div>
-                        </form>
+                                <label class="form-label">Filter by Patient:</label>
+                                <input type="text" [(ngModel)]="search" (input)="filter()"
+                        placeholder="Search Doctors by Name ..." class="form-control"> 
                     </div>
                 </div>
 
@@ -69,20 +64,16 @@
                                     <tr>
                                         <th>Patient Name</th>
                                         <th class="text-center">Appointment #</th>
-                                        <th>Session Title</th>
-                                        <th class="text-center">Session Date & Time</th>
                                         <th class="text-center">Appointment Date</th>
                                         <th class="text-center">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td style="font-weight: 500;">John Doe</td>
-                                        <td class="text-center fw-bold text-primary">A-12345</td>
-                                        <td>General Checkup</td>
-                                        <td class="text-center">2023-07-20 10:00 AM</td>
-                                        <td class="text-center">2023-07-18</td>
-                                        <td class="text-center">
+                                    <tr *ngFor="let appointment of filtredAppointments">
+                                        <td style="font-weight: 500;" *ngIf="appointment.doctor.id==doctor.id">{{appointment.patient.user.firstname}} {{appointment.patient.user.lastname}}</td>
+                                        <td class="text-center fw-bold text-primary" *ngIf="appointment.doctor.id==doctor.id">{{appointment.id}}</td>
+                                        <td class="text-center" *ngIf="appointment.doctor.id==doctor.id">{{appointment.date | date}}</td>
+                                        <td class="text-center" *ngIf="appointment.doctor.id==doctor.id">
                                             <button class="btn btn-danger btn-sm">
                                                 <i class="fas fa-times me-1"></i>Cancel
                                             </button>

@@ -1,5 +1,6 @@
 package com.server.carelink.models;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -28,8 +29,7 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
-	
-	private Date date;
+	private LocalDateTime time;
 	
 	@Column(updatable=false)
 	private Date createdAt;

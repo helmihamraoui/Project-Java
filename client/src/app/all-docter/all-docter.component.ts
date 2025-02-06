@@ -20,7 +20,7 @@ export class AllDocterComponent {
 
   constructor(private apiService:ApiService){}
   ngOnInit(){
-    this.apiService.getallPatient().subscribe(data =>{
+    this.apiService.getAlldoctors().subscribe(data =>{
       this.doctors=data
       console.log(this.doctors);
       this.filtredDocters=data
@@ -31,8 +31,8 @@ export class AllDocterComponent {
       const query=this.search.toLowerCase().trim()
       console.log(query)
       this.filtredDocters=this.doctors.filter(doctor =>
-        doctor.user.firstname.toLowerCase().includes(query)||
-        doctor.user.lastname.toLowerCase().includes(query)
+        doctor.user.firstName.toLowerCase().includes(query)||
+        doctor.user.lastName.toLowerCase().includes(query)
       )
   }
 }
