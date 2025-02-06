@@ -20,8 +20,7 @@ export const routes: Routes = [
      { path: '', component: HomeComponent },  
      { path: 'login', component: LoginComponent },  
      { path: 'signup', component: SignUpComponent },  
-     { path: 'urgent', component: UrgentComponent
-     },   
+     { path: 'urgent', component: UrgentComponent},   
      //for the admin
      { path: 'admildashb', component:AdminDashbordComponent }, 
      { path: 'schedule', component:ScheduleComponent } ,
@@ -33,24 +32,9 @@ export const routes: Routes = [
      { path: 'doctorschedule', component:DocterComponent } ,  
      { path: 'allfordoctor', component:AlldocterfordocterComponent } ,    
      { path: 'patietfordoctor', component:PatientfordoctorComponent } ,  
-     { path: 'doctorappointment', component:DoctorAppointmentComponent } ,    
-     
-
-
+     { path: 'doctorappointment', component:DoctorAppointmentComponent } ,  
+     //for patients
      { path: 'chat/:receiverId', component:ChatComponent } ,
-
-
-
-
-
      { path: 'addocter', component:AddDocterComponent } ,
-
-
- 
-
-
-
-
-
 ]; 
 
