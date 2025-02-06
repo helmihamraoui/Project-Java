@@ -1,0 +1,94 @@
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-2 sidebar p-3">
+            <app-nabrapatients></app-nabrapatients>      </div>
+
+        <!-- Main Content -->
+        <div class="col-md-10 p-4 bg-light">
+            <!-- Header -->
+            <header class="navbar navbar-expand-lg navbar-light bg-white border-bottom p-3">
+                <div class="container-fluid">
+                    <span class="navbar-brand">Doctors</span>
+                    
+                    <div class="d-flex align-items-center">
+                       
+                        
+                        <div class="dropdown">
+                            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown">
+                                <img src="img/profile.png" alt="Profile" width="40" class="rounded-circle">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-envelope me-2"></i>Inbox</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href=""><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <main class="p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4>All Doctors (0)</h4>
+                    <div class="d-flex gap-3">
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search Doctor">
+                            <button class="btn btn-outline-primary" type="submit">Search</button>
+                        </form>
+                       
+                        
+                    </div>
+                </div>
+
+                <!-- Doctors Table -->
+                <div class="card shadow">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Specialty</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Dr. John Doe</td>
+                                            <td>johndoeexample.com</td>
+                                            <td>Cardiology</td>
+                                            <td>
+                                                <div class="d-flex gap-2">
+                                                    <a href="#" class="btn btn-sm btn-outline-primary">
+                                                        <i class="material-symbols-outlined">
+                                                            3p
+                                                        </i>
+                                                    </a>
+                                                   
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Add more rows as needed -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JS -->

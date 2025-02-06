@@ -37,6 +37,12 @@ public class DoctorService {
 				.orElseThrow(() ->new RuntimeException("Doctor not found"));
 	}
 	
+	public DoctorDTO getByUserId(Long id) {
+		return doctorRepo.findByUserId(id)
+				.map(this::convertToDoctorDTO)
+				.orElseThrow(() -> new RuntimeException("Doctor not found"));
+	}
+	
 	public Doctor updateDoctor(Doctor newDoc,Long id) {
 		newDoc.setId(id);
 		return doctorRepo.save(newDoc);

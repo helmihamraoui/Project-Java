@@ -4,17 +4,19 @@ package com.server.carelink.services;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.server.carelink.dtos.AppointmentDTO;
-import com.server.carelink.repositories.AppointmentRepo;
-import com.server.carelink.repositories.PatientRepo;
-import com.server.carelink.repositories.UserRepository;
+import javax.management.RuntimeErrorException;
+
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.server.carelink.dtos.AppointmentDTO;
 import com.server.carelink.models.Appointment;
 import com.server.carelink.models.Patient;
+import com.server.carelink.repositories.AppointmentRepo;
+import com.server.carelink.repositories.PatientRepo;
+import com.server.carelink.repositories.UserRepository;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;

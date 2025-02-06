@@ -36,6 +36,7 @@ export class SignUpComponent {
         localStorage.setItem('token', response.token);
         //set the user id in local storage
         localStorage.setItem('userId', response.id);
+        
         //set the Role in local storage
         localStorage.setItem('role', response.role);
         //redirect to the urgent page

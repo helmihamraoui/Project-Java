@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 export class DocterDashbordComponent {
     patients:any[]=[]
     doctors:any[]=[]
+    oneDoctor:any
     
   
     constructor(private apiService:ApiService){}
@@ -23,6 +24,9 @@ export class DocterDashbordComponent {
       })
       this.apiService.getallPatient().subscribe(data=>{
         this.patients=data
+      })
+      this.apiService.getDoctorByUserId().subscribe(data=>{
+        this.oneDoctor=data
       })
     }
 }

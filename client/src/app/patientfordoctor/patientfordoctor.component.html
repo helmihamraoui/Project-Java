@@ -1,43 +1,21 @@
 <div class="container-fluid">
     <div class="row">
         <!-- Sidebar -->
-        <nav class="col-md-2 sidebar p-3"> 
+        <nav class="col-md-2 sidebar p-3">
             <app-navbardocter></app-navbardocter>
         </nav>
 
         <!-- Main Content -->
         <main class="col-md-10 p-4 bg-light">
             <!-- Header -->
-            <header class="d-flex justify-content-between align-items-center mb-4">
-                <div class=" alert-warning w-75 m-0" role="alert">
-                </div>
-                
-                <div class="dropdown">
-                    <button class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" 
-                            type="button" 
-                            data-bs-toggle="dropdown">
-                        <i class="material-symbols-outlined me-2">account_circle</i>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#">
-                            <i class="material-symbols-outlined me-2">person</i>Profile</a></li>
-                        <li><a class="dropdown-item" href="#">
-                            <i class="material-symbols-outlined me-2">mail</i>Inbox</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item text-danger" href="../logout.html">
-                            <i class="material-symbols-outlined me-2">logout</i>Logout</a></li>
-                    </ul>
-                </div>
-            </header>
+          
 
             <!-- Main Content -->
             <section>
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h2 class="mb-0">Patients Management</h2>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search Patient" aria-label="Search">
+                        <input class="form-control me-2" type="text" [(ngModel)]="search" (input)="filter()" placeholder="Search Patient" aria-label="Search">
                         <button class="btn btn-outline-primary" type="submit">Search</button>
-                    </form>
                 </div>
 
                 <!-- Patients Table -->
@@ -48,7 +26,10 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th>Name</th>
-                                      
+<<<<<<< HEAD
+
+=======
+>>>>>>> 50e6fcb8043068c51e36f214f3bf2cc619ff76d4
                                         <th>Telephone</th>
                                         <th>Email</th>
                                         <th>Date of Birth</th>
@@ -56,19 +37,26 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>John Doe</td>
-                                        <td>0123456789</td>
-                                        <td>johndoeexample.com</td>
-                                        <td>1990-01-01</td>
+                                    <tr *ngFor="let patient of filtredPatients">
+                                        <td>{{patient.user.firstname}} {{patient.user.lastname}}</td>
+                                        <td>{{patient.user.number}}</td>
+                                        <td>{{patient.user.email}}</td>
+                                        <td>{{patient.user.date | date}}</td>
                                         <td>
                                             <div class="d-flex gap-2">
-                                                <button  data-bs-toggle="modal"  class="btn btn-sm btn-outline-primary"  type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                <button data-bs-toggle="modal" class="btn btn-sm btn-outline-primary"
+                                                    type="button" data-bs-toggle="modal" data-bs-target="#edit_square">
                                                     <i class="material-symbols-outlined">edit_square</i>
                                                 </button>
-                                                <button   data-bs-toggle="modal" data-bs-target="#visibility"   data-bs-toggle="modal" class="btn btn-sm btn-outline-success">
+                                                <button data-bs-toggle="modal" data-bs-target="#visibility"
+                                                    data-bs-toggle="modal" class="btn btn-sm btn-outline-danger">
                                                     <i class="material-symbols-outlined">visibility</i>
-                                                
+
+                                                </button>
+                                                <button data-bs-toggle="modal" data-bs-target="#clinical_notes"
+                                                    data-bs-toggle="modal" class="btn btn-sm btn-outline-success">
+                                                    <i class="material-symbols-outlined">clinical_notes</i>
+
                                                 </button>
                                             </div>
                                         </td>
@@ -83,32 +71,141 @@
         </main>
     </div>
 </div>
- 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- modal for add dignoses -->
+<div class="modal fade" id="edit_square" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add Docter</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Diagnoses </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="">
+                <div class="modal-body">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="">
+                        <label for="floatingInput">Name doctor</label>
+                    </div>
+                    <br>
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                            style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">allergies</label>
+                    </div>
+                    <br>
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                            style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">tretements</label>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <a href="" class="btn btn-success">OK</a>
+                </div>
+            </form>
+
         </div>
-        <div class="modal-body"> 
-            h11
-        </div>
-        
-      </div>
-    </div> 
+    </div>
 </div>
+<!-- modal end add dignoses -->
+<!-- modal end see details -->
+
 <div class="modal fade" id="visibility" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel"></h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"> See Details
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="modal-body">
+                    <div class="container-fluid">
+
+
+                        <div class="row mb-3">
+                            <label class="col-form-label fw-bold">Name:</label>
+                            <div class="col">
+                                Patient Name
+                            </div>
+                        </div>
+                      
+                        <div class="row mb-3">
+                            <label class="col-form-label fw-bold">Telephone:</label>
+                            <div class="col">
+                                0123456789
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label class="col-form-label fw-bold">Address:</label>
+                            <div class="col">
+                                Patient Address
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label class="col-form-label fw-bold">Date of Birth:</label>
+                            <div class="col">
+                                1990-01-01
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="" class="btn btn-success">OK</a>
+                </div>
+            </div>
         </div>
-        <div class="modal-body"> 
-            fvvvvvvv
-        </div>
-        
-      </div>
-    </div> 
+
+    </div>
 </div>
+<!-- modal end for see Details -->
+<!-- modal  for see details  -->
+
+<div class="modal fade" id="clinical_notes" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"> See Details
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="modal-body">
+                    <div class="container-fluid">
+
+
+                        <div class="row mb-3">
+                            <label class="col-form-label fw-bold">Doctor name:</label>
+                            <div class="col">
+                                doctor Name
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label class="col-form-label fw-bold">Allergies:</label>
+                            <div class="col">
+                                .allergies
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-form-label fw-bold">Tretements:</label>
+                            <div class="col">
+                                tretements
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="" class="btn btn-success">OK</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- modal  end see details  -->

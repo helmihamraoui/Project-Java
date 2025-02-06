@@ -59,7 +59,7 @@
                                         <td>{{patient.user.firstname}} {{patient.user.lastname}}</td>
                                         <td>{{patient.user.number}}</td>
                                         <td>{{patient.user.email}}</td>
-                                        <td>{{patient.user.date.split(' ')[0]}}</td>
+                                        <td>{{patient.user.date | date}}</td>
                                         <td>
                                             <div class="d-flex gap-2">
                                                 <a href="#" class="btn btn-sm btn-outline-primary">
