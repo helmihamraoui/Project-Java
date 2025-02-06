@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <!-- Calendar Header -->
-                    <div class="calendar-header p-3 mb-3 d-flex justify-content-between align-items-center">
+                    <div class="calendar-header p-3 mb-3 d-flex justify-content-between align-items-center bg">
                         <h3 class="mb-0"> 2025</h3>
 
                     </div>
@@ -52,67 +52,54 @@
                         <div>
                             <!-- Calendar Days -->
                             <!-- Example dates (you would generate these dynamically) -->
-                            <div class=" calendar-day days">
-                                <div class="calendar-day day">1</div>
-                                <div class="calendar-day day">2</div>
-                                <div class="calendar-day day">3</div>
-                                <div class="calendar-day day">4</div>
-                                <div class="calendar-day day">5</div>
-                                <div class="calendar-day day">6</div>
-                                <div class="calendar-day day">
-                                    7
+
+                            <div class="calendar-day days">
+                                <div *ngFor="let day of listOfDays; let idx = index" class=" days da ">
+                                    <div class="calendar-day day ">
+                                        <i>{{ idx + 1 }}</i>
+                                    </div>
                                 </div>
                             </div>
 
+
+
+
                             <div class=" calendar-day days">
-                                <div class="calendar-day day">8
+                                <div *ngFor="let day of listOfDays; let idx = index" class=" days da ">
+                                    <div class="calendar-day day ">
+                                        <i>{{ idx + 8 }}</i>
+                                    </div>
                                 </div>
-                                <div class="calendar-day day">9</div>
-                                <div class="calendar-day day">10<div class="appointment-badge bg-primary text-white">
-                                        John
-                                        Doe - 10:00 AM</div>
-                                    <div class="appointment-badge bg-success text-white">Jane Smith - 2:30 PM</div>
-                                </div>
-                                <div class="calendar-day day"> 11
-                                    <div class="appointment-badge bg-warning text-dark">Pending: Mike Johnson</div>
-                                </div>
-                                <div class="calendar-day day">12</div>
-                                <div class="calendar-day day">13</div>
-                                <div class="calendar-day day">14</div>
                             </div>
 
 
                             <div class=" calendar-day days">
-                                <div class="calendar-day day">15</div>
-                                <div class="calendar-day day">16</div>
-                                <div class="calendar-day day">17</div>
-                                <div class="calendar-day day">16</div>
-                                <div class="calendar-day day">18</div>
-                                <div class="calendar-day day">19</div>
-                                <div class="calendar-day day">20
+                                <div *ngFor="let day of listOfDays; let idx = index" class=" days da ">
+                                    <div class="calendar-day day ">
+                                        <i>{{ idx + 15 }}</i>
+                                    </div>
                                 </div>
                             </div>
                             <div class=" calendar-day days">
-                                <div class="calendar-day day">21</div>
-                                <div class="calendar-day day">22</div>
-                                <div class="calendar-day day">23</div>
-                                <div class="calendar-day day">24</div>
-                                <div class="calendar-day day">25</div>
-                                <div class="calendar-day day">26</div>
-                                <div class="calendar-day day">27</div>
-                            </div> 
-                            <div class=" calendar-day days">
-                                <div class="calendar-day day">28</div>
-                                <div class="calendar-day day">29</div>
+                                <div *ngFor="let day of listOfDays; let idx = index" class=" days da ">
+                                    <div class="calendar-day day ">
+                                        <i>{{ idx + 22 }}</i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" calendar-day days da ">
+                                <div class="calendar-day day ">
+                                    <i>29</i>
+                                </div>
+
                             </div>
                             <!-- Add more days... -->
                         </div>
                     </div>
 
-                    <!-- Quick Actions -->
-
                 </div>
             </div>
-    </main>
+            <!-- Quick Actions -->
+        </main>
 
-</div>
+    </div>

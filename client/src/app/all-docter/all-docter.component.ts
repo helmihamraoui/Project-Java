@@ -32,7 +32,7 @@ export class AllDocterComponent {
       console.log(query)
       this.filtredDocters=this.doctors.filter(doctor =>
         doctor.user.firstName.toLowerCase().includes(query) ||
-         doctor.specialties.toLowerCase().includes(query) ||
+        doctor.specialties.toLowerCase().includes(query) ||
         doctor.user.lastName.toLowerCase().includes(query)
       )
   }

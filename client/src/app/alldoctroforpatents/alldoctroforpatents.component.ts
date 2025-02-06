@@ -3,7 +3,6 @@ import { NabrapatientsComponent } from '../nabrapatients/nabrapatients.component
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ApiService } from '../api.service';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 @Component({
