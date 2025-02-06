@@ -49,9 +49,7 @@ export const routes: Routes = [
      //for patents   
      { path:'patints/booking',component:BookingComponent},
      { path:'patints/dashbord',component:PatintsdashbordComponent},
-
      { path: 'patients/alldoctor', component:AlldoctroforpatentsComponent } ,     
-     { path:'patints/booking',component:BookingComponent},
      { path:'pation',component:AppointemntComponent},
 
     
