@@ -34,10 +34,8 @@
             <section>
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h2 class="mb-0">Patients Management</h2>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search Patient" aria-label="Search">
+                        <input class="form-control me-2" type="text" [(ngModel)]="search" (input)="filter()" placeholder="Search Patient" aria-label="Search">
                         <button class="btn btn-outline-primary" type="submit">Search</button>
-                    </form>
                 </div>
 
                 <!-- Patients Table -->
@@ -48,7 +46,6 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th>Name</th>
-                                      
                                         <th>Telephone</th>
                                         <th>Email</th>
                                         <th>Date of Birth</th>
@@ -56,11 +53,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>John Doe</td>
-                                        <td>0123456789</td>
-                                        <td>johndoeexample.com</td>
-                                        <td>1990-01-01</td>
+                                    <tr *ngFor="let patient of filtredPatients">
+                                        <td>{{patient.user.firstname}} {{patient.user.lastname}}</td>
+                                        <td>{{patient.user.number}}</td>
+                                        <td>{{patient.user.email}}</td>
+                                        <td>{{patient.user.date | date}}</td>
                                         <td>
                                             <div class="d-flex gap-2">
                                                 <button  data-bs-toggle="modal"  class="btn btn-sm btn-outline-primary"  type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">

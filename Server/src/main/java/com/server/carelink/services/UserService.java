@@ -47,6 +47,9 @@ public class UserService {
 				.map(this::convertEntityToDto)
 				.orElseThrow(() -> new RuntimeException("Patient not found"));
 	}
+	public User getUserById1(Long id) {
+		return userRepo.findById(id).get();
+	}
 
 
 

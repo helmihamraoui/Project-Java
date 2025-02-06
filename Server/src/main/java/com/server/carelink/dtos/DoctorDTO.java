@@ -2,6 +2,8 @@ package com.server.carelink.dtos;
 
 import java.util.List;
 
+import com.server.carelink.models.User;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,7 +18,7 @@ public class DoctorDTO {
 	private String jobTitle;
 	private Integer licenseNumb;
 	private Integer experience;
-	private UserDTO user;
+	private User user;
 	
 	private List<AppointmentDTOWithoutDoctor> appointments;
 	
