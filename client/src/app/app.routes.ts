@@ -20,6 +20,7 @@ import { PatentsComponent } from './patents/patents.component';
 import { AppointemntComponent } from './appointemnt/appointemnt.component';
 import { ChatComponent } from './chat/chat.component';
 import { LoginDoctorComponent } from './login-doctor/login-doctor.component';
+import { PatintsdashbordComponent } from './patintsdashbord/patintsdashbord.component';
 
 export const routes: Routes = [     
      { path: '', component: HomeComponent },  
@@ -47,6 +48,7 @@ export const routes: Routes = [
 
      //for patents   
      { path:'patints/booking',component:BookingComponent},
+     { path:'patints/dashbord',component:PatintsdashbordComponent},
 
      { path: 'patients/alldoctor', component:AlldoctroforpatentsComponent } ,     
      { path:'patints/booking',component:BookingComponent},
