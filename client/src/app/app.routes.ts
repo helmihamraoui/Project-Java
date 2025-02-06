@@ -32,22 +32,22 @@ export const routes: Routes = [
         
 
      //for the admin
-     { path: 'admildashb', component:AdminDashbordComponent }, 
-     { path: 'schedule', component:ScheduleComponent } ,
-     { path: 'allpatents', component:AllpatentsComponent } ,
-     { path: 'appointments', component:AppointmentsComponent } , 
-     { path: 'alldocter', component:AllDocterComponent } ,   
+     { path: 'admin/dashbord', component:AdminDashbordComponent }, 
+     { path: 'amdin/schedule', component:ScheduleComponent } ,
+     { path: 'all/patients', component:AllpatentsComponent } ,
+     { path: 'admin/appointments', component:AppointmentsComponent } , 
+     { path: 'all/doctor', component:AllDocterComponent } ,   
      //for the doctor
-     { path: 'docterdashborder', component:DocterDashbordComponent } ,   
-     { path: 'doctorschedule', component:DocterComponent } ,  
-     { path: 'allfordoctor', component:AlldocterfordocterComponent } ,    
-     { path: 'patietfordoctor', component:PatientfordoctorComponent } ,  
-     { path: 'doctorappointment', component:DoctorAppointmentComponent } ,    
+     { path: 'doctor/dashbord', component:DocterDashbordComponent } ,   
+     { path: 'doctor/schedule', component:DocterComponent } ,  
+     { path: 'doctor/doctor', component:AlldocterfordocterComponent } ,    
+     { path: 'doctor/patients', component:PatientfordoctorComponent } ,  
+     { path: 'doctor/appointment', component:DoctorAppointmentComponent } ,    
   
 
      //for patents  
-     { path: 'dalldoctreforpa', component:AlldoctroforpatentsComponent } ,     
-     { path:'booking',component:BookingComponent},
+     { path: 'patients/alldoctor', component:AlldoctroforpatentsComponent } ,     
+     { path:'patints/booking',component:BookingComponent},
      { path:'pation',component:AppointemntComponent},
 
      { path: 'addocter', component:AddDocterComponent } ,
@@ -60,7 +60,7 @@ export const routes: Routes = [
 
 
 
-     { path: 'addocter', component:AddDocterComponent } ,
+     { path: 'add/docter', component:LoginDoctorComponent } ,
 
 
  
