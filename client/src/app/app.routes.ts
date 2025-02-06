@@ -18,6 +18,7 @@ import { AlldoctroforpatentsComponent } from './alldoctroforpatents/alldoctrofor
 import { BookingComponent } from './booking/booking.component';
 import { PatentsComponent } from './patents/patents.component';
 import { AppointemntComponent } from './appointemnt/appointemnt.component';
+import { ChatComponent } from './chat/chat.component';
 
 export const routes: Routes = [     
      { path: '', component: HomeComponent },  
@@ -44,7 +45,17 @@ export const routes: Routes = [
      { path:'booking',component:BookingComponent},
      { path:'pation',component:AppointemntComponent},
 
-     { path: 'addocter', component:AddDocterComponent } 
+     { path: 'addocter', component:AddDocterComponent } ,
+     
+
+
+     { path: 'chat/:receiverId', component:ChatComponent } ,
+
+
+
+
+
+     { path: 'addocter', component:AddDocterComponent } ,
 
 
  

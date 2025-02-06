@@ -20,4 +20,5 @@ describe('BookingComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+}); 
+

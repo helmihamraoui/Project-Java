@@ -147,19 +147,27 @@ body {
     box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
 }
 
-.day {
+.daye {
     background-color: #dbdde0;
-    width: 150%;
+    width: 550% ; 
+    background-color: #0b5ed7; 
+    
+    
 }
 
 .days {
     display: flex;
-    flex-direction: row;
+    flex-direction: row; 
+    gap: 5%;
+
 
 } 
 .bg{ 
     background-color: #198754;
 } 
 .da{ 
-    width: 30%;
+    width: 15%;
+} 
+.bgg{ 
+    background-color: #d7e2dd;
 }

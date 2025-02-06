@@ -6,7 +6,7 @@ import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-login',
-  imports: [RouterModule, FormsModule, CommonModule],
+  imports:[ RouterModule, FormsModule, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -26,6 +26,8 @@ export class LoginComponent {
         localStorage.setItem('token', response.token);
         // Optionally, store the user ID or other necessary info
         localStorage.setItem('userId', response.id);
+        // Optionally, store the user role
+        localStorage.setItem('role', response.role);
         // Redirect based on user role
         if (response.role === 'admin') {
           this.router.navigate(["/"]);

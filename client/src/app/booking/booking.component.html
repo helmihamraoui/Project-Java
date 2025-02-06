@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <!-- Sidebar -->
-        <div class="col-md-2 sidebar p-3">
+        <div class="col-md-2 sidebar bgg ">
             <app-nabrapatients></app-nabrapatients>
 
         </div>
@@ -53,22 +53,23 @@
                         <div>
                             <!-- Calendar Days -->
                             <!-- Example dates (you would generate these dynamically) -->
-                            <div class=" calendar-day days">
-                                <div class="calendar-day day">1</div>
-                                <div class="calendar-day day">2</div>
-                                <div class="calendar-day day">3</div>
-                                <div class="calendar-day day">4</div>
-                                <div class="calendar-day day">5</div>
-                                <div class="calendar-day day">6</div>
-                                <div class="calendar-day day">
-                                    7
+
+                            <div class="calendar-day days">
+                                <div *ngFor="let day of listOfDays; let idx = index">
+                                  <button class="calendar-day daye" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i>{{ idx + 1 }}</i>
+                                  </button>
                                 </div>
-                            </div>
+                              </div>
+                              
+
+
 
                             <div class=" calendar-day days">
-                                <div class="calendar-day day">8
-                                </div>
-                                <div class="calendar-day day">9</div>
+                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i>8</i></button>
+                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i>9</i></button>
                                 <div class="calendar-day day">10<div class="appointment-badge bg-primary text-white">
                                         John
                                         Doe - 10:00 AM</div>
@@ -77,35 +78,51 @@
                                 <div class="calendar-day day"> 11
                                     <div class="appointment-badge bg-warning text-dark">Pending: Mike Johnson</div>
                                 </div>
-                                <div class="calendar-day day">12</div>
-                                <div class="calendar-day day">13</div>
-                                <div class="calendar-day day">14</div>
+                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i>12</i></button>
+                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i>13</i></button>
+                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i>14</i></button>
                             </div>
 
 
                             <div class=" calendar-day days">
-                                <div class="calendar-day day">15</div>
-                                <div class="calendar-day day">16</div>
-                                <div class="calendar-day day">17</div>
-                                <div class="calendar-day day">16</div>
-                                <div class="calendar-day day">18</div>
-                                <div class="calendar-day day">19</div>
-                                <div class="calendar-day day">20
-                                </div>
+                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i>15</i></button>
+                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i>16</i></button>
+                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i>17</i></button>
+                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i>18</i></button>
+                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i>19</i></button>
+                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i>20</i></button>
+                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i>21</i></button>
                             </div>
                             <div class=" calendar-day days">
-                                <div class="calendar-day day">21</div>
-                                <div class="calendar-day day">22</div>
-                                <div class="calendar-day day">23</div>
-                                <div class="calendar-day day">24</div>
-                                <div class="calendar-day day">25</div>
-                                <div class="calendar-day day">26</div>
-                                <div class="calendar-day day">27</div>
+                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i>22</i></button>
+                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i>23</i></button>
+                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i>24</i></button>
+                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i>25</i></button>
+                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i>26</i></button>
+                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i>27</i></button>
+                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i>28</i></button>
                             </div>
                             <div class=" calendar-day days da ">
-                                <div class="calendar-day day">28</div>
-                                <div class="calendar-day day">29</div>
-                               
+                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i>29</i></button>
+
                             </div>
                             <!-- Add more days... -->
                         </div>
@@ -119,4 +136,20 @@
     </div>
 
 
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="dayModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="dayModalLabel">Appointments for <span id="modalDay"></span></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="modalAppointments"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
