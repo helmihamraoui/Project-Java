@@ -1,0 +1,88 @@
+* {
+    padding: 0px auto;
+    margin: 0px auto;
+}
+
+.login-box {
+   
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+}
+
+.input-text {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.btn-primary-soft {
+    background-color: #e9ecef;
+    color: #000;
+}
+
+.link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.header-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.sub-text {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.steps-container {
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+}
+
+.form-step {
+
+    position: absolute;
+    width: 100%;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.step-next {
+    transform: translateX(100%);
+}
+
+.step-prev {
+    transform: translateX(-100%);
+}
+
+.step-active {
+    transform: translateX(0);
+}
+
+#div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-fluid1 {
+    background-color: #007bff;
+    margin: 0px auto;
+    padding: 0px auto;
+
+}
+
+.signup { 
+    margin-top: -50px; 
+    padding: 5%;
+}

@@ -19,13 +19,18 @@ import { BookingComponent } from './booking/booking.component';
 import { PatentsComponent } from './patents/patents.component';
 import { AppointemntComponent } from './appointemnt/appointemnt.component';
 import { ChatComponent } from './chat/chat.component';
+import { LoginDoctorComponent } from './login-doctor/login-doctor.component';
 
 export const routes: Routes = [     
      { path: '', component: HomeComponent },  
      { path: 'login', component: LoginComponent },  
      { path: 'signup', component: SignUpComponent },  
      { path: 'urgent', component: UrgentComponent
-     },   
+     },  
+     { path: 'add/doctor', component:LoginDoctorComponent
+     },
+        
+
      //for the admin
      { path: 'admildashb', component:AdminDashbordComponent }, 
      { path: 'schedule', component:ScheduleComponent } ,
