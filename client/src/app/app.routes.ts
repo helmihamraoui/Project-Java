@@ -45,12 +45,14 @@ export const routes: Routes = [
      { path: 'doctor/appointment', component:DoctorAppointmentComponent } ,    
   
 
-     //for patents  
+     //for patents   
+     { path:'patints/booking',component:BookingComponent},
+
      { path: 'patients/alldoctor', component:AlldoctroforpatentsComponent } ,     
      { path:'patints/booking',component:BookingComponent},
      { path:'pation',component:AppointemntComponent},
 
-     { path: 'addocter', component:AddDocterComponent } ,
+    
      
 
 
@@ -64,7 +66,7 @@ export const routes: Routes = [
 
 
  
-
+     { path: 'addocter', component:AddDocterComponent } ,
 
 
 
