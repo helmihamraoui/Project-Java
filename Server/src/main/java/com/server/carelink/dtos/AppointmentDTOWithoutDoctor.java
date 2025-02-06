@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class AppointmentDTOWithoutDoctor {
 	private Long id;
-	private Date date;
+	private Date time;
 	private PatientDTO patient;
 
 }

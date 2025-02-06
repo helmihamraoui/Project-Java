@@ -71,13 +71,14 @@ AddPatient(data:any,id:number): Observable<any> {
     return this.http.get(this.baseUrl+"/v1/any/doctors").pipe(catchError(this.handleError))
   }
 
-  getOneDoctor():Observable<any>{
-    return this.http.get(this.baseUrl+"/v1/any/doctors/"+7).pipe(catchError(this.handleError))
-  }
-
   getDoctorByUserId():Observable<any>{
     return this.http.get(this.baseUrl+"/v1/any/doctor/"+localStorage.getItem("userId")).pipe(catchError(this.handleError))
   }
+
+  addDoctor(data:any,id:number):Observable<any>{
+  return this.http.post(`${this.baseUrl}/v1/any/doctors/new/${id}`, data).pipe(
+    catchError(this.handleError)
+  )}
 
   getallPatient():Observable<any>{
     return this.http.get(this.baseUrl+"/v1/any/patient/all").pipe(catchError(this.handleError))

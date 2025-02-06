@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class AppointmentDTO {
 
 	private Long id;
-	private String date;
+	private String time;
 	private DoctorDTOApp doctor;
 	private PatientDTO patient;
 	
