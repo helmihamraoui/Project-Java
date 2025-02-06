@@ -55,8 +55,8 @@
                             <!-- Example dates (you would generate these dynamically) -->
 
                             <div class="calendar-day days">
-                                <div *ngFor="let day of listOfDays; let idx = index">
-                                  <button class="calendar-day daye" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <div *ngFor="let day of listOfDays; let idx = index"  class=" days da ">
+                                  <button class="calendar-day day " data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     <i>{{ idx + 1 }}</i>
                                   </button>
                                 </div>
@@ -66,63 +66,33 @@
 
 
                             <div class=" calendar-day days">
-                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i>8</i></button>
-                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i>9</i></button>
-                                <div class="calendar-day day">10<div class="appointment-badge bg-primary text-white">
-                                        John
-                                        Doe - 10:00 AM</div>
-                                    <div class="appointment-badge bg-success text-white">Jane Smith - 2:30 PM</div>
-                                </div>
-                                <div class="calendar-day day"> 11
-                                    <div class="appointment-badge bg-warning text-dark">Pending: Mike Johnson</div>
-                                </div>
-                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i>12</i></button>
-                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i>13</i></button>
-                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i>14</i></button>
+                                <div *ngFor="let day of listOfDays; let idx = index"  class=" days da ">
+                                    <button class="calendar-day day " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                      <i>{{ idx + 8 }}</i>
+                                    </button>
+                                  </div>
                             </div>
 
 
                             <div class=" calendar-day days">
-                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i>15</i></button>
-                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i>16</i></button>
-                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i>17</i></button>
-                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i>18</i></button>
-                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i>19</i></button>
-                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i>20</i></button>
-                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i>21</i></button>
+                                <div *ngFor="let day of listOfDays; let idx = index"  class=" days da ">
+                                    <button class="calendar-day day " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                      <i>{{ idx + 15 }}</i>
+                                    </button>
+                                  </div>
                             </div>
                             <div class=" calendar-day days">
-                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i>22</i></button>
-                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i>23</i></button>
-                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i>24</i></button>
-                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i>25</i></button>
-                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i>26</i></button>
-                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i>27</i></button>
-                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i>28</i></button>
+                                <div *ngFor="let day of listOfDays; let idx = index"  class=" days da ">
+                                    <button class="calendar-day day " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                      <i>{{ idx + 22 }}</i>
+                                    </button>
+                                  </div>
                             </div>
                             <div class=" calendar-day days da ">
-                                <button class="calendar-day day" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i>29</i></button>
-
+                                    <button class="calendar-day day " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <i>29</i>
+                                    </button>
+                                  
                             </div>
                             <!-- Add more days... -->
                         </div>
@@ -144,8 +114,13 @@
                 <h5 class="modal-title" id="dayModalLabel">Appointments for <span id="modalDay"></span></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <div id="modalAppointments"></div>
+            <div class="modal-body">  <label for="timeSelect" class="form-label">Select Time</label>
+                <select name="timeSelect" id="timeSelect" class="form-select">
+                  <option value="" selected>ggggggg</option>
+                  <option value="1">Option 1</option>
+                  <option value="2">Option 2</option>
+                  <option value="3">Option 3</option>
+                </select>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
