@@ -5,15 +5,17 @@ import { RouterModule } from '@angular/router'; // Importing RouterModule for ro
 import { ApiService } from '../api.service'; // Importing ApiService for API interactions
 import { MessageService } from '../message.service'; // Importing MessageService for message handling
 import { Message } from '../message.model'; // Importing Message model
+import { ChatComponent } from '../chat/chat.component';
 
 @Component({
   selector: 'app-patintsdashbord', // Defining the selector for the component
-  imports: [NabrapatientsComponent, CommonModule, RouterModule], // Importing other components and modules
+  imports: [NabrapatientsComponent, CommonModule, RouterModule ,ChatComponent], // Importing other components and modules
   templateUrl: './patintsdashbord.component.html', // Defining the template URL
   styleUrls: ['./patintsdashbord.component.css'] // Defining the styles URL
 })
 export class PatintsdashbordComponent implements OnInit { // Defining the component class and implementing OnInit interface
   messages: Message[] = []; // Initializing an array to hold messages
+  selectedDoctorId: number =0; // Store selected doctor's ID
 
   constructor(private messageService: MessageService) { } // Injecting MessageService into the component
 
@@ -62,5 +64,10 @@ export class PatintsdashbordComponent implements OnInit { // Defining the compon
     }, (error) => {
       console.error('Error fetching messages:', error);
     });
+  }
+  chat(doctorId: number) {
+    console.log('Chat with doctor:', doctorId);
+    this.selectedDoctorId = doctorId; // Set the ID when chat button is clicked
+  console.log('Chat with doctor:', this.selectedDoctorId);
   }
 }

@@ -760,14 +760,14 @@ a:focus {
   left: initial;
 }
 
-.footer_section { 
-  background-color: #62d2a2; 
+.footer_section {
+  background-color: #62d2a2;
   color: #fcfcfc;
   padding: 60px 0 15px 0;
   position: relative;
 }
-.chat{ 
-  color: white; 
+.chat{
+  color: white;
   font-size: 50px;
 }
 .footer_section h4 {

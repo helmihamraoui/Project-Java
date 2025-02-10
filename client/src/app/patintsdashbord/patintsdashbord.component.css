@@ -17,3 +17,6 @@
     max-height: 250px;
     overflow-y: auto;
 }
+.modal-content{
+  background-image: url("../../../public/img/bg11.jpg");
+}

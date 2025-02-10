@@ -50,8 +50,7 @@ public class User implements UserDetails  {
 	private String password;  
 	@Size(min=3,message="this confirm you password not valide") 
 	@Transient private String confirm;
-	@Size(min=3,message="this image you password not valide")
-	private String image; 
+
 	@Past(message="date most be in the past !!")
 	private Date date;   
 	@NotEmpty(message="Phone number is required!!")

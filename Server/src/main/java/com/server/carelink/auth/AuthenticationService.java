@@ -47,7 +47,6 @@ System.out.println(request.getEmail());
                     .number(request.getNumber()) 
                     .address(request.getAddress())  
                     .confirm(request.getConfirm())
-                    .image(request.getImage())
                     //  Pass the PASSWORD instead of autogenerate
 // .password(passwordEncoder.encode(request.getPassword()))
                     .role(request.getRole())
