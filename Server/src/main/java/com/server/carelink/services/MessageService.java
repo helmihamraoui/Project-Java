@@ -40,5 +40,8 @@ public class MessageService {
         return messageRepository.findBySenderAndReceiver(senderId, receiverId);
     }
 
+    public List<Message> findLatestMessages(Long receiverId) {
+        return messageRepository.findLatestMessagesByReceiverId(receiverId);
+    }
 }
 

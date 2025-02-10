@@ -44,11 +44,17 @@ AddPatient(data:any,id:number): Observable<any> {
       catchError(this.handleError)
     )
   }
-
+  getAppointmentsForPatients(id:number):Observable<any>{
+    return this.http.get(this.baseUrl+"/v1/any/appointments/patient/"+id).pipe(
+      catchError(this.handleError)
+    )
+  }
   getOneAppointment(id:number): Observable<any>{
     return this.http.get(this.baseUrl+"/v1/any/appointments/"+id).pipe(catchError(this.handleError));
   }
-
+  getAppointmentByDoctorId(id:number):Observable<any>{
+    return this.http.get(this.baseUrl+"/v1/any/appointments/doctor/"+id).pipe(catchError(this.handleError))
+  }
   addAppointment(data:any):Observable<any>{
     return this.http.post(this.baseUrl+"/v1/any/appointments/new",data).pipe(catchError(this.handleError))
   }
@@ -59,7 +65,6 @@ AddPatient(data:any,id:number): Observable<any> {
   addAvailability(data:any ,id:number):Observable<any>{
     return this.http.post(this.baseUrl+"/v1/any/availability/new/"+id,data).pipe(catchError(this.handleError))
   }
-
   getAvailability(id:number):Observable<any>{
     return this.http.get(this.baseUrl+"/v1/any/availability/"+id).pipe(catchError(this.handleError))
   }
@@ -84,9 +89,6 @@ AddPatient(data:any,id:number): Observable<any> {
     return this.http.get(this.baseUrl+"/v1/any/patient/all").pipe(catchError(this.handleError))
   }
 
-  getOnePatient(id:number):Observable<any>{
-    return this.http.get(this.baseUrl+"/v1/any/patient/"+id).pipe(catchError(this.handleError))
-  }
 
 
   getDiagnose(id:number):Observable<any>{
@@ -101,6 +103,13 @@ AddPatient(data:any,id:number): Observable<any> {
     return this.http.put(this.baseUrl+"/v1/any/diagnose/add/"+id,data).pipe(catchError(this.handleError))
   }
 
+  //get one patient by id
+  getOnePatient(id:number):Observable<any>{
+    return this.http.get(this.baseUrl+"/v1/any/patient/"+id).pipe(catchError(this.handleError))
+  }
+  getPatientByUserId():Observable<any>{
+    return this.http.get(this.baseUrl+"/v1/patient/"+localStorage.getItem("userId")).pipe(catchError(this.handleError))
+  }
   private handleError(error: any): Observable<never> {
     console.error('API Error:', error);
     return throwError(() => new Error(error.message || 'Server Error'));

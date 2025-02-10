@@ -4,9 +4,8 @@
 }
 
 .login-box {
-   
+
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
 }
 
@@ -76,13 +75,22 @@
 }
 
 .img-fluid1 {
-    background-color: #007bff;
+    background-color: #ff8800;
     margin: 0px auto;
     padding: 0px auto;
 
 }
 
-.signup { 
-    margin-top: -50px; 
+.signup {
+    margin-top: -50px;
     padding: 5%;
 }
+.error-text {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+.input-text.ng-invalid.ng-touched {
+  border-color: red;
+}
+

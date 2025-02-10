@@ -12,7 +12,7 @@ export class MessageService {
   private apiUrl = 'http://localhost:8080/api/v1/any';
   private stompClient: Client | null = null;
   private messagesSubject = new Subject<Message>();
-  messages$ = this.messagesSubject.asObservable();
+  public messages$ = this.messagesSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -65,5 +65,9 @@ export class MessageService {
 
   getChat(senderId: number, receiverId: number): Observable<Message[]> {
     return this.http.get<Message[]>(`${this.apiUrl}/get/my/History/${receiverId}/${senderId}`);
+  }
+
+  getLatestMessages(receiverId: number): Observable<Message[]> {
+    return this.http.get<Message[]>(`${this.apiUrl}/latest/${receiverId}`);
   }
 }

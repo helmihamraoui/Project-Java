@@ -1,7 +1,8 @@
 package com.server.carelink.dtos;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,14 +13,10 @@ import lombok.NoArgsConstructor;
 @Builder
 
 public class AppointmentDTO {
-
-	private Long id;
-	private String time;
-	private DoctorDTOApp doctor;
+	//private Long id;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
+	private LocalDateTime time;
+	private DoctorDTO doctor;
 	private PatientDTO patient;
-	
-	
-	
-	
-	
+
 }

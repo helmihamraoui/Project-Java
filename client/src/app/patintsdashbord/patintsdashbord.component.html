@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-2 sidebar p-3">
                 <app-nabrapatients></app-nabrapatients>
-                       </div>
+                      </div>
 
             <!-- Main Content -->
             <div class="col">
@@ -12,19 +12,11 @@
                     <div class="container d-flex justify-content-between align-items-center">
                         <h1 class="h4 mb-0">Dashboard</h1>
                         <div class="d-flex align-items-center">
-                            <button class="btn btn-link me-3">
-                                <i class="fas fa-bell"></i>
-                            </button>
+
                             <div class="dropdown">
                                 <button class="btn btn-link" type="button" id="profileDropdown" data-bs-toggle="dropdown">
-                                    <img src="../img/profile.png" alt="Profile" class="rounded-circle" width="40">
+                                    <img src="img/patient.png" alt="Profile" class="rounded-circle" width="40">
                                 </button>
-                                <div class="dropdown-menu dropdown-menu-end">
-                                    <a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a>
-                                    <a class="dropdown-item" href="#"><i class="fas fa-envelope me-2"></i>Inbox</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Logout</a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -40,32 +32,17 @@
                                     <img src="../img/card.png" alt="Welcome" class="img-fluid">
                                 </div>
                                 <div class="col-md-9">
-                                    <h2 class="card-title">Welcome back, Sarah Smith!</h2>
+                                    <!-- <h2 class="card-title">Welcome back, {{patient.user.firstname}} {{patient.user.lastname}}!</h2> -->
                                     <p class="card-text">
                                         We would like to take this opportunity to welcome you to our practice and to thank you for choosing our physicians to participate in your healthcare.
                                     </p>
-                                    <a href="#" class="btn btn-primary">View My Appointments</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Stats Row -->
-                    <div class="row g-4 mb-4">
-                      
-                        
-                        <div class="col-md-3">
-                            <div class="card text-white bg-success dashboard-card">
-                                <div class="card-body d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <h5 class="card-title">All Patients</h5>
-                                        <h2 class="card-text">50</h2>
-                                    </div>
-                                    <i class="fas fa-wheelchair fa-3x"></i>
-                                </div>
-                            </div>
-                        </div>
-                        
+                    <div class="row g-4 mb-4 ">
                         <div class="col-md-3">
                             <div class="card text-white bg-info dashboard-card">
                                 <div class="card-body d-flex justify-content-between align-items-center">
@@ -77,15 +54,18 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-md-3">
-                            <div class="card text-white bg-secondary dashboard-card">
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card text-white bg-danger dashboard-card">
                                 <div class="card-body d-flex justify-content-between align-items-center">
                                     <div>
-                                        <h5 class="card-title">Today Sessions</h5>
+                                        <h5 class="card-title"> My Appointment</h5>
                                         <h2 class="card-text">3</h2>
                                     </div>
-                                    <i class="fas fa-heartbeat fa-3x"></i>
+                                    <i class=" fa fa-id-card fa-3x"></i>
                                 </div>
                             </div>
                         </div>
@@ -94,27 +74,29 @@
                     <!-- Sessions Table -->
                     <div class="card dashboard-card">
                         <div class="card-body">
-                            <h5 class="card-title mb-4">Upcoming Sessions</h5>
+                            <h5 class="card-title mb-4">message</h5>
                             <div class="scrollable-table">
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Session Title</th>
-                                            <th>Scheduled Date</th>
-                                            <th>Time</th>
+                                            <th>Doctor</th>
+                                            <th>Sent Date</th>
+                                            <th>View</th>
                                         </tr>
+
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Session 1</td>
-                                            <td>2023-10-01</td>
-                                            <td>10:00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Session 2</td>
-                                            <td>2023-10-02</td>
-                                            <td>11:00</td>
-                                        </tr>
+                                      <tr *ngFor="let message of messages">
+                                        <td>{{message.sender.firstName}}</td>
+                                        <td>{{ message.createdAt | date:'dd/MM/yyyy HH:MM' }}</td>
+                                        <td>
+                                          <button (click)="chat(message.sender.id)" data-bs-toggle="modal" data-bs-target="#chat" class="btn btn-sm btn-outline-primary">
+                                            <i class="material-symbols-outlined">
+                                                3p
+                                            </i>
+                                        </button>
+                                        </td>
+                                      </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -125,3 +107,18 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="chat" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-chat [doctorId]=selectedDoctorId></app-chat>
+
+        </div>
+
+      </div>
+    </div>
+  </div>

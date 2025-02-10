@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Message } from '../message.model';
 import { MessageService } from '../message.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, ActivatedRoute } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-chat',
@@ -12,25 +12,27 @@ import { RouterModule, ActivatedRoute } from '@angular/router';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
-export class ChatComponent implements OnInit {
-  senderId: number = 0;
-  receiverId: number = 0;
-  messages: Message[] = [];
-  newMessage: string = '';
+export class ChatComponent implements OnInit, OnChanges {
+  senderId: number = 0; // ID of the sender
+  receiverId: number = 0; // ID of the receiver
+  messages: Message[] = []; // Array to store messages
+  newMessage: string = ''; // New message input
 
-  constructor(private messageService: MessageService, private route: ActivatedRoute) {}
+  @Input() doctorId: number | null = null; // Receive doctorId from parent
+
+  constructor(private messageService: MessageService) {}
 
   ngOnInit(): void {
-    this.senderId = Number(localStorage.getItem('userId'));
+    this.senderId = Number(localStorage.getItem('userId')); // Get sender ID from local storage
+    console.log('Sender ID:', this.senderId);
 
-    this.route.paramMap.subscribe(params => {
-      this.receiverId = Number(params.get('receiverId'));
-      console.log('Sender ID:', this.senderId);
-      console.log('Receiver ID:', this.receiverId);
+    if (this.doctorId !== null) {
+      this.receiverId = this.doctorId;
+      console.log('Receiver ID set in ngOnInit:', this.receiverId);
+    }
 
-      this.connectToWebSocket();
-      this.loadChat();
-    });
+    this.connectToWebSocket();
+    this.loadChat();
 
     this.messageService.messages$.subscribe((message) => {
       console.log('Received message in component:', message);
@@ -40,31 +42,43 @@ export class ChatComponent implements OnInit {
     });
   }
 
+  // Detect changes in doctorId and update receiverId dynamically
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['doctorId'] && changes['doctorId'].currentValue !== undefined) {
+      this.receiverId = changes['doctorId'].currentValue;
+      console.log('Receiver ID updated in ngOnChanges:', this.receiverId);
+      this.loadChat(); // Reload chat when doctorId changes
+    }
+  }
+
   connectToWebSocket(): void {
-    this.messageService.connect(this.senderId);
-    this.messageService.connect(this.receiverId);
+    if (this.senderId && this.receiverId) {
+      this.messageService.connect(this.senderId);
+    }
   }
 
   loadChat(): void {
-    this.messageService.getChat(this.senderId, this.receiverId).subscribe((data) => {
-      this.messages = data;
-      console.log('Chat loaded:', this.messages);
-    });
+    if (this.senderId && this.receiverId) {
+      this.messageService.getChat(this.senderId, this.receiverId).subscribe((data) => {
+        this.messages = data;
+        console.log('Chat loaded:', this.messages);
+      });
+    }
   }
 
   sendMessage(): void {
     if (this.newMessage.trim()) {
       console.log('Sending message:', this.newMessage);
-  
+
       const message: Message = {
         sender: { id: this.senderId },
         receiver: { id: this.receiverId },
         message: this.newMessage
       };
+
       this.messageService.sendMessageWebSocket(this.senderId, this.receiverId, this.newMessage);
-  
       this.messages.push(message);
-      this.newMessage = '';
+      this.newMessage = ''; // Clear input field
     }
   }
 }

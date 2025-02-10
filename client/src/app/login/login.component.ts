@@ -29,10 +29,15 @@ export class LoginComponent {
         // Optionally, store the user role
         localStorage.setItem('role', response.role);
         // Redirect based on user role
-        if (response.role === 'admin') {
-          this.router.navigate(["/"]);
-        } else {
-          this.router.navigate(['/']);
+        //if response.role is ROLE_PATIENT redirect to patient dashboard
+        if (response.role === 'ROLE_PATIENT') {
+          this.router.navigate(["/patient/dashbord"]);
+          //if response.role is ROLE_DOCTOR redirect to doctor dashboard
+        } else if (response.role === 'ROLE_DOCTOR') {
+          this.router.navigate(["/doctor/dashbord"]);
+          //if response.role is ROLE_ADMIN redirect to admin dashboard
+        } else if (response.role === 'ROLE_ADMIN') {
+          this.router.navigate(["/admin/dashbord"]);
         }
       },
       error: (error) => {

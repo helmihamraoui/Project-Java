@@ -20,6 +20,7 @@ import { PatentsComponent } from './patents/patents.component';
 import { AppointemntComponent } from './appointemnt/appointemnt.component';
 import { ChatComponent } from './chat/chat.component';
 import { LoginDoctorComponent } from './login-doctor/login-doctor.component';
+import { PatintsdashbordComponent } from './patintsdashbord/patintsdashbord.component';
 
 export const routes: Routes = [     
      { path: '', component: HomeComponent },  
@@ -29,8 +30,6 @@ export const routes: Routes = [
      },  
      { path: 'add/doctor', component:LoginDoctorComponent
      },
-        
-
      //for the admin
      { path: 'admin/dashbord', component:AdminDashbordComponent }, 
      { path: 'amdin/schedule', component:ScheduleComponent } ,
@@ -43,33 +42,14 @@ export const routes: Routes = [
      { path: 'doctor/doctor', component:AlldocterfordocterComponent } ,    
      { path: 'doctor/patients', component:PatientfordoctorComponent } ,  
      { path: 'doctor/appointment', component:DoctorAppointmentComponent } ,    
-  
-
      //for patents   
-     { path:'patints/booking',component:BookingComponent},
-
-     { path: 'patients/alldoctor', component:AlldoctroforpatentsComponent } ,     
-     { path:'patints/booking',component:BookingComponent},
+     { path:'patient/booking/:id',component:BookingComponent},
+     { path:'patient/dashbord',component:PatintsdashbordComponent},
+     { path: 'patient/alldoctor', component:AlldoctroforpatentsComponent } ,     
      { path:'pation',component:AppointemntComponent},
-
-    
-     
-
-
      { path: 'chat/:receiverId', component:ChatComponent } ,
-
-
-
-
-
      { path: 'add/docter', component:LoginDoctorComponent } ,
-
-
- 
      { path: 'addocter', component:AddDocterComponent } ,
 
 
-
-
-]; 
-
+];

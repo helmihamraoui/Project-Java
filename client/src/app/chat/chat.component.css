@@ -1,48 +1,114 @@
-.chat-container {
-    width: 400px;
-    margin: auto;
-    border: 1px solid #ccc;
-    padding: 10px;
-    height: 500px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-  }
+/* Contenedor principal del chat */ 
+.div{
+  height: 50%; 
+  background-color: #74b300;
+}
+.chat-container { 
+
+  display: flex; 
+  max-width: 600px;
+  height: 600px;
+  flex-direction: column;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+
+/* Contenedor de mensajes */
+.messages-container {
+  flex: 1; /* Ocupa todo el espacio disponible */
+  padding: 15px;
+  overflow-y: auto; /* Permite el desplazamiento vertical */
+  background-color: #fff; 
   
-  .sent {
-    background-color: #dcf8c6;
-    align-self: flex-end;
-    padding: 5px;
-    margin: 5px;
-    border-radius: 10px;
-  }
+}
+.show {
+  max-height: 500px;
+  overflow-y: auto; /* Permite scroll vertical */
+  overflow-x: hidden; /* Oculta scroll horizontal */
   
-  .received {
-    background-color: #f1f0f0;
-    align-self: flex-start;
-    padding: 5px;
-    margin: 5px;
-    border-radius: 10px;
+  /* Oculta la barra de scroll en navegadores WebKit (Chrome, Safari, Edge) */
+  &::-webkit-scrollbar {
+    width: 0; /* Ancho 0 para Chrome/Safari */
+    display: none; /* Ocultar completamente en WebKit */
   }
+
+  /* Oculta la barra de scroll en Firefox */
+  scrollbar-width: none; 
+}
+/* Estilo base para los mensajes */
+.message {
+  max-width: 70%;
+  padding: 10px 15px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  position: relative;
+  word-wrap: break-word; 
+
   
-  .input-container {
-    display: flex;
-    margin-top: auto;
-  }
-  
-  input {
-    flex-grow: 1;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  button {
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
+}
+
+/* Mensajes enviados (alineados a la derecha) */
+.message.sent {
+  background-color: #1494a5;
+  color: white; 
+  width: 30%;
+  margin-left: auto;
+  border-bottom-right-radius: 5px;
+}
+
+/* Mensajes recibidos (alineados a la izquierda) */
+.message.received {
+  background-color: #e9ecef;
+  color: black; 
+  width: 30%;
+
+  margin-right: auto;
+  border-bottom-left-radius: 5px;
+}
+
+/* Estilo para la hora del mensaje */
+.message small {
+  display: block;
+  font-size: 0.8em;
+  margin-top: 5px;
+  opacity: 0.8;
+}
+
+/* Contenedor del input */
+.input-container {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  position: fixed;
+  bottom: 25%;
+  width: 22%;
+}
+
+/* Input de texto */
+.input-container input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  outline: none;
+  font-size: 1em;
+}
+
+/* Botón de enviar */
+.input-container button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #160c02;
+  color: white;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+/* Efecto hover para el botón */
+.input-container button:hover {
+  background-color: #74b300;
+}
