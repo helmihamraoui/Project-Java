@@ -8,3 +8,15 @@ function showStep(stepNumber) {
     });
     document.getElementById(`step${stepNumber}`).classList.add('step-active');
   }
+
+
+
+
+
+  // Enable auto-sliding for the carousel
+$(document).ready(function () {
+  $('#carouselExample2Controls').carousel({
+    interval: 3000, // Set the interval in milliseconds (e.g., 3000ms = 3 seconds)
+    pause: "hover" // Pause on hover
+  });
+});

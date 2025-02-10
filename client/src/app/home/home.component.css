@@ -1,3 +1,10 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&display=swap');
+.dekko-regular {
+  font-family: "Dekko", serif;
+  font-weight: 400;
+  font-style: normal;
+}
 body {
   font-family: 'Nunito', sans-serif;
   color: #000000;
@@ -753,13 +760,16 @@ a:focus {
   left: initial;
 }
 
-.footer_section {
-  background: #178066;
-  color: #ffffff;
+.footer_section { 
+  background-color: #62d2a2; 
+  color: #fcfcfc;
   padding: 60px 0 15px 0;
   position: relative;
 }
-
+.chat{ 
+  color: white; 
+  font-size: 50px;
+}
 .footer_section h4 {
   font-weight: 600;
   margin-bottom: 20px;
@@ -904,3 +914,17 @@ a:focus {
   color: inherit;
 }
 /*# sourceMappingURL=style.css.map */
+/* Align carousel controls to the left */
+.carousel_btn-container {
+  position: absolute;
+  bottom: 20px; /* Adjust as needed */
+  left: 20px; /* Adjust as needed */
+  z-index: 10;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: static;
+  display: inline-block;
+  margin: 0 5px; /* Adjust spacing between buttons */
+}
