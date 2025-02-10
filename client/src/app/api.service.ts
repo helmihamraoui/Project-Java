@@ -83,6 +83,24 @@ AddPatient(data:any,id:number): Observable<any> {
   getallPatient():Observable<any>{
     return this.http.get(this.baseUrl+"/v1/any/patient/all").pipe(catchError(this.handleError))
   }
+
+  getOnePatient(id:number):Observable<any>{
+    return this.http.get(this.baseUrl+"/v1/any/patient/"+id).pipe(catchError(this.handleError))
+  }
+
+
+  getDiagnose(id:number):Observable<any>{
+    return this.http.get(this.baseUrl+"/v1/any/diagnose/"+id).pipe(catchError(this.handleError))
+  }
+
+  addDiagnose(id:number,data:any):Observable<any>{
+    return this.http.post(this.baseUrl+"/v1/any/diagnose/new/"+id,data).pipe(catchError(this.handleError))
+  }
+
+  editDiagnose(id:number,data:any):Observable<any>{
+    return this.http.put(this.baseUrl+"/v1/any/diagnose/add/"+id,data).pipe(catchError(this.handleError))
+  }
+
   private handleError(error: any): Observable<never> {
     console.error('API Error:', error);
     return throwError(() => new Error(error.message || 'Server Error'));

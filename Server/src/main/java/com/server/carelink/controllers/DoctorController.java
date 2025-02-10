@@ -26,9 +26,9 @@ public class DoctorController {
 	UserService userServ;
 	
 	@GetMapping("/doctors")
-	public ResponseEntity<List<DoctorDTO>> AllDoctors(){
+	public List<DoctorDTO> AllDoctors(){
 		List<DoctorDTO> doctors=doctorService.getAllDoctors();
-		return ResponseEntity.ok(doctors);
+		return doctors;
 	}
 	
 	@GetMapping("/doctors/{id}")

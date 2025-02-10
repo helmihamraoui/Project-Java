@@ -13,7 +13,7 @@ import { Router} from '@angular/router';
   
 })
 export class LoginDoctorComponent {
-   registerData: any = {firstName:'',lastName:'', email: '', password: '' ,confirm:'',date:'',number:'',address:'',image:'',role:'ROLE_PATIENT'}; 
+   registerData: any = {firstName:'',lastName:'', email: '', password: '' ,confirm:'',date:'',number:'',address:'',image:'',role:'ROLE_DOCTOR'}; 
     currentStep = 1;
     selectedImage: File | null = null;
     previewImage: string | ArrayBuffer | null = null;
@@ -40,7 +40,7 @@ export class LoginDoctorComponent {
           //set the Role in local storage
           localStorage.setItem('role', response.role);
           //redirect to the urgent page
-          this.router.navigate(['/urgent']);
+          this.router.navigate(['/addocter']);
         },
         error: (error) => {
           console.error('Registration error:', error);

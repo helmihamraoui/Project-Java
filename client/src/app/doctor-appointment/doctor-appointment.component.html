@@ -72,7 +72,7 @@
                                     <tr *ngFor="let appointment of filtredAppointments">
                                         <td style="font-weight: 500;" *ngIf="appointment.doctor.id==doctor.id">{{appointment.patient.user.firstname}} {{appointment.patient.user.lastname}}</td>
                                         <td class="text-center fw-bold text-primary" *ngIf="appointment.doctor.id==doctor.id">{{appointment.id}}</td>
-                                        <td class="text-center" *ngIf="appointment.doctor.id==doctor.id">{{appointment.date | date}}</td>
+                                        <td class="text-center" *ngIf="appointment.doctor.id==doctor.id">{{appointment.time | date}}</td>
                                         <td class="text-center" *ngIf="appointment.doctor.id==doctor.id">
                                             <button class="btn btn-danger btn-sm">
                                                 <i class="fas fa-times me-1"></i>Cancel

@@ -3,10 +3,11 @@ import { NavbardocterComponent } from '../navbardocter/navbardocter.component';
 import { ApiService } from '../api.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-alldocterfordocter',
-  imports: [NavbardocterComponent,CommonModule,FormsModule],
+  imports: [NavbardocterComponent,CommonModule,FormsModule,RouterModule],
   templateUrl: './alldocterfordocter.component.html',
   styleUrl: './alldocterfordocter.component.css'
 })
