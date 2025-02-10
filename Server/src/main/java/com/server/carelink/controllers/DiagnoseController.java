@@ -1,6 +1,7 @@
 package com.server.carelink.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,7 @@ import com.server.carelink.dtos.DiagnosesWithIdDTO;
 import com.server.carelink.services.DiagnoseService;
 @RestController
 @RequestMapping("/api/v1/any")
+@CrossOrigin(origins = "http://localhost:4200")
 public class DiagnoseController {
 	@Autowired
 	DiagnoseService diagnoseServ;
