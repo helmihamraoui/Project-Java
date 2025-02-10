@@ -1,6 +1,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f2f5;
+    padding: 0;
+    margin: 0 auto;
 }
 
 .calendar-container {
@@ -149,24 +150,24 @@ body {
 
 .day {
     background-color: #dbdde0;
-     width: 150%;
-    
-    
+     width: 110%;
+
+
 }
 
 .days {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     gap:1px;
 
 
-} 
-.bg{ 
+}
+.bg{
     background-color: #198754;
-} 
-.da{ 
+}
+.da{
     width: 15%;
-} 
-.bgg{ 
+}
+.bgg{
     background-color: #d7e2dd;
 }

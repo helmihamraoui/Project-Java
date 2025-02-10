@@ -12,7 +12,7 @@ export class MessageService {
   private apiUrl = 'http://localhost:8080/api/v1/any';
   private stompClient: Client | null = null;
   private messagesSubject = new Subject<Message>();
-  messages$ = this.messagesSubject.asObservable();
+  public messages$ = this.messagesSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -45,19 +45,19 @@ export class MessageService {
   }
 
   sendMessageWebSocket(senderId: number, receiverId: number, content: string): void {
-  if (this.stompClient && this.stompClient.connected) {
-    const messageData = { senderId, receiverId, message: content, timestamp: new Date() };
-    this.stompClient.publish({
-      destination: `/app/sendMessage`,
-      body: JSON.stringify(messageData),
-    });
-    console.log('Sent message:', messageData);  // Log sent messages
-  } else {
-    console.error('WebSocket is not connected');
-    // Retry connecting to WebSocket
-    this.connect(senderId);
+    if (this.stompClient && this.stompClient.connected) {
+      const messageData = { senderId, receiverId, message: content, timestamp: new Date() };
+      this.stompClient.publish({
+        destination: `/app/sendMessage`,
+        body: JSON.stringify(messageData),
+      });
+      console.log('Sent message:', messageData);  // Log sent messages
+    } else {
+      console.error('WebSocket is not connected');
+      // Retry connecting to WebSocket
+      this.connect(senderId);
+    }
   }
-}
 
   sendMessage(senderId: number, receiverId: number, message: any): Observable<Message> {
     return this.http.post<Message>(`${this.apiUrl}/send/${receiverId}/${senderId}`, message);
@@ -65,5 +65,9 @@ export class MessageService {
 
   getChat(senderId: number, receiverId: number): Observable<Message[]> {
     return this.http.get<Message[]>(`${this.apiUrl}/get/my/History/${receiverId}/${senderId}`);
+  }
+
+  getLatestMessages(receiverId: number): Observable<Message[]> {
+    return this.http.get<Message[]>(`${this.apiUrl}/latest/${receiverId}`);
   }
 }

@@ -39,4 +39,9 @@ public class PatientController {
         PatientDTO createdPatient = patientService.addPatient(patientDTO);
         return ResponseEntity.ok(createdPatient);
     }
+    @GetMapping("/patient/{userId}")
+    public ResponseEntity<PatientDTO> getPatient(@PathVariable("userId")Long id){
+        PatientDTO patient=patientService.getPatientByUserId(id);
+        return ResponseEntity.ok(patient);
+    }
 }

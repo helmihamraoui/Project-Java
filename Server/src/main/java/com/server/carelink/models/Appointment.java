@@ -3,15 +3,7 @@ package com.server.carelink.models;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,8 +20,9 @@ public class Appointment {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-	
-	private LocalDateTime time;
+
+	@Column(nullable = false)
+	private LocalDateTime time;  // Ensure it's LocalDateTime, not String
 	
 	@Column(updatable=false)
 	private Date createdAt;
@@ -42,5 +35,15 @@ public class Appointment {
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="patient_id")
 	private Patient patient;
-	
+	@PrePersist
+	protected void onCreate(){
+		this.createdAt = new Date();
+		this.updatedAt = new Date();
+	}
+	@PreUpdate
+	protected void onUpdate(){
+		this.updatedAt = new Date();
+	}
+
+
 }

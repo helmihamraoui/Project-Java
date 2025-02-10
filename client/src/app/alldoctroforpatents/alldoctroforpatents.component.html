@@ -55,7 +55,7 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let doctor of filtredDocters">
-                            <td>{{doctor.user.firstname}} {{doctor.user.lastname}}</td>
+                            <td>{{doctor.user.firstName}} {{doctor.user.lastName}}</td>
                             <td>{{doctor.user.email}}</td>
                             <td>{{doctor.specialties}}</td>
                             <td>
@@ -65,7 +65,7 @@
                                                             3p
                                                         </i>
                                                     </a> 
-                                                    <a  routerLink="/patints/booking/{{doctor.id}}" class="btn btn-sm btn-outline-primary">
+                                                    <a  routerLink="/patient/booking/{{doctor.id}}" class="btn btn-sm btn-outline-primary">
                                                         <i class="material-symbols-outlined">
                                                             calendar_month 
                                                         </i>

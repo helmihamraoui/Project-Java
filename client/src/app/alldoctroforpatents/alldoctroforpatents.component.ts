@@ -28,9 +28,9 @@ export class AlldoctroforpatentsComponent {
     const query=this.search.toLowerCase().trim()
     console.log(query)
     this.filtredDocters=this.doctors.filter(doctor =>
+      doctor.user.firstName.toLowerCase().includes(query) ||
       doctor.specialties.toLowerCase().includes(query) ||
-      doctor.user.firstname.toLowerCase().includes(query)||
-      doctor.user.lastname.toLowerCase().includes(query)
+      doctor.user.lastName.toLowerCase().includes(query)
     )
 }
 }

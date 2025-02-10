@@ -29,30 +29,36 @@
                                     <tr>
                                         <th>Doctor</th>
                                         <th>Time</th>
-                                        <th>Consultations</th>
                                         <th>Actions</th>
 
 
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr *ngFor="let appointments of listOfAppointments ;">
                                         <td>
-
-                                        </td>
-                                        <td>
-
+                                          {{appointments.doctor.user.firstName}} {{appointments.doctor.user.lastName}}
                                         </td>
                                         <td>
-
+                                            {{appointments.time | date:'dd/MM/yyyy HH:MM'}}
                                         </td>
-
-                                        <td class="">
-                                            <button class="btn btn-danger btn-sm">
-                                                <i class="fas fa-times me-1"></i>Cancel
-                                            </button>
+                                        
+                                        <!-- test if the date time for the appointments.time in the past disable the button -->
+                                        <td *ngIf="!isPastAppointment(appointments.time)">
+                                          <button
+                                          class="btn btn-danger btn-sm"
+                                          >
+                                          <i class="fas fa-times me-1"></i>
+                                        </button>
                                         </td>
-
+                                        <td *ngIf="isPastAppointment(appointments.time)">
+                                          <button
+                                          class="btn btn-danger btn-sm"
+                                          disabled
+                                          >
+                                          <i class="fas fa-times me-1"></i>
+                                        </button>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>

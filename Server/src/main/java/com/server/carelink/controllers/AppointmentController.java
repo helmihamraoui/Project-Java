@@ -31,13 +31,23 @@ public class AppointmentController {
 		AppointmentDTO app=appServ.getOneApp(id);
 		return ResponseEntity.ok(app);
 	}
-	
-	
+
+
+		@GetMapping("/appointments/patient/{id}")
+		public ResponseEntity<List<AppointmentDTO>> getAppointmentsByPatient(@PathVariable Long id) {
+			List<AppointmentDTO> appointments = appServ.getAllAppofPatient(id);
+			return ResponseEntity.ok(appointments);
+	}
+
 	@PostMapping ("/appointments/new")
-	public ResponseEntity<AppointmentDTO> createApp(@RequestBody Appointment app,HttpServletRequest request){
-				AppointmentDTO appDTO= appServ.createApp(app, request);
+	public ResponseEntity<AppointmentDTO> createApp(@RequestBody AppointmentDTO app){
+		AppointmentDTO appDTO= appServ.addApp(app);
 				return ResponseEntity.ok(appDTO);
 	}
-	
+	@GetMapping("/appointments/doctor/{id}")
+	public ResponseEntity<List<AppointmentDTO>> getAppointementsOfDoctor(@PathVariable Long id){
+		List<AppointmentDTO> appointments = appServ.findByDoctorId(id);
+		return ResponseEntity.ok(appointments);
+	}
 	
 }
