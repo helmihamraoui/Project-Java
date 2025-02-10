@@ -28,58 +28,44 @@
             <!-- Content -->
             <main class="p-4">
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h4>All Doctors (0)</h4>
+                    <h4>All Doctors ({{doctors.length}})</h4>
                     <div class="d-flex gap-3">
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search Doctor">
-                            <button class="btn btn-outline-primary" type="submit">Search</button>
-                        </form>
-                       
-                        
+                        <input type="text" [(ngModel)]="search" (input)="filter()"
+                        placeholder="Search Doctors by Name ..." class="form-control"> 
                     </div>
                 </div>
-
-                <!-- Doctors Table -->
-                <div class="card shadow">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover align-middle">
-                                    <thead class="table-light">
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Specialty</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Dr. John Doe</td>
-                                            <td>johndoeexample.com</td>
-                                            <td>Cardiology</td>
-                                            <td>
+<!-- Doctors Table -->
+<div class="card shadow">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Specialty</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let doctor of filtredDocters">
+                            <td>{{doctor.user.firstName}} {{doctor.user.lastName}}</td>
+                            <td>{{doctor.user.email}}</td>
+                            <td>{{doctor.specialties}}</td>
+                            <td>
                                                 <div class="d-flex gap-2">
-                                                    <button  data-bs-toggle="modal" data-bs-target="#chat"class="btn btn-sm btn-outline-primary">
+                                                    <a routerLink="/chat/{{doctor.user.id}}" data-bs-toggle="modal" data-bs-target="#chat" class="btn btn-sm btn-outline-primary">
                                                         <i class="material-symbols-outlined">
                                                             3p
                                                         </i>
-                                                    </button> 
-                                                    <a  routerLink="/patints/booking" class="btn btn-sm btn-outline-primary">
+                                                    </a> 
+                                                    <a  routerLink="/patient/booking/{{doctor.id}}" class="btn btn-sm btn-outline-primary">
                                                         <i class="material-symbols-outlined">
                                                             calendar_month 
-
-
                                                         </i>
                                                     </a>  
-                                                    <a  routerLink="" class="btn btn-sm btn-outline-danger">
-                                                        <i class="material-symbols-outlined">
-                                                             
-                                                            forum
-
-                                                        </i>
-                                                    </a> 
-
+                                                   
                                                    
                                                 </div>
                                             </td>

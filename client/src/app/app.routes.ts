@@ -30,8 +30,6 @@ export const routes: Routes = [
      },  
      { path: 'add/doctor', component:LoginDoctorComponent
      },
-        
-
      //for the admin
      { path: 'admin/dashbord', component:AdminDashbordComponent }, 
      { path: 'amdin/schedule', component:ScheduleComponent } ,
@@ -44,32 +42,14 @@ export const routes: Routes = [
      { path: 'doctor/doctor', component:AlldocterfordocterComponent } ,    
      { path: 'doctor/patients', component:PatientfordoctorComponent } ,  
      { path: 'doctor/appointment', component:DoctorAppointmentComponent } ,    
-  
-
      //for patents   
-     { path:'patints/booking',component:BookingComponent},
-     { path:'patints/dashbord',component:PatintsdashbordComponent},
-     { path: 'patients/alldoctor', component:AlldoctroforpatentsComponent } ,     
+     { path:'patient/booking/:id',component:BookingComponent},
+     { path:'patient/dashbord',component:PatintsdashbordComponent},
+     { path: 'patient/alldoctor', component:AlldoctroforpatentsComponent } ,     
      { path:'pation',component:AppointemntComponent},
-
-    
-     
-
-
      { path: 'chat/:receiverId', component:ChatComponent } ,
-
-
-
-
-
      { path: 'add/docter', component:LoginDoctorComponent } ,
-
-
- 
      { path: 'addocter', component:AddDocterComponent } ,
 
 
-
-
-]; 
-
+];

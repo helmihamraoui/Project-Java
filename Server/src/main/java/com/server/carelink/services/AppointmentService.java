@@ -2,10 +2,11 @@ package com.server.carelink.services;
 
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
-import javax.management.RuntimeErrorException;
-
+import com.server.carelink.models.Doctor;
+import com.server.carelink.repositories.DoctorRepo;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,34 +35,37 @@ public class AppointmentService {
     UserRepository userRepository;
 	@Autowired
     PatientRepo patientRepo;
-	
+	@Autowired
+	DoctorRepo doctorRepo;
 	public List<AppointmentDTO> getAllApp(){
 		return appRepo.findAll().stream()
 				.map(this::convertToAppDTO)
 				.collect(Collectors.toList());
 	}
-	
+	public List<AppointmentDTO> getAllAppofPatient(Long id){
+		return appRepo.findByPatientId(id).stream()
+				.map(this::convertToAppDTO)
+				.collect(Collectors.toList());
+	}
 	public AppointmentDTO getOneApp(long id) {
 		return appRepo.findById(id)
 				.map(this::convertToAppDTO)
 				.orElseThrow(() -> new RuntimeException("Appointment not found"));
 	}
-	
-	public AppointmentDTO createApp(Appointment app,HttpServletRequest request) {
-		String authHeader = request.getHeader("Authorization");
-        if (authHeader != null && authHeader.startsWith("Bearer ")) {
-            String token = authHeader.substring(7);
-            Long userId = jwtService.extractUserId(token);
-            if (patientRepo.findByUserId(userId).isPresent()) {
-                Patient patient = patientRepo.findByUserId(userId).get();
-                app.setPatient(patient);
-                return convertToAppDTO( appRepo.save(app));
-            }
-            throw new RuntimeException("Patient not found");
-        }
-        throw new RuntimeException("Authorization header is missing or invalid");
+	public AppointmentDTO addApp(AppointmentDTO app){
+		Appointment appointment = convertToAppEntity(app);
+		Appointment savedapp=appRepo.save(appointment);
+		return convertToAppDTO(savedapp);
 	}
-	
+	public List<AppointmentDTO> findByDoctorId(Long doctorId) {
+		// Fetching the appointments from the repository
+		List<Appointment> appointments = appRepo.findByDoctorId(doctorId);
+
+		// Converting the entities to DTOs
+		return appointments.stream()
+				.map(this::convertToAppDTO)  // Convert each Appointment to AppointmentDTO
+				.collect(Collectors.toList());
+	}
 	
 	public void deleteApp(Long id) {
 		AppointmentDTO appToDelete=getOneApp(id);
@@ -74,4 +78,15 @@ public class AppointmentService {
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
 		return modelMapper.map(app, AppointmentDTO.class);
 	}
+	public Appointment convertToAppEntity(AppointmentDTO dto) {
+		Appointment appointment = new Appointment();
+		appointment.setPatient(new Patient());
+		appointment.getPatient().setId(dto.getPatient().getId());
+
+		appointment.setDoctor(new Doctor());
+		appointment.getDoctor().setId(dto.getDoctor().getId());
+		appointment.setTime(dto.getTime());
+		return appointment;
+	}
+
 }

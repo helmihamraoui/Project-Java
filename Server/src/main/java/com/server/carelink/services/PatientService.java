@@ -32,6 +32,11 @@ public class PatientService {
                 .map(this::convertEntityToDto)
                 .orElseThrow(() -> new RuntimeException("Patient not found"));
     }
+    public PatientDTO getPatientByUserId(Long id){
+        return patientRepo.findByUserId(id)
+                .map(this::convertEntityToDto)
+                .orElseThrow(() -> new RuntimeException("Patient not found"));
+    }
 
     // Add a new patient
     public PatientDTO addPatient(PatientDTO patientDTO) {

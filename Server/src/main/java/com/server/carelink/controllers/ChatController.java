@@ -4,6 +4,7 @@ import com.server.carelink.dtos.MessageDTO;
 import com.server.carelink.models.Message;
 import com.server.carelink.services.MessageService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.*;
@@ -46,4 +47,10 @@ public class ChatController {
                                       @PathVariable Long senderId) {
         return messageService.getChatHistory(senderId, receiverId);
     }
+    @GetMapping("/latest/{receiverId}")
+    public ResponseEntity<List<Message>> getLatestMessages(@PathVariable Long receiverId) {
+        List<Message> messages = messageService.findLatestMessages(receiverId);
+        return ResponseEntity.ok(messages);
+    }
+
 }

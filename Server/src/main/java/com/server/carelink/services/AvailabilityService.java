@@ -32,8 +32,8 @@ public class AvailabilityService {
 				.map(this::convertToDTO)
 				.collect(Collectors.toList());
 	}
-	
-	
+
+
 	public AvailabilityDTO getOneAv(Long id) {
 		return avRepo.findByDoctorId(id)
 				.map(this::convertToDTO)
