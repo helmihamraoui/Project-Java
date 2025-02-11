@@ -37,6 +37,7 @@
                                  
                     </div>
                 </div>
+                
 
                 <!-- Doctors Table -->
                 <div class="card shadow">
@@ -54,7 +55,7 @@
                                     </thead>
                                     <tbody>
                                         <tr *ngFor="let doctor of filtredDocters">
-                                            <td>{{doctor.user.firstname}}</td>
+                                            <td>{{doctor.user.firstName}} {{doctor.user.lastName}}</td>
                                             <td>{{doctor.user.email}}</td>
                                             <td>{{doctor.specialties}}</td>
                                             <td>

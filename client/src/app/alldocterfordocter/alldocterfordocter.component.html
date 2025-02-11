@@ -2,7 +2,7 @@
     <div class="row">
         <!-- Sidebar -->
         <div class="col-md-2 sidebar p-3">
-            <app-navbardocter></app-navbardocter>     
+            <app-navbardocter></app-navbardocter>
          </div>
 
         <!-- Main Content -->
@@ -46,11 +46,11 @@
                                             <td>{{doctor.specialties}}</td>
                                             <td>
                                                 <div class="d-flex gap-2">
-                                                    <a href="" class="btn btn-sm btn-outline-primary">
-                                                        <i class="material-symbols-outlined">
-                                                            3p
-                                                        </i>
-                                                    </a>
+                                                  <button (click)="chat(doctor.user.id)" data-bs-toggle="modal" data-bs-target="#chat" class="btn btn-sm btn-outline-primary">
+                                                    <i class="material-symbols-outlined">
+                                                        3p
+                                                    </i>
+                                                </button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -65,6 +65,20 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="chat" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-chat [doctorId]=selectedDoctorId></app-chat>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
 
 
 

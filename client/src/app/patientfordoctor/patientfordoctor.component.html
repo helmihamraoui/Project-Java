@@ -33,26 +33,24 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let patient of filtredPatients">
-                                        <td>{{patient.user.firstname}} {{patient.user.lastname}}</td>
-                                        <td>{{patient.user.number}}</td>
-                                        <td>{{patient.user.email}}</td>
-                                        <td>{{patient.user.date | date}}</td>
-                                        <td>
+                                    <tr *ngFor="let appointment of filtredAppointments">
+                                        <td *ngIf="appointment.doctor.id==doctor.id">{{appointment.patient.user.firstname}} {{appointment.patient.user.lastname}}</td>
+                                        <td *ngIf="appointment.doctor.id==doctor.id">{{appointment.patient.user.number}}</td>
+                                        <td *ngIf="appointment.doctor.id==doctor.id">{{appointment.patient.user.email}}</td>
+                                        <td *ngIf="appointment.doctor.id==doctor.id">{{appointment.patient.user.date | date}}</td>
+                                        <td *ngIf="appointment.doctor.id==doctor.id" >
                                             <div class="d-flex gap-2">
-                                                <button data-bs-toggle="modal" class="btn btn-sm btn-outline-primary"
+                                                <button (click)="diagnose(appointment.patient.id)" data-bs-toggle="modal" class="btn btn-sm btn-outline-primary"
                                                     type="button" data-bs-toggle="modal" data-bs-target="#edit_square">
                                                     <i class="material-symbols-outlined">edit_square</i>
                                                 </button>
-                                                <button data-bs-toggle="modal" data-bs-target="#visibility"
+                                                <button (click)="modal(appointment.patient.id)" data-bs-toggle="modal" data-bs-target="#visibility"
                                                     data-bs-toggle="modal" class="btn btn-sm btn-outline-danger">
                                                     <i class="material-symbols-outlined">visibility</i>
-
                                                 </button>
                                                 <button data-bs-toggle="modal" data-bs-target="#clinical_notes"
                                                     data-bs-toggle="modal" class="btn btn-sm btn-outline-success">
                                                     <i class="material-symbols-outlined">clinical_notes</i>
-
                                                 </button>
                                             </div>
                                         </td>
@@ -75,28 +73,34 @@
                 <h5 class="modal-title" id="exampleModalLabel">Add Diagnoses </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="">
+            <form  #RegisterForm="ngForm" (ngSubmit)="addDiagnose()" method="post" >
                 <div class="modal-body">
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="">
-                        <label for="floatingInput">Name doctor</label>
-                    </div>
                     <br>
-                    <div class="form-floating">
+                    <div class="form-floating" *ngIf="patientDia.diagnose==null">
                         <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                            style="height: 100px"></textarea>
+                            style="height: 100px" [(ngModel)]="addData.allergies" name="allergies" ></textarea>
+                        <label for="floatingTextarea2">allergies</label>
+                    </div>
+                    <div class="form-floating" *ngIf="patientDia.diagnose!=null">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                            style="height: 100px" [(ngModel)]="editData.allergies" name="allergies" ></textarea>
                         <label for="floatingTextarea2">allergies</label>
                     </div>
                     <br>
-                    <div class="form-floating">
+                    <div class="form-floating" *ngIf="patientDia.diagnose==null">
                         <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                            style="height: 100px"></textarea>
+                            style="height: 100px" [(ngModel)]="addData.treatments" name="treatments" ></textarea>
                         <label for="floatingTextarea2">tretements</label>
                     </div>
 
+                    <div class="form-floating" *ngIf="patientDia.diagnose!=null">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                            style="height: 100px" [(ngModel)]="editData.treatments" name="treatments" ></textarea>
+                        <label for="floatingTextarea2">tretements</label>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <a href="" class="btn btn-success">OK</a>
+                    <button class="btn btn-success">Add</button>
                 </div>
             </form>
 
@@ -123,28 +127,27 @@
                         <div class="row mb-3">
                             <label class="col-form-label fw-bold">Name:</label>
                             <div class="col">
-                                Patient Name
+                                {{onePatient.user.firstname}}
                             </div>
                         </div>
-                      
                         <div class="row mb-3">
-                            <label class="col-form-label fw-bold">Telephone:</label>
+                            <label class="col-form-label fw-bold">Last Name:</label>
                             <div class="col">
-                                0123456789
+                                {{onePatient.user.lastname}}
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label class="col-form-label fw-bold">Address:</label>
                             <div class="col">
-                                Patient Address
+                                {{onePatient.user.address}}
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label class="col-form-label fw-bold">Date of Birth:</label>
                             <div class="col">
-                                1990-01-01
+                                {{onePatient.user.date |date}}
                             </div>
                         </div>
                     </div>
