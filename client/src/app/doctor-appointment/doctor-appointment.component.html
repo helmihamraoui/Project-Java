@@ -37,7 +37,7 @@
                             <div class="col-md-3">
                                 <label class="form-label">Filter by Patient:</label>
                                 <input type="text" [(ngModel)]="search" (input)="filter()"
-                        placeholder="Search Doctors by Name ..." class="form-control">
+                        placeholder="Search by Patient Name ..." class="form-control">
                     </div>
                 </div>
 
@@ -51,7 +51,6 @@
                                         <th>Patient Name</th>
                                         <th class="text-center">Appointment #</th>
                                         <th class="text-center">Appointment Date</th>
-                                        <th class="text-center">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -60,11 +59,6 @@
                                         <td style="font-weight: 500;" *ngIf="appointment.doctor.id==doctor.id">{{appointment.patient.user.firstname}} {{appointment.patient.user.lastname}}</td>
                                         <td class="text-center fw-bold text-primary" *ngIf="appointment.doctor.id==doctor.id">{{appointment.id}}</td>
                                         <td class="text-center" *ngIf="appointment.doctor.id==doctor.id">{{appointment.time | date}}</td>
-                                        <td class="text-center" *ngIf="appointment.doctor.id==doctor.id">
-                                            <button class="btn btn-danger btn-sm">
-                                                <i class="fas fa-times me-1"></i>Cancel
-                                            </button>
-                                        </td>
                                     </tr>
                                 </tbody>
                             </table>

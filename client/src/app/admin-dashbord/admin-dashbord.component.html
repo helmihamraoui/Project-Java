@@ -109,8 +109,8 @@
                                     <tbody>
                                         <tr *ngFor="let appointment of appointments">
                                             <td>{{appointment.patient.user.firstname}} {{appointment.patient.user.lastname}}</td>
-                                            <td>{{appointment.doctor.user.firstname}} {{appointment.doctor.user.lastname}}</td>
-                                            <td>{{appointment.date.split(" ")[0]}}</td>
+                                            <td>{{appointment.doctor.user.firstName}} {{appointment.doctor.user.lastName}}</td>
+                                            <td>{{appointment.time|date}}</td>
                                         </tr>
                                         <!-- Add more rows -->
                                     </tbody>

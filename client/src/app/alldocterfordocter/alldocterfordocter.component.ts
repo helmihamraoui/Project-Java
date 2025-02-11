@@ -20,6 +20,8 @@ export class AlldocterfordocterComponent {
     selectedDoctorId: number =0; // Store selected doctor's ID
 
 
+    id:string|null=""
+
     constructor(private apiService:ApiService){}
 
     ngOnInit(){
@@ -28,7 +30,7 @@ export class AlldocterfordocterComponent {
         console.log(this.doctors);
         this.filtredDocters=data
       })
-
+      this.id=localStorage.getItem("userId")
     }
     filter(){
         const query=this.search.toLowerCase().trim()
