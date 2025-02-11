@@ -41,10 +41,10 @@
                                     </thead>
                                     <tbody>
                                         <tr *ngFor="let doctor of filtredDocters">
-                                            <td>{{doctor.user.firstName}} {{doctor.user.lastName}}</td>
-                                            <td>{{doctor.user.email}}</td>
-                                            <td>{{doctor.specialties}}</td>
-                                            <td>
+                                            <td *ngIf="doctor.user.id!=id">{{doctor.user.firstName}} {{doctor.user.lastName}}</td>
+                                            <td *ngIf="doctor.user.id!=id">{{doctor.user.email}}</td>
+                                            <td *ngIf="doctor.user.id!=id">{{doctor.specialties}}</td>
+                                            <td *ngIf="doctor.user.id!=id">
                                                 <div class="d-flex gap-2">
                                                     <a href="" class="btn btn-sm btn-outline-primary">
                                                         <i class="material-symbols-outlined">

@@ -48,7 +48,7 @@
                                                     data-bs-toggle="modal" class="btn btn-sm btn-outline-danger">
                                                     <i class="material-symbols-outlined">visibility</i>
                                                 </button>
-                                                <button data-bs-toggle="modal" data-bs-target="#clinical_notes"
+                                                <button (click)="display(appointment.patient)" data-bs-toggle="modal" data-bs-target="#clinical_notes"
                                                     data-bs-toggle="modal" class="btn btn-sm btn-outline-success">
                                                     <i class="material-symbols-outlined">clinical_notes</i>
                                                 </button>
@@ -175,25 +175,16 @@
 
                 <div class="modal-body">
                     <div class="container-fluid">
-
-
-                        <div class="row mb-3">
-                            <label class="col-form-label fw-bold">Doctor name:</label>
-                            <div class="col">
-                                doctor Name
-                            </div>
-                        </div>
-
                         <div class="row mb-3">
                             <label class="col-form-label fw-bold">Allergies:</label>
                             <div class="col">
-                                .allergies
+                                {{diagnoses.allergies}}
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label class="col-form-label fw-bold">Tretements:</label>
                             <div class="col">
-                                tretements
+                                {{diagnoses.treatments}}
                             </div>
                         </div>
 

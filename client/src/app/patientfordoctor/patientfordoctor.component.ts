@@ -23,6 +23,7 @@ export class PatientfordoctorComponent {
     editData:any={allergies:"",treatments:"",doctors:0}
 
     patientDia:any={emergContact:"",diagnose:{},user:{}}
+    diagnoses:any={allergies:"",treatments:"",doctors:[]}
     
       constructor(private apiService:ApiService,private router:Router){}
         ngOnInit() {
@@ -84,5 +85,9 @@ export class PatientfordoctorComponent {
           }
         });
       }
+    }
+
+    display(patient:any){
+      this.diagnoses=patient.diagnose
     }
 }

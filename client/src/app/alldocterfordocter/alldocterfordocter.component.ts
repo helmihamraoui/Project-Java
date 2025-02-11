@@ -15,6 +15,7 @@ export class AlldocterfordocterComponent {
     doctors:any[]=[];
     filtredDocters:any[]=[]
     search:String=""
+    id:string|null=""
   
     constructor(private apiService:ApiService){}
 
@@ -24,7 +25,7 @@ export class AlldocterfordocterComponent {
         console.log(this.doctors);
         this.filtredDocters=data
       })
-      
+      this.id=localStorage.getItem("userId")
     }
     filter(){
         const query=this.search.toLowerCase().trim()
