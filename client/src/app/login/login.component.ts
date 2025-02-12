@@ -43,7 +43,6 @@ export class LoginComponent {
       error: (error) => {
         this.errorMessage="Mail or password invalid";
         this.successMessage = '';  // Clear success message if present
-        console.error('Login error:', error);  // Log the error for debugging
       }
     });
   }

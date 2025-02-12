@@ -16,16 +16,41 @@ export class SignUpComponent {
   registerData: any = {firstName:'',lastName:'', email: '', password: '' ,confirm:'',date:'',number:'',address:'',image:'',role:'ROLE_PATIENT'}; 
   currentStep = 1;
   selectedImage: File | null = null;
-  previewImage: string | ArrayBuffer | null = null;
+  previewImage: string | ArrayBuffer | null = null; 
+  meesageerr:any={};
 
   constructor(
     private apiService: ApiService,
     private router: Router
   ) {}
-
+  onInit(){
+    this.meesageerr={};
+  }
   showStep(step: number) {
     if (step < 1 || step > 3) return;
+    if (this.currentStep === 1 && !this.validateStep1()) return;
+    if (this.currentStep === 2 && !this.validateStep2()) return;
     this.currentStep = step;
+  } 
+
+  validateStep1() {
+    // Add validation logic for step 1
+    // Example: Check if firstName and lastName are not empty
+    if (!this.registerData.firstName || !this.registerData.lastName) {
+      this.meesageerr.step1 = 'First name and last name are required.';
+      return false;
+    }
+    return true;
+  }
+
+  validateStep2() {
+    // Add validation logic for step 2
+    // Example: Check if email and password are not empty
+    if (!this.registerData.email || !this.registerData.password) {
+      this.meesageerr.step2 = 'Email and password are required.';
+      return false;
+    }
+    return true;
   }
 
   submitRegistration() {
