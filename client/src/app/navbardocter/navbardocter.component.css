@@ -1,7 +1,7 @@
 
 .sidebar {
     background: white;
-    transition: all 0.3s; 
+    transition: all 0.3s;
     color: black;
 }
 .sidebar-link {
@@ -28,13 +28,14 @@
 }
 @keyframes marquee {
     0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }  
+    100% { transform: translateX(-100%); }
 }
 .nav-link:hover {
     color: white;
     background: #85b4ad;
     border-radius: 50px;
-} 
-.nav-link{ 
+}
+.nav-link{
     color: black;
 }
+

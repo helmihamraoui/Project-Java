@@ -41,4 +41,5 @@ export class AlldoctroforpatentsComponent {
     this.selectedDoctorId = doctorId; // Set the ID when chat button is clicked
   console.log('Chat with doctor:', this.selectedDoctorId);
   }
+  
 }

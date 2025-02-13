@@ -1,21 +1,14 @@
     <div class="row justify-content-center">
         <div class="">
             <div class="">
-                
+
                 <div class="card-body">
                     <form #RegisterForm="ngForm" (ngSubmit)="submitRegistration()" method="post">
                         <div class="mb-3">
                             <label for="name" class="form-label">Job Title</label>
                             <input type="text" class="form-control" [(ngModel)]="data.jobTitle" name="jobTitle" >
                         </div>
-<<<<<<< HEAD
-                        <div class="mb-3">
-                            <label for="nic" class="form-label"> Years of Experience</label>
-                            <input type="number" class="form-control" [(ngModel)]="data.experience"  name="experience" >
-                        </div>
-=======
-                        
->>>>>>> f700dce4d341cbb5e9bc24a8a324e3e1d417c5dd
+
                         <div class="mb-3">
                             <label for="spec" class="form-label">Specialty</label>
                             <input type="text"[(ngModel)]="data.specialties" name="specialties"  class="form-control" >
@@ -24,11 +17,11 @@
                             <label for="email" class="form-label">license Number</label>
                             <input type="number" class="form-control" [(ngModel)]="data.licenseNumb" name="licenseNumb">
                         </div>
-                        
+
                         <button type="submit" class="btn btn-primary">Add Doctor</button>
                     </form>
                 </div>
             </div>
         </div>
-    
+
 </div>
