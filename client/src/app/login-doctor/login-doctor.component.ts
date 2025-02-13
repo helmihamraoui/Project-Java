@@ -13,7 +13,7 @@ import { Router} from '@angular/router';
   
 })
 export class LoginDoctorComponent {
-   registerData: any = {firstName:'',lastName:'', email: '', password: '' ,confirm:'',date:'',number:'',address:'',image:'',role:'ROLE_DOCTOR'}; 
+    registerData: any = {firstName:'',lastName:'', email: '', password: '' ,confirm:'',date:'',number:'',address:'',image:'',role:'ROLE_DOCTOR'}; 
     currentStep = 1;
     selectedImage: File | null = null;
     previewImage: string | ArrayBuffer | null = null;
@@ -32,13 +32,6 @@ export class LoginDoctorComponent {
       console.log(this.registerData);
       this.apiService.registerUser(this.registerData).subscribe({
         next: (response) => {
-          //set the token in local storage
-          localStorage.setItem('token', response.token);
-          //set the user id in local storage
-          localStorage.setItem('userId', response.id);
-          
-          //set the Role in local storage
-          localStorage.setItem('role', response.role);
           //redirect to the urgent page
           this.router.navigate(['/addocter']);
         },
