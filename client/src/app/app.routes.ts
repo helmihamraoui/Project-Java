@@ -16,7 +16,6 @@ import { PatientfordoctorComponent } from './patientfordoctor/patientfordoctor.c
 import { DoctorAppointmentComponent } from './doctor-appointment/doctor-appointment.component';
 import { AlldoctroforpatentsComponent } from './alldoctroforpatents/alldoctroforpatents.component';
 import { BookingComponent } from './booking/booking.component';
-import { PatentsComponent } from './patents/patents.component';
 import { AppointemntComponent } from './appointemnt/appointemnt.component';
 import { ChatComponent } from './chat/chat.component';
 import { LoginDoctorComponent } from './login-doctor/login-doctor.component';

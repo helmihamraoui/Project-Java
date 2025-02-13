@@ -17,7 +17,4 @@ public class DoctorDTOApp {
 	private Integer licenseNumb;
 	private Integer experience;
 	private UserDTO user;
-	
-	
-	
 }
