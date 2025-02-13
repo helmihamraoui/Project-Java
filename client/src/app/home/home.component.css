@@ -901,7 +901,7 @@ gap: 5px;}
 }
 
 .carousel-control-prev,
-.carousel-control-next {
+.carousel-controzl-next {
   position: static;
   display: inline-block;
   margin: 0 5px; /* Adjust spacing between buttons */
