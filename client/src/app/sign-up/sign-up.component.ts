@@ -13,7 +13,7 @@ import { ApiService } from '../api.service';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent {
-  registerData: any = {firstName:'',lastName:'', email: '', password: '' ,confirm:'',date:'',number:'',address:'',image:'',role:'ROLE_PATIENT'}; 
+  registerData: any = {firstName: '', lastName: '', email: '', password: '', confirm: '', date: '', number: '', address: '',role:"ROLE_PATIENT"};
   currentStep = 1;
   selectedImage: File | null = null;
   previewImage: string | ArrayBuffer | null = null; 
@@ -57,14 +57,9 @@ export class SignUpComponent {
     console.log(this.registerData);
     this.apiService.registerUser(this.registerData).subscribe({
       next: (response) => {
-        //set the token in local storage
         localStorage.setItem('token', response.token);
-        //set the user id in local storage
         localStorage.setItem('userId', response.id);
-        
-        //set the Role in local storage
         localStorage.setItem('role', response.role);
-        //redirect to the urgent page
         this.router.navigate(['/urgent']);
       },
       error: (error) => {

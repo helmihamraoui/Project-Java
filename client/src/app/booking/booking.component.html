@@ -4,12 +4,12 @@
       <app-nabrapatients></app-nabrapatients>
     </div>
 
-    <main class="col-md-10 p-4 bg-light">
+    <main class="col-md-10 p-4">
       <div class="container">
         <div class="calendar-container shadow">
           <div class="calendar-header p-3 mb-3 d-flex justify-content-between align-items-center bg">
             <h3 class="mb-0">{{ currentYear }}</h3>
-            <select class="form-select w-auto" (change)="selectMonth($event)">
+            <select class="form-select w-auto " (change)="selectMonth($event)" >
               <option *ngFor="let month of months" [value]="month.value" [selected]="month.value === currentMonth">
                 {{ month.name }}
               </option>

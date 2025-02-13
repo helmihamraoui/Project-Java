@@ -7,37 +7,23 @@
         </div>
 
         <!-- Main Content -->
-        <div class="col-md-10 p-4 bg-light">
+        <div class="col-md-10 p-4 ">
             <!-- Navbar -->
-            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+            <nav class="navbar navbar-expand-lg navbar-light  border-bottom">
                 <div class="container-fluid">
                     <div class="d-flex align-items-center">
                         <button class="btn btn-outline-secondary d-md-none me-3" type="button">
-                            <i class="fas fa-bars"></i>
                         </button>
-                        <span class="navbar-brand mb-0 h1">Appointment Manager</span>
                     </div>
 
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-2">
-                            <a class="nav-link" href="#"><i class="far fa-bell"></i></a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link" href="#"><i class="far fa-envelope"></i></a>
-                        </li>
+
+
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                <img src="../img/profile.png" class="nav-profile-img rounded-circle">
+                            <a class="">
+                                <img src="../img/profile.png"  width="40px">
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-envelope me-2"></i>Inbox</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item text-danger" href="#"><i
-                                            class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
-                            </ul>
+
                         </li>
                     </ul>
                 </div>
@@ -51,7 +37,7 @@
                             <div class="col-md-3">
                                 <label class="form-label">Filter by Patient:</label>
                                 <input type="text" [(ngModel)]="search" (input)="filter()"
-                        placeholder="Search Doctors by Name ..." class="form-control"> 
+                        placeholder="Search by Patient Name ..." class="form-control">
                     </div>
                 </div>
 
@@ -65,19 +51,14 @@
                                         <th>Patient Name</th>
                                         <th class="text-center">Appointment #</th>
                                         <th class="text-center">Appointment Date</th>
-                                        <th class="text-center">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                  h
                                     <tr *ngFor="let appointment of filtredAppointments">
                                         <td style="font-weight: 500;" *ngIf="appointment.doctor.id==doctor.id">{{appointment.patient.user.firstname}} {{appointment.patient.user.lastname}}</td>
                                         <td class="text-center fw-bold text-primary" *ngIf="appointment.doctor.id==doctor.id">{{appointment.id}}</td>
-                                        <td class="text-center" *ngIf="appointment.doctor.id==doctor.id">{{appointment.date | date}}</td>
-                                        <td class="text-center" *ngIf="appointment.doctor.id==doctor.id">
-                                            <button class="btn btn-danger btn-sm">
-                                                <i class="fas fa-times me-1"></i>Cancel
-                                            </button>
-                                        </td>
+                                        <td class="text-center" *ngIf="appointment.doctor.id==doctor.id">{{appointment.time | date}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -88,8 +69,4 @@
         </div>
     </div>
 </div>
-<script>
-    document.querySelector('.navbar-toggler').addEventListener('click', function () {
-        document.querySelector('.sidebar').classList.toggle('active');
-    });
-</script>
+

@@ -1,8 +1,7 @@
 
 .sidebar {
-    width: 250px;
+    width: 200px;
     min-height: 100vh;
-    background-color: #f8f9fa;
     padding: 20px;
 }
 
@@ -18,3 +17,143 @@
     max-height: 250px;
     overflow-y: auto;
 }
+
+.modal-content{
+  background-image: url("../../../public/img/bg11.jpg");
+}
+ /****/.hot-card {
+  background: linear-gradient(45deg, #7CB0A9 0%, #0094B7 100%);
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(128, 175, 169, 0.4);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+}
+
+.hot-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.1) 30%,
+      transparent 70%);
+  transform: rotate(30deg);
+  animation: hot-glow 3s infinite linear;
+}
+
+@keyframes hot-glow {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+  100% { opacity: 0.3; }
+}
+
+.hot-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(128, 175, 169, 0.5);
+}
+
+.hot-card .card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hot-card .card-text {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hot-card .fa-calendar-alt {
+  color: rgba(255, 255, 255, 0.9);
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+  transition: transform 0.3s ease;
+}
+
+.hot-card:hover .fa-calendar-alt {
+  transform: rotate(15deg) scale(1.1);
+}
+/*********************************/
+.hot-card1 {
+  background: linear-gradient(135deg, #6b75ff, #38cdff);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(56, 103, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.hot-card1:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(56, 192, 255, 0.4);
+}
+
+.hot-card1 .card-title1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.hot-card1 .card-text1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hot-card1 .fa-wheelchair {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+  transition: transform 0.3s ease;
+  color: white;
+}
+
+.hot-card1:hover .fa-wheelchair {
+  transform: rotate(15deg) scale(1.1);
+
+}
+/***********************************************/
+.hot-card2 {
+  background: linear-gradient(135deg, #f2a0a0, #ff3838);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(251, 8, 8, 0.3);
+  transition: all 0.3s ease;
+}
+
+.hot-card2:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(255, 56, 56, 0.4);
+}
+
+.hot-card2 .card-title2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.hot-card2 .card-text2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hot-card2 .fa-user-md  {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+  transition: transform 0.3s ease;
+}
+
+.hot-card2:hover .fa-user-md  {
+  color: rgba(255, 255, 255, 0.9);
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+  transition: transform 0.3s ease;
+  transform: rotate(15deg) scale(1.1);
+
+}
+

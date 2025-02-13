@@ -1,113 +1,230 @@
 <div>
-
-    <div class="login-box">
-        <div class=" text-center ">
-            <img src="img/backkk2.png" alt="Profile Image" class="img-fluid" style="max-width: 120%;">
-        </div>
-        <div class="">
-            <div class="signup" id=" ">
-                <div class=" text-center">
-                    <img src="logo/log (2).png" alt="Profile Image" class="img-fluid " style="max-width: 80%;">
-                    <p class="header-text">Let's Get Started</p>
-                    <p class="sub-text">Add Your Personal Details to Continue</p>
-                </div>
-                <br> <br>
-                <form #RegisterForm="ngForm" (ngSubmit)="submitRegistration()" method="post" enctype="">
-                    <div class="steps-container">
-                        <!-- Personal Details Part 1 -->
-                        <div class="md-5">
-                    
-                        <div id="step1" class="form-step step-active">
-                            <div class="row mb-3">
-                                <div class="mb-3">
-                                    <input type="text" [(ngModel)]="registerData.firstName" name="firstName" class="input-text" placeholder="First Name">
-                                </div>
-                                <div class="mb-3">
-                                    <input type="text" [(ngModel)]="registerData.lastName" name="lastName" class="input-text" placeholder="Last Name">
-                                </div>
-
-                                <div class="mb-3">
-                                    <input type="text" [(ngModel)]="registerData.address" name="address" class="input-text" placeholder="Address">
-                                </div>
-                                <div class="text-center">
-                                    <button type="button" class="login-btn btn-primary btn"
-                                        onclick="showStep(2)">Next</button>
-                                </div>
-                            </div>
-
-                            <div class="text-center mt-3">
-                                <p class="sub-text">Already have an account? <a routerLink="/login" class="link">Login</a>
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Personal Details Part 2 -->
-                        <div id="step2" class="form-step step-next">
-                            <div class="mb-3">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" [(ngModel)]="registerData.image" name="image" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                                </div>             
-                            </div>
-                            <div class="mb-3">
-                                <input type="date" [(ngModel)]="registerData.date" name="date" class="input-text" >
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <button type="button" class="login-btn btn-primary-soft btn"
-                                    onclick="showStep(1)">Back</button>
-                                </div>
-                                <div class="col-6">
-                                    <button type="button" class="login-btn btn-primary btn"
-                                    onclick="showStep(3)">Next</button>
-                                </div>
-                            </div>
-                            <div class="text-center mt-3">
-                                <p class="sub-text">Already have an account? <a routerLink="/login" class="link">Login</a>
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Account Details -->
-                        <div id="step3" class="form-step step-next">
-                            <div class="mb-3">
-                                <input type="email" [(ngModel)]="registerData.email" name="email" class="input-text" placeholder="Email Address"
-                                >
-                            </div>
-                            <div class="mb-3">
-                                <input type="tel" name="number" [(ngModel)]="registerData.number" class="input-text" placeholder="ex: 0712345678"
-                                >
-                            </div>
-                            <div class="mb-3">
-                                <input type="password" name="password" [(ngModel)]="registerData.password" class="input-text" placeholder="New Password"
-                                >
-                            </div>
-                            <div class="mb-3">
-                                <input type="password" name="confirm" [(ngModel)]="registerData.confirm" class="input-text"
-                                    placeholder="Confirm Password" >
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <button type="button" class="login-btn btn-primary-soft btn"
-                                    onclick="showStep(2)">Back</button>
-                                </div>
-                                <div class="col-6">
-                                    <button type="submit" class="login-btn btn-primary btn"> submit</button>
-                                </div>
-                            </div>
-                            
-                            <div class="text-center mt-3">
-                                <p class="sub-text">Already have an account? <a routerLink="/login" class="link">Login</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Login Link -->
-            </form>
-            </div>
-        </div>
+  <div class="login-box">
+    <div class="text-center">
+      <img
+        src="img/backkk2.png"
+        alt="Profile Image"
+        class="img-fluid"
+        style="max-width: 120%"
+      />
     </div>
-</div>
+    <div class="">
+      <div class="signup" id=" ">
+        <div class="text-center">
+          <img
+            src="logo/log (2).png"
+            alt="Profile Image"
+            class="img-fluid"
+            style="max-width: 80%"
+          />
+          <p class="header-text">Let's Get Started</p>
+          <p class="sub-text">Add Your Personal Details to Continue</p>
+        </div>
+        <br />
+        <br />
+        <form
+          #RegisterForm="ngForm"
+          (ngSubmit)="submitRegistration()"
+          method="post"
+          enctype=""
+        >
+          <div class="steps-container">
+            <!-- Personal Details Part 1 -->
+            <div class="md-5">
+              <!-- Step 1: Personal Details -->
+              <div id="step1" class="form-step step-active">
+                <div class="row mb-3">
+                  <div class="mb-3">
+                    <input
+                      type="text"
+                      [(ngModel)]="registerData.firstName"
+                      name="firstName"
+                      #firstName="ngModel"
+                      class="input-text"
+                      placeholder="First Name"
+                      required
+                    />
+                    <div
+                      *ngIf="firstName.invalid && firstName.touched"
+                      class="error-text"
+                    >
+                      First Name is required.
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <input
+                      type="text"
+                      [(ngModel)]="registerData.lastName"
+                      name="lastName"
+                      #lastName="ngModel"
+                      class="input-text"
+                      placeholder="Last Name"
+                      required
+                    />
+                    <div
+                      *ngIf="lastName.invalid && lastName.touched"
+                      class="error-text"
+                    >
+                      Last Name is required.
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <input
+                      type="text"
+                      [(ngModel)]="registerData.address"
+                      name="address"
+                      #address="ngModel"
+                      class="input-text"
+                      placeholder="Address"
+                      required
+                    />
+                    <div
+                      *ngIf="address.invalid && address.touched"
+                      class="error-text"
+                    >
+                      Address is required.
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <input
+                      type="date"
+                      [(ngModel)]="registerData.date"
+                      name="date"
+                      #date="ngModel"
+                      class="input-text"
+                      required
+                    />
+                    <div
+                      *ngIf="date.invalid && date.touched"
+                      class="error-text"
+                    >
+                      Date is required.
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <button
+                      type="button"
+                      class="login-btn btn-primary btn"
+                      onclick="showStep(2)"
+                      [disabled]="
+                        !firstName.valid ||
+                        !lastName.valid ||
+                        !address.valid ||
+                        !date.valid
+                      "
+                    >
+                      Next
+                    </button>
+                  </div>
+                </div>
+              </div>
 
+              <!-- Step 2: Account Details -->
+              <div id="step2" class="form-step step-next">
+                <div class="mb-3">
+                  <input
+                    type="email"
+                    [(ngModel)]="registerData.email"
+                    name="email"
+                    #email="ngModel"
+                    class="input-text"
+                    placeholder="Email Address"
+                    required
+                    email
+                  />
+                  <div
+                    *ngIf="email.invalid && email.touched"
+                    class="error-text"
+                  >
+                    Valid Email is required.
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="tel"
+                    [(ngModel)]="registerData.number"
+                    name="number"
+                    #number="ngModel"
+                    class="input-text"
+                    placeholder="ex: 0712345678"
+                    required
+                  />
+                  <div
+                    *ngIf="number.invalid && number.touched"
+                    class="error-text"
+                  >
+                    Phone number is required.
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="password"
+                    [(ngModel)]="registerData.password"
+                    name="password"
+                    #password="ngModel"
+                    class="input-text"
+                    placeholder="New Password"
+                    required
+                    minlength="6"
+                  />
+                  <div
+                    *ngIf="password.invalid && password.touched"
+                    class="error-text"
+                  >
+                    Password must be at least 6 characters.
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="password"
+                    [(ngModel)]="registerData.confirm"
+                    name="confirm"
+                    #confirm="ngModel"
+                    class="input-text"
+                    placeholder="Confirm Password"
+                    required
+                    [pattern]="registerData.password"
+                  />
+                  <div
+                    *ngIf="confirm.invalid && confirm.touched"
+                    class="error-text"
+                  >
+                    Passwords must match.
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <button
+                      type="button"
+                      class="login-btn btn-primary-soft btn"
+                      onclick="showStep(1)"
+                    >
+                      Back
+                    </button>
+                  </div>
+                  <div class="col-6">
+                    <button
+                      type="submit"
+                      class="login-btn btn-primary btn"
+                      [disabled]="
+                        !email.valid ||
+                        !number.valid ||
+                        !password.valid ||
+                        !confirm.valid
+                      "
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Login Link -->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
