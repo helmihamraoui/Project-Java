@@ -48,7 +48,7 @@ export const routes: Routes = [
      { path:'pation',component:AppointemntComponent},
      { path: 'chat/:receiverId', component:ChatComponent } ,
      { path: 'add/docter', component:LoginDoctorComponent } ,
-     { path: 'addocter', component:AddDocterComponent } ,
+     { path: 'addocter/:id', component:AddDocterComponent } ,
 
 
 ];

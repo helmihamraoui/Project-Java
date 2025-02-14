@@ -42,10 +42,10 @@
                                         <td>
                                             {{appointments.time | date:'dd/MM/yyyy HH:MM'}}
                                         </td>
-                                        
+
                                         <!-- test if the date time for the appointments.time in the past disable the button -->
                                         <td *ngIf="!isPastAppointment(appointments.time)">
-                                          <button
+                                          <button (click)="deleteApp(appointments.id)"
                                           class="btn btn-danger btn-sm"
                                           >
                                           <i class="fas fa-times me-1"></i>

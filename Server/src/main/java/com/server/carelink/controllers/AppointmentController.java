@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+
 @RequestMapping("/api/v1/any")
-@CrossOrigin(origins = "http://localhost:4200")
+
 public class AppointmentController {
 	@Autowired
 	AppointmentService appServ;
@@ -49,5 +50,15 @@ public class AppointmentController {
 		List<AppointmentDTO> appointments = appServ.findByDoctorId(id);
 		return ResponseEntity.ok(appointments);
 	}
+	@DeleteMapping("/delete/appointments/{id}")
+	public ResponseEntity<AppointmentDTO> deleteAppointment(@PathVariable Long id) {
+		AppointmentDTO app = appServ.deleteApp(id);
+		if (app != null) {
+			return ResponseEntity.ok(app); // Return 200 OK with deleted appointment data
+		} else {
+			return ResponseEntity.notFound().build(); // Return 404 if appointment not found
+		}
+	}
+
 	
 }

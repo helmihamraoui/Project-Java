@@ -15,13 +15,14 @@ export class AllpatentsComponent {
   patients:any[]=[];
   filtredPatients:any[]=[]
   search:String=""
-  
+  onePatient:any={emergContact:"",diagnose:{},user:{}}
+
     constructor(private apiService:ApiService){}
     ngOnInit(){
       this.apiService.getallPatient().subscribe(data =>{
         this.patients=data
         this.filtredPatients=data
-        
+
       })
     }
     filter(){
@@ -31,5 +32,10 @@ export class AllpatentsComponent {
         patient.user.firstname.toLowerCase().includes(query)||
         patient.user.lastname.toLowerCase().includes(query)
       )
+  }
+  details(id:number){
+    this.apiService.getOnePatient(id).subscribe(data=>{
+      this.onePatient=data
+    })
   }
 }

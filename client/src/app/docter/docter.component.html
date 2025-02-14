@@ -15,9 +15,9 @@
                 </option>
               </select>
             </div>
-  
+
             <div class="row">
-                <div class="row row-cols-7 g-0">
+                <div class="row row-cols-7 g-0" id="day">
                   <div class="col text-center fw-bold py-2 border-bottom">Sun</div>
                   <div class="col text-center fw-bold py-2 border-bottom">Mon</div>
                   <div class="col text-center fw-bold py-2 border-bottom">Tue</div>
@@ -26,13 +26,13 @@
                   <div class="col text-center fw-bold py-2 border-bottom">Fri</div>
                   <div class="col text-center fw-bold py-2 border-bottom">Sat</div>
                 </div>
-              
+              <br><br>
                 <div *ngFor="let week of listOfWeeks" class="week-container row">
                   <div *ngFor="let dayObj of week" class="col text-center">
                     <button
                       [ngClass]="{
                         'text-muted': dayObj.isPast,
-                        'bg-success': dayObj.appointments.length > 0 
+                        'bg-success': dayObj.appointments.length > 0
                       }"
                       (click)="selectDate(dayObj.day)"
                       [disabled]="dayObj.isPast"
@@ -47,16 +47,15 @@
                         No appointments
                       </div>
                     </button>
-                    
+
                     <!-- Display appointments for the selected day -->
-                    
+
                   </div>
                 </div>
               </div>
-              
+
           </div>
         </div>
       </main>
     </div>
   </div>
-  

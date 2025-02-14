@@ -75,6 +75,9 @@ AddPatient(data:any,id:number): Observable<any> {
   getAlldoctors():Observable<any>{
     return this.http.get(this.baseUrl+"/v1/any/doctors").pipe(catchError(this.handleError))
   }
+  getOneDoctor(id:number):Observable<any>{
+    return this.http.get(this.baseUrl+"/v1/any/doctors/"+id).pipe(catchError(this.handleError))
+  }
 
   getDoctorByUserId():Observable<any>{
     return this.http.get(this.baseUrl+"/v1/any/doctor/"+localStorage.getItem("userId")).pipe(catchError(this.handleError))
@@ -108,7 +111,11 @@ AddPatient(data:any,id:number): Observable<any> {
     return this.http.get(this.baseUrl+"/v1/any/patient/"+id).pipe(catchError(this.handleError))
   }
   getPatientByUserId():Observable<any>{
-    return this.http.get(this.baseUrl+"/v1/patient/"+localStorage.getItem("userId")).pipe(catchError(this.handleError))
+    return this.http.get(this.baseUrl+"/v1/patient/"+Number(localStorage.getItem("userId"))).pipe(catchError(this.handleError))
+  }
+  //delete appointment
+  deleteAppointment(id:number):Observable<any>{
+    return this.http.delete(this.baseUrl+"/v1/any/delete/appointments/"+id).pipe(catchError(this.handleError))
   }
   private handleError(error: any): Observable<never> {
     console.error('API Error:', error);

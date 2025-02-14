@@ -32,4 +32,10 @@ export class AppointemntComponent {
     const currentDate = new Date(); // Get the current date and time
     return appointmentDate < currentDate; // Return true if it's in the past
   }
+  //invoce the api service FOR DELET ONE APPOINTMENT
+  deleteApp(id: number): void {
+    this.ApiService.deleteAppointment(id).subscribe(() => {
+      this.listOfAppointments = this.listOfAppointments.filter((appointment: any) => appointment.id !== id);
+    });
+  }
 }

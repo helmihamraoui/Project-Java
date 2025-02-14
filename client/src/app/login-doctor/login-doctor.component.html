@@ -1,9 +1,9 @@
 <div>
 
     <div class="login-box">
-        <div class=" text-center ">
-            <img src="img/backkk2.png" alt="Profile Image" class="img-fluid" style="max-width: 120%;">
-        </div>
+
+            <img src="img/doctro.png" alt="Profile Image" class="img-fluid" id="img">
+
         <div class="">
             <div class="signup" id=" ">
                 <div class=" text-center">
@@ -13,97 +13,97 @@
                 </div>
                 <br> <br>
                 <form #RegisterForm="ngForm" (ngSubmit)="submitRegistration()" method="post" enctype="">
-                    <div class="steps-container">
-                        <!-- Personal Details Part 1 -->
-                        <div class="md-5">
-                    
-                        <div id="step1" class="form-step step-active">
-                            <div class="row mb-3">
-                                <div class="mb-3">
-                                    <input type="text" [(ngModel)]="registerData.firstName" name="firstName" class="input-text" placeholder="First Name">
-                                </div>
-                                <div class="mb-3">
-                                    <input type="text" [(ngModel)]="registerData.lastName" name="lastName" class="input-text" placeholder="Last Name">
-                                </div>
+                  <div class="steps-container">
+                      <!-- Personal Details Part 1 -->
+                      <div class="md-5">
 
-                                <div class="mb-3">
-                                    <input type="text" [(ngModel)]="registerData.address" name="address" class="input-text" placeholder="Address">
-                                </div>
-                                <div class="text-center">
-                                    <button type="button" class="login-btn btn-primary btn"
-                                        onclick="showStep(2)">Next</button>
-                                </div>
-                            </div>
+                      <div id="step1" class="form-step step-active">
+                          <div class="row mb-3">
+                              <div class="mb-3">
+                                  <input type="text" [(ngModel)]="registerData.firstName" name="firstName" class="input-text" placeholder="First Name">
+                              </div>
+                              <div class="mb-3">
+                                  <input type="text" [(ngModel)]="registerData.lastName" name="lastName" class="input-text" placeholder="Last Name">
+                              </div>
 
-                            <div class="text-center mt-3">
-                                <p class="sub-text">Already have an account? <a routerLink="/login" class="link">Login</a>
-                                </p>
-                            </div>
-                        </div>
+                              <div class="mb-3">
+                                  <input type="text" [(ngModel)]="registerData.address" name="address" class="input-text" placeholder="Address">
+                              </div>
+                              <div class="text-center">
+                                  <button type="button" class="login-btn btn-primary btn"
+                                      onclick="showStep(2)">Next</button>
+                              </div>
+                          </div>
 
-                        <!-- Personal Details Part 2 -->
-                        <div id="step2" class="form-step step-next">
-                            <div class="mb-3">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" [(ngModel)]="registerData.image" name="image" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                                </div>             
-                            </div>
-                            <div class="mb-3">
-                                <input type="date" [(ngModel)]="registerData.date" name="date" class="input-text" >
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <button type="button" class="login-btn btn-primary-soft btn"
-                                    onclick="showStep(1)">Back</button>
-                                </div>
-                                <div class="col-6">
-                                    <button type="button" class="login-btn btn-primary btn"
-                                    onclick="showStep(3)">Next</button>
-                                </div>
-                            </div>
-                            <div class="text-center mt-3">
-                                <p class="sub-text">Already have an account? <a routerLink="/login" class="link">Login</a>
-                                </p>
-                            </div>
-                        </div>
+                          <div class="text-center mt-3">
+                              <p class="sub-text">Already have an account? <a routerLink="/login" class="link">Login</a>
+                              </p>
+                          </div>
+                      </div>
 
-                        <!-- Account Details -->
-                        <div id="step3" class="form-step step-next">
-                            <div class="mb-3">
-                                <input type="email" [(ngModel)]="registerData.email" name="email" class="input-text" placeholder="Email Address"
-                                >
-                            </div>
-                            <div class="mb-3">
-                                <input type="tel" name="number" [(ngModel)]="registerData.number" class="input-text" placeholder="ex: 0712345678"
-                                >
-                            </div>
-                            <div class="mb-3">
-                                <input type="password" name="password" [(ngModel)]="registerData.password" class="input-text" placeholder="New Password"
-                                >
-                            </div>
-                            <div class="mb-3">
-                                <input type="password" name="confirm" [(ngModel)]="registerData.confirm" class="input-text"
-                                    placeholder="Confirm Password" >
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <button type="button" class="login-btn btn-primary-soft btn"
-                                    onclick="showStep(2)">Back</button>
-                                </div>
-                                <div class="col-6">
-                                    <button type="submit" class="login-btn btn-primary btn"> submit</button>
-                                </div>
-                            </div>
-                            
-                            <div class="text-center mt-3">
-                                <p class="sub-text">Already have an account? <a routerLink="/login" class="link">Login</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Login Link -->
-            </form>
+                      <!-- Personal Details Part 2 -->
+                      <div id="step2" class="form-step step-next">
+                          <div class="mb-3">
+                              <div class="input-group">
+                                  <input type="text" class="form-control" [(ngModel)]="registerData.image" name="image" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                              </div>
+                          </div>
+                          <div class="mb-3">
+                              <input type="date" [(ngModel)]="registerData.date" name="date" class="input-text" >
+                          </div>
+                          <div class="row">
+                              <div class="col-6">
+                                  <button type="button" class="login-btn btn-primary-soft btn"
+                                  onclick="showStep(1)">Back</button>
+                              </div>
+                              <div class="col-6">
+                                  <button type="button" class="login-btn btn-primary btn"
+                                  onclick="showStep(3)">Next</button>
+                              </div>
+                          </div>
+                          <div class="text-center mt-3">
+                              <p class="sub-text">Already have an account? <a routerLink="/login" class="link">Login</a>
+                              </p>
+                          </div>
+                      </div>
+
+                      <!-- Account Details -->
+                      <div id="step3" class="form-step step-next">
+                          <div class="mb-3">
+                              <input type="email" [(ngModel)]="registerData.email" name="email" class="input-text" placeholder="Email Address"
+                              >
+                          </div>
+                          <div class="mb-3">
+                              <input type="tel" name="number" [(ngModel)]="registerData.number" class="input-text" placeholder="ex: 0712345678"
+                              >
+                          </div>
+                          <div class="mb-3">
+                              <input type="password" name="password" [(ngModel)]="registerData.password" class="input-text" placeholder="New Password"
+                              >
+                          </div>
+                          <div class="mb-3">
+                              <input type="password" name="confirm" [(ngModel)]="registerData.confirm" class="input-text"
+                                  placeholder="Confirm Password" >
+                          </div>
+                          <div class="row">
+                              <div class="col-6">
+                                  <button type="button" class="login-btn btn-primary-soft btn"
+                                  onclick="showStep(2)">Back</button>
+                              </div>
+                              <div class="col-6">
+                                  <button type="submit" class="login-btn btn-primary btn"> submit</button>
+                              </div>
+                          </div>
+
+                          <div class="text-center mt-3">
+                              <p class="sub-text">Already have an account? <a routerLink="/login" class="link">Login</a>
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- Login Link -->
+          </form>
             </div>
         </div>
     </div>

@@ -34,8 +34,8 @@
                 <!-- Filter Section -->
                 <div class="card mb-4">
                     <div class="card-body">
-                            <div class="col-md-3">
-                                <label class="form-label">Filter by Patient:</label>
+                            <div class="col-md-3" id="filet">
+                                <label class="form-label labl ">Filter by Patient:</label>
                                 <input type="text" [(ngModel)]="search" (input)="filter()"
                         placeholder="Search by Patient Name ..." class="form-control">
                     </div>
@@ -54,7 +54,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                  h
+
                                     <tr *ngFor="let appointment of filtredAppointments">
                                         <td style="font-weight: 500;" *ngIf="appointment.doctor.id==doctor.id">{{appointment.patient.user.firstname}} {{appointment.patient.user.lastname}}</td>
                                         <td class="text-center" *ngIf="appointment.doctor.id==doctor.id">{{appointment.time | date}}</td>

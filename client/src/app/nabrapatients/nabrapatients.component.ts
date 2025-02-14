@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-nabrapatients',
@@ -9,5 +9,9 @@ import { RouterModule } from '@angular/router';
   styleUrl: './nabrapatients.component.css'
 })
 export class NabrapatientsComponent {
-
+constructor(private router:Router){}
+  async logout(){
+    await localStorage.clear()
+    this.router.navigate(["/login"])
+  }
 }

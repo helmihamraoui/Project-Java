@@ -2,6 +2,7 @@
 .sidebar {
     background: white;
     transition: all 0.3s;
+    
 }
 .sidebar-link {
     color: #b3b3b3;
@@ -27,7 +28,7 @@
 }
 @keyframes marquee {
     0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }  
+    100% { transform: translateX(-100%); }
 }
 .nav-link:hover {
     color: white;

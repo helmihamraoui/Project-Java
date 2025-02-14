@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../api.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-docter',
@@ -15,18 +15,21 @@ export class AddDocterComponent {
   id:number=0
   constructor(
       private apiService: ApiService,
-      private router: Router
+      private router: Router,
+      private route:ActivatedRoute
     ) {}
 
   submitRegistration(){
-    console.log(this.data); 
-    
+    console.log(this.data);
+
     //get the user id from local storage
-    this.id = Number(localStorage.getItem('userId'));
+    this.route.params.subscribe(params=>{
+      this.id=Number(params['id'])
+    })
         this.apiService.addDoctor(this.data, this.id).subscribe({
       next: (response) => {
         console.log(response);
-        this.router.navigate(['/']);
+        this.router.navigate(['/all/doctor']);
       },
       error: (error) => {
         console.error('Error:', error);

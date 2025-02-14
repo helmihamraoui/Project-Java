@@ -1,36 +1,49 @@
-import { Component, OnInit } from '@angular/core'; // Importing necessary Angular core components
-import { NabrapatientsComponent } from '../nabrapatients/nabrapatients.component'; // Importing NabrapatientsComponent
-import { CommonModule } from '@angular/common'; // Importing CommonModule for common Angular directives
-import { RouterModule } from '@angular/router'; // Importing RouterModule for routing functionalities
-import { ApiService } from '../api.service'; // Importing ApiService for API interactions
-import { MessageService } from '../message.service'; // Importing MessageService for message handling
-import { Message } from '../message.model'; // Importing Message model
+import { ApiService } from './../api.service';
+import { Component, OnInit } from '@angular/core';
+import { NabrapatientsComponent } from '../nabrapatients/nabrapatients.component';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { MessageService } from '../message.service';
+import { Message } from '../message.model';
 import { ChatComponent } from '../chat/chat.component';
+import { tap, switchMap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-patintsdashbord', // Defining the selector for the component
-  imports: [NabrapatientsComponent, CommonModule, RouterModule ,ChatComponent], // Importing other components and modules
-  templateUrl: './patintsdashbord.component.html', // Defining the template URL
-  styleUrls: ['./patintsdashbord.component.css'] // Defining the styles URL
+  selector: 'app-patintsdashbord',
+  standalone: true,
+  imports: [CommonModule, RouterModule, NabrapatientsComponent, ChatComponent],
+  templateUrl: './patintsdashbord.component.html',
+  styleUrls: ['./patintsdashbord.component.css']
 })
-export class PatintsdashbordComponent implements OnInit { // Defining the component class and implementing OnInit interface
-  messages: Message[] = []; // Initializing an array to hold messages
-  selectedDoctorId: number =0; // Store selected doctor's ID
-
-  constructor(private messageService: MessageService) { } // Injecting MessageService into the component
+export class PatintsdashbordComponent implements OnInit {
+  messages: Message[] = [];
+  selectedDoctorId: number = 0;
+  myAppointments: any[] = [];
+  patient: any = {};
+  notif: string = '';
+  constructor(private messageService: MessageService, private ApiService: ApiService) {}
 
   ngOnInit(): void {
-    const userId = Number(localStorage.getItem('userId')); // Getting user ID from local storage
-    this.messageService.connect(userId); // Connecting to the message service with the user ID
-
-    // Subscribing to incoming messages
-    this.messageService.messages$.subscribe((message: Message) => {
-      console.log('New message received:', message);
-      this.fetchAllMessages(); // Fetching all messages when a new message is received
-      this.showNotification(message); // Calling showNotification method when a new message is received
+    this.ApiService.getPatientByUserId().pipe(
+      tap(patient => {
+        this.patient = patient;
+      }),
+      switchMap(patient => this.ApiService.getAppointmentsForPatients(patient.id))
+    ).subscribe(data => {
+      this.myAppointments = data;
+      console.log("Patient ID:", this.myAppointments);
+      this.checkAppointmentsForTomorrow();
     });
 
-    // Requesting notification permission from the user
+    const userId = Number(localStorage.getItem('userId'));
+    this.messageService.connect(userId);
+
+    this.messageService.messages$.subscribe((message: Message) => {
+      console.log('New message received:', message);
+      this.fetchAllMessages();
+      this.showNotification(message);
+    });
+
     if ('Notification' in window) {
       Notification.requestPermission().then((permission) => {
         if (permission === 'granted') {
@@ -38,8 +51,6 @@ export class PatintsdashbordComponent implements OnInit { // Defining the compon
         }
       });
     }
-
-    this.fetchAllMessages(); // Fetch messages on initialization
   }
 
   showNotification(message: Message): void {
@@ -54,6 +65,35 @@ export class PatintsdashbordComponent implements OnInit { // Defining the compon
     }
   }
 
+  chat(doctorId: number) {
+    console.log('Chat with doctor:', doctorId);
+    this.selectedDoctorId = doctorId;
+  }
+
+  getMyAppointments(id: number) {
+    this.ApiService.getAppointmentsForPatients(id).subscribe(data => {
+      console.log("Appointments:", data);
+      this.myAppointments = data;
+      this.checkAppointmentsForTomorrow();
+    });
+  }
+
+  checkAppointmentsForTomorrow() {
+    const now = new Date();
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    this.myAppointments
+      .filter(app => {
+        const appointmentDate = new Date(app.time);
+        const timeDiff = appointmentDate.getTime() - now.getTime();
+        const hoursDiff = timeDiff / (1000 * 60 * 60); // Convert ms to hours
+
+        return hoursDiff > 0 && hoursDiff <= 24; // Appointment is within the next 24 hours
+      })
+      .forEach(this.showAppointmentNotification.bind(this)); // Bind `this` context
+  }
+
   fetchAllMessages(): void {
     console.log('Fetching all messages...');
     // Fetching all messages related to the user
@@ -65,9 +105,16 @@ export class PatintsdashbordComponent implements OnInit { // Defining the compon
       console.error('Error fetching messages:', error);
     });
   }
-  chat(doctorId: number) {
-    console.log('Chat with doctor:', doctorId);
-    this.selectedDoctorId = doctorId; // Set the ID when chat button is clicked
-  console.log('Chat with doctor:', this.selectedDoctorId);
+  showAppointmentNotification(appointment: any): void {
+    const appointmentTime = new Date(appointment.time).toLocaleString();
+    this.notif = `You have an appointment with ${appointment.doctor.user.firstName} ${appointment.doctor.user.lastName} at ${appointmentTime}.`;
+    console.log('Notification message:', this.notif);
+
+    if ('Notification' in window && Notification.permission === 'granted') {
+      new Notification('Upcoming Appointment', {
+        body: this.notif,
+        icon: '/path-to-your-icon.png'
+      });
+    }
   }
 }

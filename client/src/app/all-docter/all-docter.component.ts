@@ -17,6 +17,7 @@ export class AllDocterComponent {
   doctors:any[]=[];
   filtredDocters:any[]=[]
   search:String=""
+  doctor:any={specialties:"",jobTitle:"",licenseNumb:0,experience:0,user:{firstName:"",lastName:""}}
 
   constructor(private apiService:ApiService){}
   ngOnInit(){
@@ -25,7 +26,7 @@ export class AllDocterComponent {
       console.log(this.doctors);
       this.filtredDocters=data
     })
-    
+
   }
   filter(){
       const query=this.search.toLowerCase().trim()
@@ -35,5 +36,10 @@ export class AllDocterComponent {
         doctor.specialties.toLowerCase().includes(query) ||
         doctor.user.lastName.toLowerCase().includes(query)
       )
+  }
+  details(id:number){
+    console.log(id)
+    this.apiService.getOneDoctor(id).subscribe(data =>{ this.doctor=data})
+
   }
 }

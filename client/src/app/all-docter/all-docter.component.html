@@ -6,20 +6,21 @@
         </nav>
 
         <!-- Main Content -->
-        <div class="col-md-9 bg-light">
+        <div class="col-md-9">
             <!-- Header -->
-            <header class="navbar navbar-expand-lg navbar-light bg-white border-bottom p-3">
+            <header class="navbar navbar-expand-lg navbar-light  border-bottom p-3">
                 <div class="container-fluid">
                     <span class="navbar-brand">Doctors</span>
-                    
+
                     <div class="d-flex align-items-center">
-                       
-                        
-                        <div class="dropdown">
-                            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown">
-                                <img src="img/profile.png" alt="Profile" width="40" class="rounded-circle">
-                            </a>
-                           
+
+
+                        <div class="">
+                              <span class="material-symbols-outlined w-100">
+                                account_circle
+                                </span>
+
+
                         </div>
                     </div>
                 </div>
@@ -31,11 +32,15 @@
                     <h4>All Doctors ({{doctors.length}})</h4>
                     <div class="d-flex gap-3">
                         <input type="text" [(ngModel)]="search" (input)="filter()"
-                        placeholder="Search Doctors by Name ..." class="form-control"> 
-                         <a routerLink="/add/docter"  class="btn btn-primary">Add Docter</a>
+                        placeholder="Search Doctors by Name ..." class="form-control">
+                         <a routerLink="/add/docter"  class="btn btn-primary"><span class="material-symbols-outlined">
+                          health_and_safety
+                          </span></a>
+
+
                     </div>
                 </div>
-                
+
 
                 <!-- Doctors Table -->
                 <div class="card shadow">
@@ -58,12 +63,10 @@
                                             <td>{{doctor.specialties}}</td>
                                             <td>
                                                 <div class="d-flex gap-2">
-                                                    <a href="" class="btn btn-sm btn-outline-success">
-                                                        <i class="material-symbols-outlined">visibility</i>
-                                                    </a>
-                                                    <a href="" class="btn btn-sm btn-outline-danger">
-                                                        <i class="material-symbols-outlined">delete</i>
-                                                    </a>
+                                                  <button (click)="details(doctor.id)" data-bs-toggle="modal" data-bs-target="#details"
+                                                  data-bs-toggle="modal" class="btn btn-sm btn-outline-success">
+                                                  <i class="material-symbols-outlined">visibility</i>
+                                              </button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -88,8 +91,56 @@
       <div class="modal-body">
         <app-add-docter></app-add-docter>
       </div>
-      
+
     </div>
+  </div>
+</div>
+<div class="modal fade" id="details" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"> See Details
+              </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+              <div class="modal-body">
+                  <div class="container-fluid">
+                      <div class="row mb-3">
+                          <label class="col-form-label fw-bold">Job Title:</label>
+                          <div class="col">
+                              {{doctor.jobTitle}}
+                          </div>
+                      </div>
+                      <div class="row mb-3">
+                          <label class="col-form-label fw-bold">Specialties:</label>
+                          <div class="col">
+                              {{doctor.specialties}}
+                          </div>
+                      </div>
+                      <div class="row mb-3">
+                        <label class="col-form-label fw-bold">Experience:</label>
+                        <div class="col">
+                            {{doctor.experience}}
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label class="col-form-label fw-bold">License Number:</label>
+                      <div class="col">
+                          {{doctor.licenseNumb}}
+                      </div>
+                  </div>
+
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <a href="" class="btn btn-success">OK</a>
+              </div>
+          </div>
+      </div>
+
   </div>
 </div>
 

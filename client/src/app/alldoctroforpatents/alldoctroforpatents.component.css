@@ -1,9 +1,3 @@
 .modal-content{
     background-image: url("../../../public/img/bg11.jpg");
 }
-.sidebar {
-  width: 350px;
-  min-height: 100vh;
-  background-color: #f8f9fa;
-  padding: 20px;
-}

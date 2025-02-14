@@ -2,7 +2,6 @@ package com.server.carelink.services;
 
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.server.carelink.models.Doctor;
@@ -19,7 +18,6 @@ import com.server.carelink.repositories.AppointmentRepo;
 import com.server.carelink.repositories.PatientRepo;
 import com.server.carelink.repositories.UserRepository;
 
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -67,11 +65,12 @@ public class AppointmentService {
 				.collect(Collectors.toList());
 	}
 	
-	public void deleteApp(Long id) {
+	public AppointmentDTO deleteApp(Long id) {
 		AppointmentDTO appToDelete=getOneApp(id);
 		appToDelete.setDoctor(null);
 		appToDelete.setPatient(null);
 		appRepo.deleteById(id);
+		return appToDelete;
 	}
 	
 	public  AppointmentDTO convertToAppDTO(Appointment app) {

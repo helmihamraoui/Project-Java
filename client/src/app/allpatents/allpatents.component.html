@@ -11,10 +11,10 @@
             <header class="d-flex justify-content-between align-items-center mb-4">
                 <div class=" alert-warning w-75 m-0" role="alert">
                 </div>
-                
+
                 <div class="dropdown">
-                    <button class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" 
-                            type="button" 
+                    <button class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center"
+                            type="button"
                             data-bs-toggle="dropdown">
                         <i class="material-symbols-outlined me-2">account_circle</i>
                     </button>
@@ -62,9 +62,10 @@
                                         <td>{{patient.user.date | date}}</td>
                                         <td>
                                             <div class="d-flex gap-2">
-                                                <a href="#" class="btn btn-sm btn-outline-primary">
-                                                    <i class="material-symbols-outlined">visibility</i>
-                                                </a>
+                                              <button (click)="details(patient.id)" data-bs-toggle="modal" data-bs-target="#visibility"
+                                              data-bs-toggle="modal" class="btn btn-sm btn-outline-danger">
+                                              <i class="material-symbols-outlined">visibility</i>
+                                          </button>
                                             </div>
                                         </td>
                                     </tr>
@@ -77,4 +78,54 @@
             </section>
         </main>
     </div>
+</div><div class="modal fade" id="visibility" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"> See Details
+              </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+              <div class="modal-body">
+                  <div class="container-fluid">
+
+
+                      <div class="row mb-3">
+                          <label class="col-form-label fw-bold">Name:</label>
+                          <div class="col">
+                              {{onePatient.user.firstname}}
+                          </div>
+                      </div>
+                      <div class="row mb-3">
+                          <label class="col-form-label fw-bold">Last Name:</label>
+                          <div class="col">
+                              {{onePatient.user.lastname}}
+                          </div>
+                      </div>
+
+                      <div class="row mb-3">
+                          <label class="col-form-label fw-bold">Address:</label>
+                          <div class="col">
+                              {{onePatient.user.address}}
+                          </div>
+                      </div>
+
+                      <div class="row mb-3">
+                          <label class="col-form-label fw-bold">Date of Birth:</label>
+                          <div class="col">
+                              {{onePatient.user.date |date}}
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <a href="" class="btn btn-success">OK</a>
+              </div>
+          </div>
+      </div>
+
+  </div>
 </div>
+

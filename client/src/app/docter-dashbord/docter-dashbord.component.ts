@@ -26,7 +26,7 @@ export class DocterDashbordComponent  implements OnInit {
 
 
   showNotification(message: Message): void {
-    this.messages.push(message); // Adding the new message to the messages array
+    //this.messages.push(message); // Adding the new message to the messages array
 
     // Checking if notifications are supported and permission is granted
     if ('Notification' in window && Notification.permission === 'granted') {

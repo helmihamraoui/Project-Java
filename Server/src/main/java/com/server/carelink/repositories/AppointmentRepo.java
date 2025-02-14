@@ -12,7 +12,7 @@ import com.server.carelink.models.Appointment;
 
 @Repository
 public interface AppointmentRepo extends CrudRepository<Appointment,Long> {
-	@Query("SELECT a FROM Appointment a WHERE a.patient.id = :patientId")
+	@Query("SELECT a FROM Appointment a WHERE a.patient.id = :patientId ORDER BY a.createdAt DESC")
 	List<Appointment> findByPatientId(Long patientId);
 	List<Appointment> findAll();
 	@Query("SELECT a FROM Appointment a WHERE a.doctor.id = :id")
