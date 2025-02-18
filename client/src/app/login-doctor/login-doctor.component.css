@@ -89,3 +89,11 @@
 #img{
 width: 50%;
 }
+.error-text {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+.input-text.ng-invalid.ng-touched {
+  border-color: red;
+}
