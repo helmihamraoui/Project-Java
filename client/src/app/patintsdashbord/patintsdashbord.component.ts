@@ -24,6 +24,7 @@ export class PatintsdashbordComponent implements OnInit {
   constructor(private messageService: MessageService, private ApiService: ApiService) {}
 
   ngOnInit(): void {
+    this.fetchAllMessages()
     this.ApiService.getPatientByUserId().pipe(
       tap(patient => {
         this.patient = patient;
@@ -51,6 +52,7 @@ export class PatintsdashbordComponent implements OnInit {
         }
       });
     }
+
   }
 
   showNotification(message: Message): void {

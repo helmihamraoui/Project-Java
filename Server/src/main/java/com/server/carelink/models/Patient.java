@@ -24,6 +24,9 @@ public class Patient {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotEmpty
+    @Size(min=2,message="the name  is not valid")
+    private String name;
 	@NotEmpty
 	@Size(min=8,max=8,message="the emerg contact is not valid")
 	private String emergContact;

@@ -51,6 +51,7 @@
                                         <th>Patient Name</th>
                                         <th class="text-center">Appointment Date</th>
                                         <th class="text-center">Appointment Time</th>
+                                        <th class="text-center">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -59,6 +60,36 @@
                                         <td style="font-weight: 500;" *ngIf="appointment.doctor.id==doctor.id">{{appointment.patient.user.firstname}} {{appointment.patient.user.lastname}}</td>
                                         <td class="text-center" *ngIf="appointment.doctor.id==doctor.id">{{appointment.time | date}}</td>
                                         <td class="text-center" *ngIf="appointment.doctor.id==doctor.id">{{appointment.time | date: 'shortTime'}}</td>
+                                        <td *ngIf="!isPastAppointment(appointment.time)">
+                                          <div class="d-flex gap-2">
+                                            <button (click)="chat(appointment.patient.user.id)" data-bs-toggle="modal" data-bs-target="#chat" class="btn btn-sm btn-outline-primary">
+                                              <i class="material-symbols-outlined">
+                                                3p
+                                              </i>
+                                            </button>
+                                            <button (click)="deleteApp(appointment.id)"
+                                            class="btn btn-danger btn-sm"
+                                            >
+                                            <i class="fas fa-times me-1"></i>
+                                          </button>
+                                        </div>
+                                        </td>
+                                        <td *ngIf="isPastAppointment(appointment.time)">
+                                          <div class="d-flex gap-2">
+                                            <button (click)="chat(appointment.patient.user.id)" data-bs-toggle="modal" data-bs-target="#chat" class="btn btn-sm btn-outline-primary">
+                                              <i class="material-symbols-outlined">
+                                                  3p
+                                              </i>
+                                          </button>
+                                          <button
+                                          class="btn btn-danger btn-sm"
+                                          disabled
+                                          >
+                                          <i class="fas fa-times me-1"></i>
+                                        </button>
+
+                                        </div>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -69,4 +100,26 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="chat" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-chat [doctorId]=selectedDoctorId></app-chat>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JS -->
 
